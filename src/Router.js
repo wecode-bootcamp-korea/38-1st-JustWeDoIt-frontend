@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProductList from './pages/ProductList/ProductList';
-import ProductDetail from './pages/ProductDetail/ProductDetail';
+import Nav from './components/Nav/Nav';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import Cart from './pages/Cart/Cart';
+import ProductList from './pages/ProductList/ProductList';
 import ProductFiltered from './pages/ProductFiltered/ProductFiltered';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 import './styles/reset.scss';
 import './styles/common.scss';
 import './styles/responsive.scss';
-import Nav from './components/Nav/Nav';
 
 const Router = () => {
   return (
