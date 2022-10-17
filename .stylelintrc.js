@@ -10,6 +10,7 @@ module.exports = {
   ignoreFiles: ['src/styles/reset.scss', 'src/styles/common.scss'], // reset과 common scss는 ignore합니다.
   rules: {
     'at-rule-no-unknown': null,
+    'string-quotes': true,
     // scss를 사용하기 때문에 css영역에선 null로 처리합니다.
     'selector-class-pattern': '^[a-z][a-zA-Z0-9]+$',
     // Team내 컨벤션으로 수정 (현재 lowerCamelCase)
