@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsSearch } from 'react-icons/bs';
+import './NavModal.scss';
 
 const NavModal = ({ closeModal }) => {
   return (
@@ -15,7 +16,7 @@ const NavModal = ({ closeModal }) => {
             </form>
           </div>
           <button onClick={closeModal} className="closeBtn">
-            CLOSE
+            닫기
           </button>
         </div>
         <div className="searchResult" />

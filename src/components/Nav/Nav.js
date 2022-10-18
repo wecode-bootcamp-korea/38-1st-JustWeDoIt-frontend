@@ -22,7 +22,9 @@ const Nav = () => {
     <header className="topHeader">
       <div className="headerWrapper">
         <div className="topLogo">
-          <Link to="/">JustWeDoIt</Link>
+          <Link to="/">
+            <img src="/images/logo.png" alt="" />
+          </Link>
         </div>
         <div className="navContainer">
           <nav className="nav">
