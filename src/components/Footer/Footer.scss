@@ -3,7 +3,7 @@
   .footerTop {
     display: flex;
     justify-content: space-between;
-    margin: 0 3rem;
+    padding: 30px 30px;
 
     .footerTopLeftItem {
       display: flex;
@@ -15,38 +15,38 @@
         color: white;
 
         li {
-          margin: 1rem;
+          margin: 16px;
         }
       }
 
       .helpList {
         list-style: none;
-        padding-left: 8rem;
-        font-size: 0.85rem;
+        padding-left: 130px;
+        font-size: 14px;
         color: gray;
 
         li {
-          margin: 1rem;
+          margin: 15px;
         }
 
         & > li:nth-child(1) {
-          font-size: 1rem;
+          font-size: 16px;
           color: white;
         }
       }
 
       .aboutList {
         list-style: none;
-        padding-left: 8rem;
-        font-size: 0.85rem;
+        padding-left: 130px;
+        font-size: 14px;
         color: gray;
 
         li {
-          margin: 1rem;
+          margin: 15px;
         }
 
         & > li:nth-child(1) {
-          font-size: 1rem;
+          font-size: 16px;
           color: white;
         }
       }
@@ -55,16 +55,17 @@
     .footerTopRightItem {
       display: flex;
       justify-content: right;
-      font-size: 1.5rem;
       color: white;
-      padding-top: 0.8rem;
+      padding-top: 13px;
 
       .twitterIcon {
-        padding-right: 0.8rem;
+        padding-right: 13px;
+        font-size: 35px;
       }
 
       .youtubeIcon {
-        padding-right: 0.8rem;
+        padding-right: 13px;
+        font-size: 35px;
       }
     }
   }
@@ -72,7 +73,7 @@
   .footerCenter {
     display: flex;
     justify-content: space-between;
-    margin: 2.6rem 3rem 0 3rem;
+    margin: 45px 50px 8px 50px;
 
     &LeftItem {
       display: flex;
@@ -80,7 +81,8 @@
 
       .where {
         color: white;
-        padding-right: 0.5rem;
+        padding-right: 5px;
+        font-size: 22px;
       }
 
       .logoList {
@@ -89,13 +91,13 @@
         color: white;
 
         span {
-          padding-right: 1rem;
+          padding-right: 25px;
         }
 
         div span {
-          padding-right: 1rem;
+          padding-right: 20px;
           color: gray;
-          font-size: 0.8rem;
+          font-size: 13px;
         }
       }
     }
@@ -110,13 +112,13 @@
         list-style: none;
 
         & > li:nth-child(1) {
-          padding-right: 1rem;
-          font-size: 0.7rem;
+          padding-right: 18px;
+          font-size: 12px;
           color: gray;
         }
 
         & > li:nth-child(2) {
-          font-size: 0.8rem;
+          font-size: 13px;
           color: white;
         }
       }
@@ -127,26 +129,26 @@
     justify-content: center;
     border-top: 1px solid white;
     color: gray;
-    font-size: 0.8rem;
-    margin: 0 3rem 0 3rem;
+    font-size: 13px;
+    margin: 0 35px;
 
     .footerBottomLeft {
-      width: 50vw;
-      padding-right: 1rem;
-      padding-top: 1.5rem;
+      width: 50%;
+      padding-right: 15px;
+      padding-top: 20px;
 
       div {
-        padding-bottom: 1rem;
+        padding-bottom: 15px;
       }
     }
 
     .footerBottomRight {
-      width: 50vw;
-      padding-left: 1rem;
-      padding-top: 1.5rem;
+      width: 50%;
+      padding-left: 15px;
+      padding-top: 20px;
 
       div {
-        padding-bottom: 1rem;
+        padding-bottom: 15px;
       }
     }
   }

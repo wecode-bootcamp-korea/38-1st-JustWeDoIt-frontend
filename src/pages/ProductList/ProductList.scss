@@ -19,13 +19,13 @@
   .header {
     display: flex;
     justify-content: space-between;
-    padding: 0 3rem 0 3rem;
+    padding: 15px 30px;
     position: static;
 
     .headerLeft {
       h1 {
         font-weight: normal;
-        font-size: 1.5rem;
+        font-size: 25px;
       }
     }
 
@@ -38,13 +38,13 @@
         button {
           display: flex;
           align-items: center;
-          font-size: 1rem;
+          font-size: 16px;
           border: none;
           background: none;
-          padding-right: 2rem;
+          padding-right: 33px;
 
           span {
-            margin-right: 0.5rem;
+            margin-right: 15px;
           }
         }
       }
@@ -58,20 +58,20 @@
         ul {
           list-style: none;
           background-color: white;
-          padding: 1rem;
+          padding: 15px;
           border: 1px solid lightgray;
-          border-radius: 1rem;
+          border-radius: 15px;
         }
 
         li {
-          margin: 0.5rem;
+          margin: 13px;
         }
 
         button {
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 1rem;
+          font-size: 16px;
           border: none;
           background: none;
 
@@ -81,14 +81,14 @@
             align-items: center;
 
             span {
-              padding-right: 0.5rem;
+              padding-right: 15px;
             }
           }
         }
         .slideDrop {
           overflow: hidden;
           position: absolute;
-          top: 2.6rem;
+          top: 80px;
           & > ul {
             animation: slideDropAnimation 0.4s ease;
           }

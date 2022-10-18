@@ -8,7 +8,6 @@ import Cart from './pages/Cart/Cart';
 import ProductList from './pages/ProductList/ProductList';
 import ProductFiltered from './pages/ProductFiltered/ProductFiltered';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
-import Footer from './components/Footer/Footer';
 import './styles/reset.scss';
 import './styles/common.scss';
 
@@ -19,7 +18,7 @@ const Router = () => {
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/card" element={<Cart />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/" element={<ProductList />} />
         <Route path="/product/filtered/:number" element={<ProductFiltered />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
