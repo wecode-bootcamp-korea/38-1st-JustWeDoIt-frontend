@@ -11,7 +11,6 @@ import ProductDetail from './pages/ProductDetail/ProductDetail';
 import './styles/reset.scss';
 import './styles/common.scss';
 
-
 const Router = () => {
   return (
     <BrowserRouter>
@@ -19,7 +18,7 @@ const Router = () => {
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/card" element={<Cart />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/" element={<ProductList />} />
         <Route path="/product/filtered/:number" element={<ProductFiltered />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
