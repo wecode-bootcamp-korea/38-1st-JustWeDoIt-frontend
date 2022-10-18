@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '/Users/hyun/Desktop/wecode/38-just-we-do-it/src/pages/Cart/Cart.scss';
 import Nav from '../../components/Nav/Nav';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -33,7 +33,6 @@ const Cart = () => {
                   <div>
                     <ul>
                       <AiOutlineHeart />
-
                       <BsTrash />
                     </ul>
                   </div>

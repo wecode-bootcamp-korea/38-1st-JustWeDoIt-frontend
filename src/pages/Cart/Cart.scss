@@ -58,6 +58,12 @@
           font-weight: 100;
           color: gray;
           margin-top: 15px;
+
+          ul {
+            color: black;
+            font-weight: 250;
+            font-size: 30px;
+          }
         }
 
         .itemHandler {
@@ -115,19 +121,14 @@
         text-align: center;
         text-decoration: none;
         cursor: pointer;
-        transition: all 0.2s ease 0s;
-        font-family: "Noto Sans KR", "Arial Bold", "Helvetica Neue", Helvetica, Arial, Dotum, 국어, Gulim, sans-serif;
         background: rgb(17, 17, 17);
         color: rgb(255, 255, 255);
-        line-height: 1.5;
-        margin-bottom: 12px;
-        -webkit-box-pack: center;
-        justify-content: center;
         width: 100%;
         padding: 18px 24px;
         border-radius: 30px;
         font-weight: 500;
         font-size: 16px;
+        border: none;
       }
     }
   }
