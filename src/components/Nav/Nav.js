@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import NavModal from 'components/NavModal/NavModal';
 import './Nav.scss';
 import { BsHeart } from 'react-icons/bs';
@@ -47,10 +48,14 @@ const Nav = () => {
               <BsHeart />
             </li>
             <li className="cartBtn">
-              <BsCart2 />
+              <Link to="/card">
+                <BsCart2 />
+              </Link>
             </li>
             <li className="singInBtn">
-              <BsPerson />
+              <Link to="/signin">
+                <BsPerson />
+              </Link>
             </li>
           </ul>
         </div>
