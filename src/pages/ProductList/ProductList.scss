@@ -1,0 +1,107 @@
+@keyframes slideDropAnimation {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slideDropdownAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.main {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3rem 0 3rem;
+    position: static;
+
+    .headerLeft {
+      h1 {
+        font-weight: normal;
+        font-size: 1.5rem;
+      }
+    }
+
+    .headerRight {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .headerRightFilter {
+        button {
+          display: flex;
+          align-items: center;
+          font-size: 1rem;
+          border: none;
+          background: none;
+          padding-right: 2rem;
+
+          span {
+            margin-right: 0.5rem;
+          }
+        }
+      }
+
+      .headerRightSort {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        ul {
+          list-style: none;
+          background-color: white;
+          padding: 1rem;
+          border: 1px solid lightgray;
+          border-radius: 1rem;
+        }
+
+        li {
+          margin: 0.5rem;
+        }
+
+        button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1rem;
+          border: none;
+          background: none;
+
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+              padding-right: 0.5rem;
+            }
+          }
+        }
+        .slideDrop {
+          overflow: hidden;
+          position: absolute;
+          top: 2.6rem;
+          & > ul {
+            animation: slideDropAnimation 0.4s ease;
+          }
+        }
+        .slideDropdown {
+          overflow: hidden;
+
+          & > ul {
+            animation: slideDropdownAnimation 0.4s ease;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+    }
+  }
+}
