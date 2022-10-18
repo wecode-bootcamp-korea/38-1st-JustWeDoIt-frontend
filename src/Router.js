@@ -11,7 +11,6 @@ import ProductDetail from './pages/ProductDetail/ProductDetail';
 import './styles/reset.scss';
 import './styles/common.scss';
 
-
 const Router = () => {
   return (
     <BrowserRouter>
