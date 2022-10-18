@@ -1,4 +1,4 @@
-$global-padding: 0 40px;
+$global-padding: 0 30px;
 
 .topHeader {
   position: fixed;
@@ -14,8 +14,8 @@ $global-padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $global-padding;
   height: 100px;
+  padding: $global-padding;
 }
 
 .navContainer {
@@ -25,10 +25,8 @@ $global-padding: 0 40px;
 .topLogo {
   position: static;
   z-index: 99;
-  img {
-    width: 70px;
-    height: auto;
-  }
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .nav {
@@ -36,11 +34,11 @@ $global-padding: 0 40px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
   ul {
     li {
       display: inline-block;
       font-size: 18px;
-      text-transform: uppercase;
       font-weight: 500;
 
       &::after {
@@ -67,19 +65,17 @@ $global-padding: 0 40px;
   }
 }
 
-// modal
 .searchModal {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   background-color: white;
-  border-bottom: 1px solid gray;
 }
 
 .modalWrapper {
   position: relative;
-  padding: 20px 40px;
+  padding: 20px 30px;
 }
 
 .searchFormContainer {
@@ -89,17 +85,16 @@ $global-padding: 0 40px;
 }
 
 .searchForm {
+  display: flex;
+  align-items: center;
   width: 400px;
   height: 60px;
   border-radius: 60px;
   border: none;
   background-color: #eee;
-  display: flex;
-  align-items: center;
 }
 
 .searchInput {
-  border: none;
   width: 100%;
   height: 60px;
   border-radius: 60px;
@@ -115,27 +110,25 @@ $global-padding: 0 40px;
 .searchSubmit {
   width: 60px;
   height: 60px;
+  border: none;
   border-radius: 60px;
   margin-right: 6px;
-  border: none;
   background-color: transparent;
   font-size: 24px;
 }
 
 .closeBtn {
+  position: absolute;
+  right: 40px;
+  top: 20px;
   width: 60px;
   height: 60px;
   font-size: 18px;
   border: none;
-  position: absolute;
-  right: 40px;
-  top: 20px;
   background-color: transparent;
 }
 
 .searchResult {
-  height: 200px;
-  border: 1px solid gray;
   margin-top: 40px;
 }
 
@@ -145,7 +138,6 @@ $global-padding: 0 40px;
   h4 {
     font-size: 24px;
     margin: 20px 0 40px 0;
-    // text-align: center;
   }
 
   ul li {

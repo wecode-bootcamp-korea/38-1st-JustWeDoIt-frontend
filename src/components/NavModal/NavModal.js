@@ -15,17 +15,17 @@ const NavModal = ({ closeModal }) => {
             </form>
           </div>
           <button onClick={closeModal} className="closeBtn">
-            Close
+            CLOSE
           </button>
         </div>
         <div className="searchResult" />
         <div className="searchSuggestions">
           <h4>추천 검색어</h4>
           <ul>
-            <li>Air Force 1</li>
-            <li>Air Force 1</li>
-            <li>Air Force 1</li>
-            <li>Air Force 1</li>
+            <li>에어 포스 1</li>
+            <li>조던</li>
+            <li>에어맥스</li>
+            <li>블레이저</li>
           </ul>
         </div>
       </div>
