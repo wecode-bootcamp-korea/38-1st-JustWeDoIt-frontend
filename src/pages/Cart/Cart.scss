@@ -1,36 +1,135 @@
-div {
-  border: 1px solid black;
-}
+// div {
+//   border: 1px solid black;
+// }
 
 .cartView {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+  vertical-align: top;
+
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
 }
 
-.cartBody {
+
+
+.cartBodyWrap {
+  // max-width: 66.6667%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-right: 30px;
+
+  .cartItemFooter {
+    width: 100%;
+  }
+
+
+
   .cartItem {
-    img {
-      width: 150px;
-      height: 150px;
+    width: 100%;
+
+    .cartItemWrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 30px;
+
+
+      img {
+
+        width: 150px;
+        height: 150px;
+      }
+
+      .cartItemDesc {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        div {
+          font-weight: 100;
+          color: gray;
+          margin-top: 15px;
+        }
+
+        .itemHandler {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+      }
+
+      .cartItemRightWrap {
+        display: flex;
+        flex-direction: column;
+        vertical-align: top;
+        text-align: right;
+        height: 100%;
+      }
     }
   }
 }
 
 .cartSummary {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  margin-left: 30px;
 
-  .cartSummaryBodyWrap {
+  .cartSummaryDescWrap {
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    margin-right: 10px;
 
+    div {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15;
+      margin-bottom: 15px;
+
+      p {
+        margin-right: 20px;
+      }
+
+      span {
+        margin-left: 20px;
+      }
+    }
+
+    .cartSummaryButton {
+      button {
+        display: inline-block;
+        vertical-align: top;
+        white-space: nowrap;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.2s ease 0s;
+        font-family: "Noto Sans KR", "Arial Bold", "Helvetica Neue", Helvetica, Arial, Dotum, 국어, Gulim, sans-serif;
+        background: rgb(17, 17, 17);
+        color: rgb(255, 255, 255);
+        line-height: 1.5;
+        margin-bottom: 12px;
+        -webkit-box-pack: center;
+        justify-content: center;
+        width: 100%;
+        padding: 18px 24px;
+        border-radius: 30px;
+        font-weight: 500;
+        font-size: 16px;
+      }
+    }
   }
 
-  .cartSummaryFooter {
-    width: 100%;
-  }
 }
