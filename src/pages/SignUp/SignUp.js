@@ -1,9 +1,10 @@
 import React from 'react';
+import Data from '../../components/Auth/Signincomponent/Data';
 
 const SignUp = () => {
   return (
     <div>
-      <p>Sign up</p>
+      <Data content="SingUp" />
     </div>
   );
 };
