@@ -6,6 +6,12 @@ import './ProductList.scss';
 const ProductList = () => {
   const [dropdownState, setDropdownState] = useState(false);
 
+  const [data, setData] = useState([]);
+
+  fetch('/data/mock.json')
+    .then(response => response.json())
+    .then(data => setData(data));
+
   return (
     <main className="main">
       <header className="header">
@@ -43,7 +49,17 @@ const ProductList = () => {
         </div>
       </header>
       <aside />
-      <div />
+      <div>
+        {data.map(item => (
+          <div key={item.id}>
+            <img src={item.img} alt="good" />
+            <div>{item.material}</div>
+            <div>{item.name}</div>
+            <div>{item.gender}</div>
+            <div>{item.price}</div>
+          </div>
+        ))}
+      </div>
     </main>
   );
 };

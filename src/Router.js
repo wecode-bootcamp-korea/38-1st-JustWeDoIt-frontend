@@ -7,6 +7,7 @@ import Cart from './pages/Cart/Cart';
 import ProductList from './pages/ProductList/ProductList';
 import ProductFiltered from './pages/ProductFiltered/ProductFiltered';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
+import Footer from './components/Footer/Footer';
 import './styles/reset.scss';
 import './styles/common.scss';
 
