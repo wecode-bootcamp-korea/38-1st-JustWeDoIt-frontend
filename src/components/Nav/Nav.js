@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavModal from 'components/NavModal/NavModal';
 import './Nav.scss';
 import { BsHeart } from 'react-icons/bs';
 import { BsPerson } from 'react-icons/bs';
@@ -40,39 +41,7 @@ const Nav = () => {
           <ul>
             <li className="searchBtn">
               <BsSearch onClick={openModal} />
-              {isShowing && (
-                <div className="searchModal">
-                  <div className="modalWrapper">
-                    <div className="modalTop">
-                      <div className="searchFormContainer">
-                        <form className="searchForm">
-                          <input
-                            type="text"
-                            className="searchInput"
-                            placeholder="검색"
-                          />
-                          <button className="searchSubmit">
-                            <BsSearch />
-                          </button>
-                        </form>
-                      </div>
-                      <button onClick={closeModal} className="closeBtn">
-                        Close
-                      </button>
-                    </div>
-                    <div className="searchResult" />
-                    <div className="searchSuggestions">
-                      <h4>추천 검색어</h4>
-                      <ul>
-                        <li>Air Force 1</li>
-                        <li>Air Force 1</li>
-                        <li>Air Force 1</li>
-                        <li>Air Force 1</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              )}
+              {isShowing && <NavModal closeModal={closeModal} />}
             </li>
             <li className="likeBtn">
               <BsHeart />
