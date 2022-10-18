@@ -100,8 +100,12 @@ ul li {
   display: flex;
   justify-content: flex-end;
   margin: 0 auto;
-  .searchInput {
-  }
+}
+
+.searchFromContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .searchForm {
@@ -122,6 +126,7 @@ ul li {
     outline: none;
   }
   button {
+    font-weight: 700;
     width: 60px;
     height: 60px;
     border-radius: 60px;
@@ -138,12 +143,26 @@ ul li {
   .closeBtn {
     // width: 40px;
     // height: 40px;
-    // font-size: 30px;
+    font-size: 18px;
     // padding: 10px;
     border: none;
     // text-align: left;
 
     path {
     }
+  }
+}
+
+.searchSuggestions {
+  padding-top: 40px;
+  text-align: center;
+
+  h4 {
+    font-size: 24px;
+  }
+
+  ul li {
+    display: block;
+    font-size: 16px;
   }
 }

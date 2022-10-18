@@ -51,10 +51,10 @@ const Nav = () => {
                 <div className="searchModal">
                   <div className="modalWrapper">
                     <div className="modalTop">
-                      <div>
+                      <div className="searchFromContainer">
                         <form className="searchForm">
                           <input type="text" className="searchInput" />
-                          <button>찾기</button>
+                          <button>GO</button>
                         </form>
                       </div>
                       <button className="closeBtn">Close</button>
