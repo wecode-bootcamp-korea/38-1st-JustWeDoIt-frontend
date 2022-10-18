@@ -3,7 +3,7 @@
   .footerTop {
     display: flex;
     justify-content: space-between;
-    margin: 0 3rem 0 3rem;
+    margin: 0 3rem;
 
     .footerTopLeftItem {
       display: flex;
@@ -74,7 +74,7 @@
     justify-content: space-between;
     margin: 2.6rem 3rem 0 3rem;
 
-    .footerCenterLeftItem {
+    &LeftItem {
       display: flex;
       justify-content: center;
 
@@ -130,7 +130,7 @@
     font-size: 0.8rem;
     margin: 0 3rem 0 3rem;
 
-    .footerBottomA {
+    .footerBottomLeft {
       width: 50vw;
       padding-right: 1rem;
       padding-top: 1.5rem;
@@ -140,7 +140,7 @@
       }
     }
 
-    .footerBottomB {
+    .footerBottomRight {
       width: 50vw;
       padding-left: 1rem;
       padding-top: 1.5rem;
