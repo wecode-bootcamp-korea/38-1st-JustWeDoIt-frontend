@@ -9,7 +9,6 @@ import ProductFiltered from './pages/ProductFiltered/ProductFiltered';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import './styles/reset.scss';
 import './styles/common.scss';
-import './styles/responsive.scss';
 
 const Router = () => {
   return (
