@@ -46,8 +46,14 @@ const Nav = () => {
                     <div className="modalTop">
                       <div className="searchFormContainer">
                         <form className="searchForm">
-                          <input type="text" className="searchInput" />
-                          <button className="searchSubmit">GO</button>
+                          <input
+                            type="text"
+                            className="searchInput"
+                            placeholder="검색"
+                          />
+                          <button className="searchSubmit">
+                            <BsSearch />
+                          </button>
                         </form>
                       </div>
                       <button onClick={closeModal} className="closeBtn">
