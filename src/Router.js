@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
+import Footer from '../src/components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
 import ProductList from './pages/ProductList/ProductList';
 import ProductFiltered from './pages/ProductFiltered/ProductFiltered';
@@ -23,6 +24,7 @@ const Router = () => {
         <Route path="/product/filtered/:number" element={<ProductFiltered />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
