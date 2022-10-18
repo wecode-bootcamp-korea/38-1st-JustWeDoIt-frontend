@@ -1,0 +1,36 @@
+div {
+  border: 1px solid black;
+}
+
+.cartView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartBody {
+  .cartItem {
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}
+
+.cartSummary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .cartSummaryBodyWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .cartSummaryFooter {
+    width: 100%;
+  }
+}
