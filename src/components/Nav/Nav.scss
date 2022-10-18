@@ -1,0 +1,149 @@
+$global-padding: 0 40px;
+
+.topHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 98;
+  background-color: grey;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $global-padding;
+  height: 100px;
+  position: relative;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+.topLogo {
+  position: static;
+  z-index: 99;
+  img {
+    width: 70px;
+    height: auto;
+    // height: 150px;
+  }
+}
+
+.mobileNav {
+  display: none;
+}
+
+.desktopNav {
+  position: absolute;
+  // top: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  flex-shrink: 0;
+}
+
+.desktopNav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.desktopNav ul li {
+  display: inline-block;
+}
+
+.desktopNav {
+  ul {
+    li {
+      font-size: 18px;
+      text-transform: uppercase;
+
+      &::after {
+        content: '';
+        margin: 0 10px;
+      }
+    }
+  }
+}
+
+.btnGroup {
+  li {
+    font-size: 30px;
+
+    &::after {
+      content: '';
+      margin: 0 8px;
+    }
+    path {
+      color: black;
+    }
+  }
+}
+
+.searchModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #eee;
+}
+
+.modalTop {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  .searchInput {
+  }
+}
+
+.searchForm {
+  width: 400px;
+  height: 60px;
+  border-radius: 60px;
+  border: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  input {
+    border: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 60px;
+    border: none;
+    padding: 10px 20px;
+    outline: none;
+  }
+  button {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: none;
+    background-color: white;
+  }
+}
+
+.modalWrapper {
+  padding: 40px 40px;
+  // display: flex;
+  // flex-direction: column;
+
+  .closeBtn {
+    // width: 40px;
+    // height: 40px;
+    // font-size: 30px;
+    // padding: 10px;
+    border: none;
+    // text-align: left;
+
+    path {
+    }
+  }
+}
