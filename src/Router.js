@@ -4,6 +4,7 @@ import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
+import Footer from '../src/components/Footer/Footer';
 
 const Router = () => {
   return (
@@ -14,6 +15,7 @@ const Router = () => {
         <Route path="/" element={<ProductList />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

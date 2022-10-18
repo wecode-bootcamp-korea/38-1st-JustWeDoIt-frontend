@@ -1,0 +1,153 @@
+.footer {
+  background-color: black;
+  .footerTop {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3rem 0 3rem;
+
+    .footerTopLeftItem {
+      display: flex;
+      justify-content: center;
+
+      .newsList {
+        list-style: none;
+        padding-left: 0;
+        color: white;
+
+        li {
+          margin: 1rem;
+        }
+      }
+
+      .helpList {
+        list-style: none;
+        padding-left: 8rem;
+        font-size: 0.85rem;
+        color: gray;
+
+        li {
+          margin: 1rem;
+        }
+
+        & > li:nth-child(1) {
+          font-size: 1rem;
+          color: white;
+        }
+      }
+
+      .aboutList {
+        list-style: none;
+        padding-left: 8rem;
+        font-size: 0.85rem;
+        color: gray;
+
+        li {
+          margin: 1rem;
+        }
+
+        & > li:nth-child(1) {
+          font-size: 1rem;
+          color: white;
+        }
+      }
+    }
+
+    .footerTopRightItem {
+      display: flex;
+      justify-content: right;
+      font-size: 1.5rem;
+      color: white;
+      padding-top: 0.8rem;
+
+      .twitterIcon {
+        padding-right: 0.8rem;
+      }
+
+      .youtubeIcon {
+        padding-right: 0.8rem;
+      }
+    }
+  }
+
+  .footerCenter {
+    display: flex;
+    justify-content: space-between;
+    margin: 2.6rem 3rem 0 3rem;
+
+    .footerCenterLeftItem {
+      display: flex;
+      justify-content: center;
+
+      .where {
+        color: white;
+        padding-right: 0.5rem;
+      }
+
+      .logoList {
+        display: flex;
+        justify-content: center;
+        color: white;
+
+        span {
+          padding-right: 1rem;
+        }
+
+        div span {
+          padding-right: 1rem;
+          color: gray;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .footerCenterRightItem {
+      display: flex;
+      justify-content: center;
+      // color: white;
+
+      .TermsOfServiceList {
+        display: flex;
+        list-style: none;
+
+        & > li:nth-child(1) {
+          padding-right: 1rem;
+          font-size: 0.7rem;
+          color: gray;
+        }
+
+        & > li:nth-child(2) {
+          font-size: 0.8rem;
+          color: white;
+        }
+      }
+    }
+  }
+  .footerBottom {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid white;
+    color: gray;
+    font-size: 0.8rem;
+    margin: 0 3rem 0 3rem;
+
+    .footerBottomA {
+      width: 50vw;
+      padding-right: 1rem;
+      padding-top: 1.5rem;
+
+      div {
+        padding-bottom: 1rem;
+      }
+    }
+
+    .footerBottomB {
+      width: 50vw;
+      padding-left: 1rem;
+      padding-top: 1.5rem;
+
+      div {
+        padding-bottom: 1rem;
+      }
+    }
+  }
+}
