@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "material": true,
+    "img": "https://cdn.pixabay.com/photo/2017/07/02/19/24/dumbbells-2465478__480.jpg",
+    "name": "나이키 에어포스1",
+    "gender": "남성용",
+    "price": "19,999 원"
+  },
+  {
+    "id": 2,
+    "material": false,
+    "img": "https://cdn.pixabay.com/photo/2017/07/02/19/24/dumbbells-2465478__480.jpg",
+    "name": "나이키 에어포스2",
+    "gender": "여성용",
+    "price": "19,998 원"
+  },
+  {
+    "id": 3,
+    "material": true,
+    "img": "https://cdn.pixabay.com/photo/2017/07/02/19/24/dumbbells-2465478__480.jpg",
+    "name": "나이키 에어포스3",
+    "gender": "남성용",
+    "price": "19,997 원"
+  },
+  {
+    "id": 4,
+    "material": false,
+    "img": "https://cdn.pixabay.com/photo/2017/07/02/19/24/dumbbells-2465478__480.jpg",
+    "name": "나이키 에어포스4",
+    "gender": "여성용",
+    "price": "19,996 원"
+  },
+  {
+    "id": 5,
+    "material": true,
+    "img": "https://cdn.pixabay.com/photo/2017/07/02/19/24/dumbbells-2465478__480.jpg",
+    "name": "나이키 에어포스5",
+    "gender": "남성용",
+    "price": "19,995 원"
+  },
+  {
+    "id": 6,
+    "material": true,
+    "img": "https://cdn.pixabay.com/photo/2017/07/02/19/24/dumbbells-2465478__480.jpg",
+    "name": "나이키 에어포스1",
+    "gender": "남성용",
+    "price": "19,999 원"
+  }
+]

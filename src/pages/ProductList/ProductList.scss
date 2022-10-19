@@ -1,0 +1,152 @@
+.main {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 15px 30px;
+    // width: 100%;
+    // position: fixed;
+
+    .headerLeft {
+      h1 {
+        font-weight: normal;
+        font-size: 25px;
+      }
+    }
+
+    .headerRight {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .headerRightFilter {
+        button {
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          border: none;
+          background: none;
+          padding-right: 33px;
+
+          span {
+            margin-right: 15px;
+          }
+        }
+      }
+
+      .headerRightSort {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        ul {
+          list-style: none;
+          background-color: white;
+          padding: 15px;
+          border: 1px solid lightgray;
+          border-radius: 15px;
+        }
+
+        li {
+          margin: 13px;
+        }
+
+        button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 16px;
+          border: none;
+          background: none;
+
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+              padding-right: 15px;
+            }
+          }
+        }
+        .slideDrop {
+          overflow: hidden;
+          position: absolute;
+          top: 80px;
+          & > ul {
+            animation: slideDropAnimation 0.4s ease;
+          }
+        }
+        .slideDropdown {
+          overflow: hidden;
+
+          & > ul {
+            animation: slideDropdownAnimation 0.4s ease;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+    }
+  }
+
+  .productMain {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 30px;
+    max-width: 1390px;
+
+    .productMainPiece {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 15px 15px;
+
+      .productMainPieceImg {
+        img {
+          width: 396px;
+          height: 396px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+        }
+      }
+
+      .productMainPieceProposal {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+
+        div {
+          font-size: 12px;
+          font-weight: lighter;
+        }
+
+        .proposalGender {
+          color: gray;
+        }
+
+        .proposalPrice {
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideDropAnimation {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slideDropdownAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
