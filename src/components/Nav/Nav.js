@@ -1,11 +1,15 @@
+// external
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavModal from 'components/NavModal/NavModal';
-import './Nav.scss';
+// npm dependency
 import { BsHeart } from 'react-icons/bs';
 import { BsPerson } from 'react-icons/bs';
 import { BsCart2 } from 'react-icons/bs';
 import { BsSearch } from 'react-icons/bs';
+// internal
+import NavModal from 'components/NavModal/NavModal';
+// style
+import './Nav.scss';
 
 const Nav = () => {
   const [isShowing, setIsShowing] = useState(false);
