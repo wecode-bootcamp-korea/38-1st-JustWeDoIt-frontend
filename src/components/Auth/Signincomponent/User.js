@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './User.scss';
 import { SiNike } from 'react-icons/si';
@@ -26,11 +26,9 @@ const User = ({ SignData }) => {
     setInPutSet({ ...inPutSet, [e.target.name]: e.target.value });
   };
   const saveDateCollect = e => {
-    const onlyNumber = e.value.replace(/[^0-9]/g, '');
-    setDateCollect({ ...inPutSet, [e.target.name]: onlyNumber });
+    const onlyNumber = e.target.value.replace(/[^0-9]/g, '');
+    setDateCollect({ ...dateCollect, [e.target.name]: onlyNumber });
   };
-  const birthdayNumber = dateCollect.birthday.replace(/[^0-9]/g, '');
-  const lastNumberNumber = dateCollect.lastNumber.replace(/[^0-9]/g, '');
 
   const onClick = () => {
     setIsShowing(prev => !prev);
@@ -42,6 +40,7 @@ const User = ({ SignData }) => {
     inPutSet.email.lastIndexOf('.') - inPutSet.email.lastIndexOf('@') > 1;
 
   const islength = inPutSet.pw.length > 7;
+
   const isPw = /(?=.*[a-zA-Z])(?=.*[!@#$%^~*+=-])(?=.*[0-9])/;
 
   const is8 = islength ? '#288D25' : null;
@@ -58,9 +57,11 @@ const User = ({ SignData }) => {
     }
   };
 
-  fetch('/data/userInfoList.json')
-    .then(r => r.json())
-    .then(result => setUserInfoList(result));
+  useEffect(() => {
+    fetch('/data/userInfoList.json')
+      .then(r => r.json())
+      .then(result => setUserInfoList(result));
+  }, []);
 
   const clickSignIn = () => {
     if (
@@ -233,12 +234,11 @@ const User = ({ SignData }) => {
                   name="birthday"
                   type="text"
                   placeholder="생년월일"
-                  value={birthdayNumber}
+                  value={dateCollect.birthday}
                   onChange={saveDateCollect}
                   onKeyPress={enterPw}
                   minLength="6"
                   maxLength="6"
-                  oninput="{inPutSet.birthday} = {inPutSet.birthday}.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                 />
               </div>
               <div className="dash">-</div>
@@ -247,10 +247,10 @@ const User = ({ SignData }) => {
                   name="lastNumber"
                   type="tel"
                   // placeholder="?"
-                  value={lastNumberNumber}
+                  value={dateCollect.lastNumber}
                   onChange={saveDateCollect}
                   onKeyPress={enterPw}
-                  maxlength="1"
+                  maxLength="1"
                 />
               </div>
               <div className="xxxxxx">xxxxxx</div>
