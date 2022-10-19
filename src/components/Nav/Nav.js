@@ -19,12 +19,8 @@ const Nav = () => {
     setIsShowing(false);
   };
 
-  const handleModal = e => {
-    const clicked = e.target.closest('.modal');
-    if (clicked === null) {
-      setIsShowing(prev => !prev);
-    }
-  };
+  // stop.propa
+  // e.target.className === "detail-modal" && setModalOpen(false);
 
   return (
     <header className="topHeader">
@@ -48,11 +44,7 @@ const Nav = () => {
             <li className="searchBtn">
               <BsSearch onClick={openModal} />
               {isShowing && (
-                <NavModal
-                  closeModal={closeModal}
-                  setIsShowing={setIsShowing}
-                  handleModal={handleModal}
-                />
+                <NavModal closeModal={closeModal} setIsShowing={setIsShowing} />
               )}
             </li>
             <li className="likeBtn">
