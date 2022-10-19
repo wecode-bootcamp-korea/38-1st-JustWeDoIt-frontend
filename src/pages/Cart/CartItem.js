@@ -13,13 +13,14 @@ const CartItem = () => {
             </a>
           </figure>
         </div>
+
         <div className="cartItemDesc">
           <p>나이키 에어 포스1 '07 LV8 넥스트 네이처</p>
           <div>남성 신발</div>
-          <div>색상</div>
+          <div>색상-화이트/블루/블랙/레드/옐로우</div>
           <div className="itemHandler">
-            <div>사이즈</div>
-            <div>수량</div>
+            <div>사이즈 : </div>
+            <div>수량 : </div>
           </div>
           <div>
             <ul>
