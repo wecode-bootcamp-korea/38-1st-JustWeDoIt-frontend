@@ -11,7 +11,10 @@
 
 .modalWrapper {
   position: relative;
-  padding: 20px 30px 60px 30px;
+}
+
+.modalTop {
+  padding: 20px 30px;
 }
 
 .searchFormContainer {
@@ -69,7 +72,9 @@
 }
 
 .searchSuggestions {
-  padding-top: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
 
   h4 {
     margin: 20px 0 40px 0;
