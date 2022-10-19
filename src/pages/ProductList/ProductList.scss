@@ -1,8 +1,10 @@
+@import 'src/styles/variables';
+
 .main {
   position: relative;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 180px 30px;
+  margin: 180px auto;
+  padding: $global-padding;
 
   .header {
     display: flex;
