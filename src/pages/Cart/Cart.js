@@ -1,30 +1,35 @@
 import React, { useState } from 'react';
-import '/Users/hyun/Desktop/wecode/38-just-we-do-it/src/pages/Cart/Cart.scss';
-import Nav from '../../components/Nav/Nav';
 import { AiOutlineHeart, AiFillQuestionCircle } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 import CartItem from './CartItem';
+import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
   const [isHovering, setIsHovering] = useState(false);
+
+  const openTooltip = () => {
+    setIsHovering(true);
+  };
+
+  const closeTooltip = () => {
+    setIsHovering(false);
+  };
+
   return (
     <div>
       <main className="cartWrap">
         <div className="cartView">
           <div className="cartBodyWrap">
             <h4>장바구니</h4>
-            {<CartItem />}
+            <CartItem />
           </div>
           <div className="cartSummary">
             <div className="cartSummaryDescWrap">
               <h4>주문 내역</h4>
-              <div>
-                <p>상품 금액</p>
-                <i
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                >
+              <dl>
+                <dt>상품 금액</dt>
+                <i onMouseEnter={openTooltip} onMouseLeave={closeTooltip}>
                   <AiFillQuestionCircle />
                 </i>
                 {isHovering && (
@@ -34,16 +39,16 @@ const Cart = () => {
                   </div>
                 )}
 
-                <span>000000원</span>
-              </div>
-              <div>
-                <p>배송비</p>
-                <span>000000원</span>
-              </div>
-              <div>
-                <p>총 결제 금액</p>
-                <span>000000원</span>
-              </div>
+                <dd>000000원</dd>
+              </dl>
+              <dl>
+                <dt>배송비</dt>
+                <dd>000000원</dd>
+              </dl>
+              <dl>
+                <dt>총 결제 금액</dt>
+                <dd>000000원</dd>
+              </dl>
               <div className="cartSummaryButton">
                 <button>주문 결제</button>
               </div>

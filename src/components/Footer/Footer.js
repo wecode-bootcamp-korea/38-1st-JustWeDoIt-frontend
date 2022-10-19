@@ -50,7 +50,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footerCenterRightItem">
-          <ul className="TermsOfServiceList">
+          <ul className="termsOfServiceList">
             <li>이용약관</li>
             <li>개인정보처리방침</li>
           </ul>

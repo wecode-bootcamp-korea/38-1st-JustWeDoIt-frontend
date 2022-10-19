@@ -2,31 +2,29 @@
   .header {
     display: flex;
     justify-content: space-between;
-    background: white;
     padding: 15px 30px;
-    // width: 100%;
-    // position: fixed;
+    background: white;
 
     .headerLeft {
       h1 {
-        font-weight: normal;
         font-size: 25px;
+        font-weight: normal;
       }
     }
 
     .headerRight {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
 
       .headerRightFilter {
         button {
           display: flex;
           align-items: center;
-          font-size: 16px;
+          padding-right: 33px;
           border: none;
           background: none;
-          padding-right: 33px;
+          font-size: 16px;
 
           span {
             margin-right: 15px;
@@ -37,15 +35,15 @@
       .headerRightSort {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
 
         ul {
-          list-style: none;
-          background-color: white;
           padding: 15px;
           border: 1px solid lightgray;
           border-radius: 15px;
+          background-color: white;
+          list-style: none;
         }
 
         li {
@@ -54,34 +52,37 @@
 
         button {
           display: flex;
-          justify-content: center;
           align-items: center;
-          font-size: 16px;
+          justify-content: center;
           border: none;
           background: none;
+          font-size: 16px;
 
           span {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
 
             span {
               padding-right: 15px;
             }
           }
         }
+
         .slideDrop {
-          overflow: hidden;
           position: absolute;
           top: 80px;
-          & > ul {
+          overflow: hidden;
+
+          &>ul {
             animation: slideDropAnimation 0.4s ease;
           }
         }
+
         .slideDropdown {
           overflow: hidden;
 
-          & > ul {
+          &>ul {
             animation: slideDropdownAnimation 0.4s ease;
             animation-fill-mode: forwards;
           }
@@ -92,10 +93,10 @@
 
   .productMain {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    padding: 30px 30px;
+    justify-content: space-around;
     max-width: 1390px;
+    padding: 30px 30px;
 
     .productMainPiece {
       display: flex;
@@ -107,8 +108,8 @@
         img {
           width: 396px;
           height: 396px;
-          border-radius: 5px;
           border: 1px solid lightgray;
+          border-radius: 5px;
         }
       }
 
@@ -138,14 +139,17 @@
   0% {
     transform: translateY(-100%);
   }
+
   100% {
     transform: translateY(0);
   }
 }
+
 @keyframes slideDropdownAnimation {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-100%);
   }
