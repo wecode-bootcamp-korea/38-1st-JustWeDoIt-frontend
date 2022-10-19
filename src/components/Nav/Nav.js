@@ -19,9 +19,6 @@ const Nav = () => {
     setIsShowing(false);
   };
 
-  // stop.propa
-  // e.target.className === "detail-modal" && setModalOpen(false);
-
   return (
     <header className="topHeader">
       <div className="headerWrapper">
