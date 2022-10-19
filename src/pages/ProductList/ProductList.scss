@@ -19,8 +19,10 @@
   .header {
     display: flex;
     justify-content: space-between;
+    background: white;
     padding: 15px 30px;
-    position: static;
+    // width: 100%;
+    // position: fixed;
 
     .headerLeft {
       h1 {
@@ -100,6 +102,49 @@
             animation: slideDropdownAnimation 0.4s ease;
             animation-fill-mode: forwards;
           }
+        }
+      }
+    }
+  }
+
+  .productMain {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 30px;
+    max-width: 1390px;
+
+    .productMainPiece {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 15px 15px;
+
+      .productMainPieceImg {
+        img {
+          width: 396px;
+          height: 396px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+        }
+      }
+
+      .productMainPieceProposal {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+
+        div {
+          font-size: 12px;
+          font-weight: lighter;
+        }
+
+        .proposalGender {
+          color: gray;
+        }
+
+        .proposalPrice {
+          padding-top: 10px;
         }
       }
     }

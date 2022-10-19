@@ -49,14 +49,18 @@ const ProductList = () => {
         </div>
       </header>
       <aside />
-      <div>
+      <div className="productMain">
         {data.map(item => (
-          <div key={item.id}>
-            <img src={item.img} alt="good" />
-            <div>{item.material}</div>
-            <div>{item.name}</div>
-            <div>{item.gender}</div>
-            <div>{item.price}</div>
+          <div key={item.id} className="productMainPiece">
+            <div className="productMainPieceImg">
+              <img src={item.img} alt="good" />
+            </div>
+            <div className="productMainPieceProposal">
+              <div className="proposalMaterial">{item.material}</div>
+              <div className="proposalName">{item.name}</div>
+              <div className="proposalGender">{item.gender}</div>
+              <div className="proposalPrice">{item.price}</div>
+            </div>
           </div>
         ))}
       </div>
