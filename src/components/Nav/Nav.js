@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavModal from 'components/NavModal/NavModal';
-import './Nav.scss';
 import { BsHeart } from 'react-icons/bs';
 import { BsPerson } from 'react-icons/bs';
 import { BsCart2 } from 'react-icons/bs';
 import { BsSearch } from 'react-icons/bs';
+import NavModal from 'components/NavModal/NavModal';
+import './Nav.scss';
 
 const Nav = () => {
   const [isShowing, setIsShowing] = useState(false);
@@ -18,6 +18,13 @@ const Nav = () => {
     setIsShowing(false);
   };
 
+  const handleModal = e => {
+    const clicked = e.target.closest('.modal');
+    if (clicked === null) {
+      setIsShowing(prev => !prev);
+    }
+  };
+
   return (
     <header className="topHeader">
       <div className="headerWrapper">
@@ -26,22 +33,26 @@ const Nav = () => {
             <img src="/images/logo.png" alt="" />
           </Link>
         </div>
-        <div className="navContainer">
-          <nav className="nav">
-            <ul>
-              <li>Lifestyle</li>
-              <li>Jordan</li>
-              <li>Running</li>
-              <li>BasketBall</li>
-              <li>Soccer</li>
-            </ul>
-          </nav>
-        </div>
+        <nav className="nav">
+          <ul>
+            <li>Lifestyle</li>
+            <li>Jordan</li>
+            <li>Running</li>
+            <li>BasketBall</li>
+            <li>Soccer</li>
+          </ul>
+        </nav>
         <div className="btnGroup">
           <ul>
             <li className="searchBtn">
               <BsSearch onClick={openModal} />
-              {isShowing && <NavModal closeModal={closeModal} />}
+              {isShowing && (
+                <NavModal
+                  closeModal={closeModal}
+                  setIsShowing={setIsShowing}
+                  handleModal={handleModal}
+                />
+              )}
             </li>
             <li className="likeBtn">
               <BsHeart />

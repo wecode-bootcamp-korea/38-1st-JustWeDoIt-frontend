@@ -1,3 +1,6 @@
+@import 'src/styles/mixin';
+@import 'src/styles/variables';
+
 .searchModal {
   position: absolute;
   top: 0;
@@ -17,9 +20,8 @@
   justify-content: center;
 }
 
-.searchForm {
-  display: flex;
-  align-items: center;
+.formWrapper {
+  @include flexContainer(center, start);
   width: 400px;
   height: 60px;
   border-radius: 60px;
@@ -59,6 +61,7 @@
   font-size: 18px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .searchResult {

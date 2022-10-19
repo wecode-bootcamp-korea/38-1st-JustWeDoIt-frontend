@@ -1,26 +1,24 @@
-$global-padding: 0 30px;
+@import 'src/styles/mixin';
+@import 'src/styles/variables';
 
 .topHeader {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 98;
+  z-index: $logo-level;
   background-color: white;
 }
 
 .headerWrapper {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flexContainer(center, space-between);
   height: 100px;
   padding: $global-padding;
 }
 
-.navContainer {
-  flex-shrink: 0;
-}
+// .navContainer {
+// }
 
 .topLogo {
   position: static;
@@ -36,6 +34,7 @@ $global-padding: 0 30px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  flex-shrink: 0;
 
   ul {
     li {
@@ -64,5 +63,9 @@ $global-padding: 0 30px;
     path {
       color: black;
     }
+  }
+
+  li svg {
+    cursor: pointer;
   }
 }
