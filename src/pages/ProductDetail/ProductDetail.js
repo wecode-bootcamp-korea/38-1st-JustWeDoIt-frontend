@@ -4,11 +4,12 @@ import { useParams } from 'react-router-dom';
 import { BsHeart } from 'react-icons/bs';
 import './ProductDetail.scss';
 import ProductDetaiBtn from 'components/ProductDetailBtn/ProductDetailBtn';
+import AccordianMenu from 'components/ProductAccordianMenu/AccordianMenu/AccordianMenu';
 
 const ProductDetail = () => {
   // const [product, setProduct] = useState(null);
-  const { id } = useParams();
-  console.log(id);
+  //  const { id } = useParams();
+  // console.log(id);
 
   // useEffect(() => {
   //   fetch(`/data/products.json/${id}`)
@@ -72,6 +73,7 @@ const ProductDetail = () => {
                 </p>
                 <span className="productNumber">스타일: DH2925-111</span>
               </div>
+              <AccordianMenu />
             </div>
           </div>
         </div>

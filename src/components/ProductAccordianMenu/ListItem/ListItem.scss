@@ -1,0 +1,41 @@
+.detailList {
+  // height: 60px;
+  // overflow: hidden;
+  transition: 0.3s;
+
+  &.active {
+    // height: 400px;
+
+    .detailInfo {
+      // height: 200px;
+      transition: 0.3s;
+    }
+  }
+
+  // &:nth-child(1) {
+  //   &.active {
+  //     height: 230px;
+  //   }
+  // }
+
+  // &:nth-child(2) {
+  //   &.active {
+  //     height: 140px;
+  //   }
+  // }
+
+  // &:nth-child(3) {
+  //   &.active {
+  //     height: 340px;
+  //   }
+  // }
+
+  h4 {
+    padding: 20px 0;
+  }
+}
+
+.detailInfo {
+  // height: 0;
+  overflow: hidden;
+}
