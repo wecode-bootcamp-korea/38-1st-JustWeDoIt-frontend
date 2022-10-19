@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import '/Users/hyun/Desktop/wecode/38-just-we-do-it/src/pages/Cart/Cart.scss';
 import Nav from '../../components/Nav/Nav';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineHeart, AiFillQuestionCircle } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 
 const Cart = () => {
+  const [isHovering, setIsHovering] = useState(false);
   return (
     <div>
       <Nav />
@@ -25,10 +26,10 @@ const Cart = () => {
                 <div className="cartItemDesc">
                   <p>나이키 에어 포스1 '07 LV8 넥스트 네이처</p>
                   <div>남성 신발</div>
-                  <div>색상</div>
+                  <div>색상-화이트/블루/블랙/레드/옐로우</div>
                   <div className="itemHandler">
-                    <div>사이즈</div>
-                    <div>수량</div>
+                    <div>사이즈 : </div>
+                    <div>수량 : </div>
                   </div>
                   <div>
                     <ul>
@@ -52,6 +53,19 @@ const Cart = () => {
               <h4>주문 내역</h4>
               <div>
                 <p>상품 금액</p>
+                <i
+                  onMouseEnter={() => setIsHovering(true)}
+                  onMouseLeave={() => setIsHovering(false)}
+                >
+                  <AiFillQuestionCircle />
+                </i>
+                {isHovering && (
+                  <div className="hiddenTooltip">
+                    상품 금액은 프로모션 코드 적용 전, 배송비를 제외한 총 주문
+                    금액입니다.
+                  </div>
+                )}
+
                 <span>000000원</span>
               </div>
               <div>
