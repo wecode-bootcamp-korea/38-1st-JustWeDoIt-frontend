@@ -1,5 +1,5 @@
 import React from 'react';
-import Data from '../../components/Auth/Signincomponent/Data';
+import Data from '../../components/Auth/Signincomponent/SignData';
 
 const SignIn = () => {
   return (
