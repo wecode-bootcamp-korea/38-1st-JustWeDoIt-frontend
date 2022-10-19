@@ -1,6 +1,8 @@
 .main {
   position: relative;
-  padding: 120px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 180px 30px;
 
   .header {
     display: flex;
