@@ -1,9 +1,10 @@
 import React from 'react';
+import SignData from 'components/Auth/Signincomponent/SignData';
 
 const SignIn = () => {
   return (
     <div>
-      <p>Sign in</p>
+      <SignData content="SignIn" />
     </div>
   );
 };
