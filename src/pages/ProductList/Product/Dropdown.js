@@ -1,8 +1,8 @@
 const Dropdown = props => {
-  // eslint-disable-next-line react/destructuring-assignment
+  const { isOpen, children } = props;
   return (
-    <article className={`${props.state ? 'slideDrop' : 'slideDropdown'}`}>
-      {props.state && props.children}
+    <article className={`${isOpen ? 'slideDrop' : 'slideDropdown'}`}>
+      {isOpen && children}
     </article>
   );
 };

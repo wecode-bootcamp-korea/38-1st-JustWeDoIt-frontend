@@ -4,7 +4,7 @@ import Dropdown from './Product/Dropdown';
 import './ProductList.scss';
 
 const ProductList = () => {
-  const [dropdownState, setDropdownState] = useState(false);
+  const [dropdownShown, setDropdownShown] = useState(false);
 
   const [data, setData] = useState([]);
 
@@ -26,8 +26,8 @@ const ProductList = () => {
             </button>
           </div>
           <div className="headerRightSort">
-            <button onClick={e => setDropdownState(!dropdownState)}>
-              {dropdownState ? (
+            <button onClick={e => setDropdownShown(!dropdownShown)}>
+              {dropdownShown ? (
                 <span>
                   <span>정렬기준:</span> <BiUpArrow />
                 </span>
@@ -37,7 +37,7 @@ const ProductList = () => {
                 </span>
               )}
             </button>
-            <Dropdown state={dropdownState}>
+            <Dropdown isOpen={dropdownShown}>
               <ul>
                 <li>추천순</li>
                 <li>최신순</li>
