@@ -37,7 +37,6 @@ const Footer = () => {
         <div className="footerTopRightItem">
           <AiFillTwitterCircle className="twitterIcon" />
           <AiFillYoutube className="youtubeIcon" />
-          <AiFillInstagram className="instagramIcon" />
         </div>
       </section>
       <section className="footerCenter">
