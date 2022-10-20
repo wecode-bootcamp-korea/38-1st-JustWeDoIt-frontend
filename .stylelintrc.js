@@ -16,7 +16,7 @@ module.exports = {
     // Team내 컨벤션으로 수정 (현재 lowerCamelCase)
     'keyframes-name-pattern': /^[a-z][a-zA-Z0-9]+$/,
     // Team내 컨벤션으로 수정 (현재 lowerCamelCase)
-    'max-nesting-depth': 5, // 최대 nesting은 4depth 까지
+    'max-nesting-depth': 6, // 최대 nesting은 4depth 까지
     'no-descending-specificity': null,
     'string-quotes': 'single', // single quotes
     'scss/at-rule-conditional-no-parentheses': null,
