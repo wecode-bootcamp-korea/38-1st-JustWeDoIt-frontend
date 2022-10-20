@@ -38,10 +38,10 @@ const User = ({ SignData }) => {
     inPutSet.email.lastIndexOf('.') < inPutSet.email.length - 1 &&
     inPutSet.email.lastIndexOf('.') - inPutSet.email.lastIndexOf('@') > 1;
 
-  // let emailColor = null;
-  // let nameColor = null;
-  // let pwColor = null;
-  // let dateColor = null;
+  let emailColor = null;
+  let nameColor = null;
+  let pwColor = null;
+  let dateColor = null;
 
   const onClickRed = e => {
     e.stopPropagation();
@@ -66,8 +66,9 @@ const User = ({ SignData }) => {
   };
 
   const islength = inPutSet.pw.length > 7;
-  const rightPw = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
-  // /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/g;
+  const rightPw =
+    // /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
+    // /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/g;
   const isPw = rightPw.test(inPutSet.pw);
 
   const is8 = islength ? '#288D25' : null;
