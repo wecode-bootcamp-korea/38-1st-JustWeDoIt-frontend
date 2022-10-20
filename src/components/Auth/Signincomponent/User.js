@@ -9,7 +9,7 @@ import { AiFillEyeInvisible } from 'react-icons/ai';
 
 const User = ({ SignData }) => {
   const { name, title, text, url, btntext } = SignData;
-  const [userInfoList, setUserInfoList] = useState([]);
+  // const [userInfoList, setUserInfoList] = useState([]);
   const [isShowing, setIsShowing] = useState(true);
   const [inPutSet, setInPutSet] = useState({
     email: '',
@@ -20,7 +20,6 @@ const User = ({ SignData }) => {
     birthday: '',
     lastNumber: '',
   });
-  // console.log(inPutSet.email.replace(/[^0-9]/g, ''));
   const navigate = useNavigate();
   const saveInPutSet = e => {
     setInPutSet({ ...inPutSet, [e.target.name]: e.target.value });
@@ -39,111 +38,142 @@ const User = ({ SignData }) => {
     inPutSet.email.lastIndexOf('.') < inPutSet.email.length - 1 &&
     inPutSet.email.lastIndexOf('.') - inPutSet.email.lastIndexOf('@') > 1;
 
-  const islength = inPutSet.pw.length > 7;
+  // let emailColor = null;
+  // let nameColor = null;
+  // let pwColor = null;
+  // let dateColor = null;
 
-  const isPw = /(?=.*[a-zA-Z])(?=.*[!@#$%^~*+=-])(?=.*[0-9])/;
+  const onClickRed = e => {
+    e.stopPropagation();
+    if (
+      (e.target.className === 'layOut' && inPutSet.email.length === 0) ||
+      !isEmailOkay
+    ) {
+      emailColor = 'red';
+    } else if (
+      (e.target.className === 'layOut' && inPutSet.userName.length === 0) ||
+      (0 < inPutSet.userName.length && inPutSet.userName.length < 3)
+    ) {
+      nameColor = 'red';
+    } else if (e.target.className === 'layOut' && inPutSet.pw.length === 0) {
+      pwColor = 'red';
+    } else if (
+      e.target.className === 'layOut' &&
+      (dateCollect.birthday.length < 6 || dateCollect.lastNumber.length === 0)
+    ) {
+      dateColor = 'red';
+    }
+  };
+
+  const islength = inPutSet.pw.length > 7;
+  const rightPw = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
+  // /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/g;
+  const isPw = rightPw.test(inPutSet.pw);
 
   const is8 = islength ? '#288D25' : null;
-  const isPwOkay = isPw ? null : '#288D25';
-  // const noNumber = ()=>{
-  //   inPutSet.birthday.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'
-  // }
+  const isPwOkay = isPw ? '#288D25' : null;
 
   const enterPw = e => {
     if (e.key === 'Enter' && SignData.name === 1) {
       clickSignIn();
-      // } else if (e.key === 'Enter' && Data.name === 2) {
-      //   clickSignUp();
+    } else if (e.key === 'Enter' && SignData.name === 2) {
+      clickSignUp();
     }
   };
 
-  useEffect(() => {
-    fetch('/data/userInfoList.json')
-      .then(r => r.json())
-      .then(result => setUserInfoList(result));
-  }, []);
+  // useEffect(() => {
+  //   fetch('/data/userInfoList.json')
+  //     .then(r => r.json())
+  //     .then(result => setUserInfoList(result));
+  // }, []);
 
-  const clickSignIn = () => {
-    if (
-      name === 1 &&
-      userInfoList.email === inPutSet.email &&
-      userInfoList.password === inPutSet.pw &&
-      userInfoList.name === inPutSet.userName
-    ) {
-      navigate('/signup');
-    }
-  };
-  const clickSingUp = () => {
-    if (
-      name === 2 &&
-      userInfoList.email === inPutSet.email &&
-      userInfoList.password === inPutSet.pw
-    ) {
-      navigate('/');
-    }
-  };
-  //fetch
   // const clickSignIn = () => {
-  //   fetch('http://10.58.52.130:3000/auth/signin', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json;charset=utf-8',
-  //     },
-  //     body: JSON.stringify({
-  //       email: inPutSet.id,
-  //       password: inPutSet.password,
-  //     }),
-  //   })
-  //     .then(response => {
-  //       if (response.ok === true) {
-  //         return response.json();
-  //       }
-  //       throw new Error('통신실패');
-  //     })
-  //     .catch(error => console.log(error))
-  //     .then(data => {
-  //       // if (data.message === "SUCCESS") {
-  //       localStorage.setItem('token', data.accessToken);
-  //       //   alert("로그인 성공");
-  //       //   console.log("AA");
-  //       // } else if (data.message === " INVALIDU_USER_ID") {
-  //       //   alert("아이디 혹은 비밀번호를 확인해 주세요");
-  //       // }
-  //     });
-  //   const token = localStorage.getItem('token');
+  //   if (
+  //     name === 1 &&
+  //     userInfoList.email === inPutSet.email &&
+  //     userInfoList.password === inPutSet.pw &&
+  //     userInfoList.name === inPutSet.userName
+  //   ) {
+  //     navigate('/signup');
+  //   }
   // };
   // const clickSingUp = () => {
-  //   fetch('http://10.58.52.130:3000/auth/signup', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json;charset=utf-8',
-  //     },
-  //     body: JSON.stringify({
-  //       email: inPutSet.id,
-  //       password: inPutSet.password,
-  //     }),
-  //   })
-  //     .then(response => {
-  //       if (response.ok === true) {
-  //         return response.json();
-  //       }
-  //       throw new Error('통신실패');
-  //     })
-  //     .catch(error => console.log(error))
-  //     .then(data => {
-  //       if (data.message === 'SUCCESS') {
-  //         localStorage.setItem('token', data.token);
-  //         alert('로그인 성공');
-  //         // console.log("AA");
-  //       } else if (data.message === ' INVALIDU_USER_ID') {
-  //         alert('아이디 혹은 비밀번호를 확인해 주세요');
-  //       }
-  //     });
-  // const token = localStorage.getItem('token');
+  //   if (
+  //     name === 2 &&
+  //     userInfoList.email === inPutSet.email &&
+  //     userInfoList.password === inPutSet.pw
+  //   ) {
+  //     navigate('/');
+  //   }
   // };
+  //fetch
+  const clickSignIn = () => {
+    fetch('http://10.58.52.77:3000/users/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: inPutSet.email,
+        password: inPutSet.pw,
+        name: inPutSet.userName,
+        residentNumberFront: dateCollect.birthday,
+        residentNumberBack: dateCollect.lastNumber,
+      }),
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        throw new Error('통신실패');
+      })
+      .catch(error => console.log(error))
+      .then(data => {
+        // if (data.message === "SUCCESS") {
+        localStorage.setItem('token', data.accessToken);
+        //   alert("로그인 성공");
+        //   console.log("AA");
+        // } else if (data.message === " INVALIDU_USER_ID") {
+        //   alert("아이디 혹은 비밀번호를 확인해 주세요");
+        // }
+      });
+    const token = localStorage.getItem('token');
+  };
+  const clickSignUp = () => {
+    fetch('http://10.58.52.77:3000/users/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: inPutSet.email,
+        password: inPutSet.pw,
+        name: inPutSet.userName,
+        residentNumberFront: dateCollect.birthday,
+        residentNumberBack: dateCollect.lastNumber,
+      }),
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        throw new Error('통신실패');
+      })
+      .catch(error => console.log(error))
+      .then(data => {
+        if (data.message === 'SUCCESS') {
+          localStorage.setItem('token', data.token);
+          alert('로그인 성공');
+          // console.log("AA");
+        } else if (data.message === ' INVALIDU_USER_ID') {
+          alert('아이디 혹은 비밀번호를 확인해 주세요');
+        }
+      });
+    const token = localStorage.getItem('token');
+  };
 
   return (
-    <div className="userContainer">
+    <div className="userContainer" onClick={onClickRed}>
       <div className="layOut">
         <div className="icon">
           <SiNike size="50" />
@@ -151,7 +181,7 @@ const User = ({ SignData }) => {
         <h1>{title}</h1>
         <form>
           <div className="controlHeight">
-            <div className="email">
+            <div className="email" style={{ borderColor: emailColor }}>
               <input
                 name="email"
                 type="email"
@@ -159,6 +189,7 @@ const User = ({ SignData }) => {
                 value={inPutSet.email}
                 onChange={saveInPutSet}
                 onKeyPress={enterPw}
+                onClick={onClickRed}
               />
             </div>
             {isEmailOkay === false && inPutSet.email.length > 2 && (
@@ -171,7 +202,7 @@ const User = ({ SignData }) => {
           </div>
           {name === 1 && (
             <div className="controlHeight">
-              <div className="userName">
+              <div className="userName" style={{ borderColor: nameColor }}>
                 <input
                   name="userName"
                   type="text"
@@ -179,6 +210,7 @@ const User = ({ SignData }) => {
                   value={inPutSet.userName}
                   onChange={saveInPutSet}
                   onKeyPress={enterPw}
+                  onClick={onClickRed}
                 />
               </div>
 
@@ -188,7 +220,7 @@ const User = ({ SignData }) => {
             </div>
           )}
           <div className="controlHeightPw">
-            <div className="pw">
+            <div className="pw" style={{ borderColor: pwColor }}>
               <input
                 name="pw"
                 type={pwOrTxt}
@@ -197,6 +229,7 @@ const User = ({ SignData }) => {
                 onChange={saveInPutSet}
                 onKeyPress={enterPw}
                 autoComplete="on"
+                onClick={onClickRed}
               />
               <div className="pwIcon" onClick={onClick}>
                 {isShowing ? (
@@ -206,9 +239,6 @@ const User = ({ SignData }) => {
                 )}
               </div>
             </div>
-            {0 < inPutSet.pw.length && inPutSet.pw.length < 3 && (
-              <div className="wrong">필수</div>
-            )}
           </div>
 
           <div className="text">
@@ -222,13 +252,14 @@ const User = ({ SignData }) => {
             {name === 1 && (
               <div className="textLength1" style={{ color: isPwOkay }}>
                 {!isPwOkay ? <FaBan size="12" /> : <AiOutlineCheck size="12" />}
-                &nbsp; 알파벳 대문자 및 소문자 조합, 최소 1개 이상의 숫자
+                &nbsp; 알파벳 대문자 및 소문자 특수문자 숫자 조합, 최소 1개
+                이상의 숫자
               </div>
             )}
           </div>
 
           {name === 1 && (
-            <div className="date">
+            <div className="date" style={{ borderColor: dateColor }}>
               <div className="birthday">
                 <input
                   name="birthday"
@@ -239,6 +270,7 @@ const User = ({ SignData }) => {
                   onKeyPress={enterPw}
                   minLength="6"
                   maxLength="6"
+                  onClick={onClickRed}
                 />
               </div>
               <div className="dash">-</div>
@@ -251,6 +283,7 @@ const User = ({ SignData }) => {
                   onChange={saveDateCollect}
                   onKeyPress={enterPw}
                   maxLength="1"
+                  onClick={onClickRed}
                 />
               </div>
               <div className="xxxxxx">xxxxxx</div>
@@ -264,7 +297,7 @@ const User = ({ SignData }) => {
         </form>
         <div className="btn">
           {name === 1 && <button onClick={clickSignIn}>{btntext}</button>}
-          {name === 2 && <button onClick={clickSingUp}>{btntext}</button>}
+          {name === 2 && <button onClick={clickSignUp}>{btntext}</button>}
         </div>
         <div className="link">
           <Link to={url}>{text}</Link>
