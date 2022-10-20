@@ -1,0 +1,103 @@
+@import 'src/styles/mixin';
+@import 'src/styles/variables';
+
+.searchModal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+}
+
+.modal {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modalWrapper {
+  position: relative;
+}
+
+.modalTop {
+  padding: 20px 30px;
+}
+
+.searchFormContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.formWrapper {
+  @include flexContainer(center, start);
+  width: 400px;
+  height: 60px;
+  border: none;
+  border-radius: 60px;
+  background-color: #eee;
+}
+
+.searchInput {
+  width: 100%;
+  height: 60px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 60px;
+  background-color: transparent;
+
+  &::placeholder {
+    font-size: 16px;
+  }
+}
+
+.searchSubmit {
+  width: 60px;
+  height: 60px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 60px;
+  background-color: transparent;
+  font-size: 24px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.searchResult {
+  margin-top: 40px;
+}
+
+.searchSuggestions {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+
+  h4 {
+    margin: 20px 0 40px 0;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  ul li {
+    display: block;
+    font-size: 16px;
+
+    &:not(:last-child) {
+      padding-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,157 @@
+.footer {
+  background-color: black;
+
+  .footerTop {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 30px;
+
+    .footerTopLeftItem {
+      display: flex;
+      justify-content: center;
+
+      .newsList {
+        padding-left: 0;
+        color: white;
+        list-style: none;
+
+        li {
+          margin: 16px;
+        }
+      }
+
+      .helpList {
+        padding-left: 130px;
+        color: gray;
+        font-size: 14px;
+        list-style: none;
+
+        li {
+          margin: 15px;
+        }
+
+        & > li:nth-child(1) {
+          color: white;
+          font-size: 16px;
+        }
+      }
+
+      .aboutList {
+        padding-left: 130px;
+        color: gray;
+        font-size: 14px;
+        list-style: none;
+
+        li {
+          margin: 15px;
+        }
+
+        & > li:nth-child(1) {
+          color: white;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .footerTopRightItem {
+      display: flex;
+      justify-content: right;
+      padding-top: 13px;
+      color: white;
+
+      .twitterIcon {
+        padding-right: 13px;
+        font-size: 35px;
+      }
+
+      .youtubeIcon {
+        padding-right: 13px;
+        font-size: 35px;
+      }
+    }
+  }
+
+  .footerCenter {
+    display: flex;
+    justify-content: space-between;
+    margin: 45px 50px 8px 50px;
+
+    &LeftItem {
+      display: flex;
+      justify-content: center;
+
+      .where {
+        padding-right: 5px;
+        color: white;
+        font-size: 22px;
+      }
+
+      .logoList {
+        display: flex;
+        justify-content: center;
+        color: white;
+
+        span {
+          padding-right: 25px;
+        }
+
+        div span {
+          padding-right: 20px;
+          color: gray;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .footerCenterRightItem {
+      display: flex;
+      justify-content: center;
+
+      .termsOfServiceList {
+        display: flex;
+        list-style: none;
+
+        & > li:nth-child(1) {
+          padding-right: 18px;
+          color: gray;
+          font-size: 12px;
+        }
+
+        & > li:nth-child(2) {
+          color: white;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .footerBottom {
+    display: flex;
+    justify-content: center;
+    margin: 0 35px;
+    padding-bottom: 60px;
+    border-top: 1px solid white;
+    color: gray;
+    font-size: 13px;
+
+    .footerBottomLeft {
+      width: 50%;
+      padding-top: 20px;
+      padding-right: 15px;
+
+      div {
+        padding-bottom: 15px;
+      }
+    }
+
+    .footerBottomRight {
+      width: 50%;
+      padding-top: 20px;
+      padding-left: 15px;
+
+      div {
+        padding-bottom: 15px;
+      }
+    }
+  }
+}

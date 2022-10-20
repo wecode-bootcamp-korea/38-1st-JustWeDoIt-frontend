@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavModal from 'components/NavModal/NavModal';
-import './Nav.scss';
 import { BsHeart } from 'react-icons/bs';
 import { BsPerson } from 'react-icons/bs';
 import { BsCart2 } from 'react-icons/bs';
 import { BsSearch } from 'react-icons/bs';
+import NavModal from 'components/NavModal/NavModal';
+import './Nav.scss';
 
 const Nav = () => {
   const [isShowing, setIsShowing] = useState(false);
@@ -23,28 +23,25 @@ const Nav = () => {
       <div className="headerWrapper">
         <div className="topLogo">
           <Link to="/">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/732/732084.png"
-              alt="logo"
-            />
+            <img src="/images/logo.png" alt="" />
           </Link>
         </div>
-        <div className="navContainer">
-          <nav className="nav">
-            <ul>
-              <li>Lifestyle</li>
-              <li>Jordan</li>
-              <li>Running</li>
-              <li>BasketBall</li>
-              <li>Soccer</li>
-            </ul>
-          </nav>
-        </div>
+        <nav className="nav">
+          <ul>
+            <li>Lifestyle</li>
+            <li>Jordan</li>
+            <li>Running</li>
+            <li>BasketBall</li>
+            <li>Soccer</li>
+          </ul>
+        </nav>
         <div className="btnGroup">
           <ul>
             <li className="searchBtn">
               <BsSearch onClick={openModal} />
-              {isShowing && <NavModal closeModal={closeModal} />}
+              {isShowing && (
+                <NavModal closeModal={closeModal} setIsShowing={setIsShowing} />
+              )}
             </li>
             <li className="likeBtn">
               <BsHeart />
