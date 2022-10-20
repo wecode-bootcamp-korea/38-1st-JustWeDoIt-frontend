@@ -97,41 +97,52 @@
       }
     }
   }
+  .productTotal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  .productMain {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
+    .productAside {
+      position: sticky;
+      top: 100px;
+      padding-right: 30px;
+    }
 
-    .productMainPiece {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .productMain {
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
 
-      .productMainPieceImg {
-        img {
-          display: block;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
-
-      .productMainPieceProposal {
+      .productMainPiece {
         display: flex;
         flex-direction: column;
-        justify-content: left;
-        margin-top: 10px;
+        justify-content: center;
 
-        div {
-          font-weight: lighter;
+        .productMainPieceImg {
+          img {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+          }
         }
 
-        .proposalGender {
-          color: gray;
-        }
+        .productMainPieceProposal {
+          display: flex;
+          flex-direction: column;
+          justify-content: left;
+          margin-top: 10px;
 
-        .proposalPrice {
-          padding-top: 10px;
+          div {
+            font-weight: lighter;
+          }
+
+          .proposalGender {
+            color: gray;
+          }
+
+          .proposalPrice {
+            padding-top: 10px;
+          }
         }
       }
     }

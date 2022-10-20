@@ -1,44 +1,56 @@
 .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-
+  position: sticky;
   .accordion {
-    width: 300px;
+    width: 200px;
 
     .item {
       margin-bottom: 5px;
       padding: 10px 20px;
-      background: lightgray;
 
       .title {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border-top: 1px solid lightgray;
         color: black;
         cursor: pointer;
+
+        div {
+          padding-top: 15px;
+          color: black;
+          font-size: 16px;
+          font-weight: 400;
+        }
+
+        span {
+          padding-top: 15px;
+        }
       }
 
       .content {
         max-height: 0;
         overflow: hidden;
-        transition: all 0.6s cubic-bezier(0, 1, 0, 1);
-        color: #867f75;
+        transition: all 0.4s cubic-bezier(0, 1, 0, 1);
 
         .listCheckbox {
           margin-right: 10px;
+        }
+
+        .contentPadding:first-child {
+          padding-top: 15px;
         }
       }
       .content.show {
         height: auto;
         max-height: 9999px;
-        padding-top: 15px;
-        transition: all 0.6s cubic-bezier(1, 0, 1, 0);
+        transition: all 0.4s cubic-bezier(1, 0, 1, 0);
 
         .listCheckbox {
           margin-right: 10px;
+        }
+
+        .contentPadding:first-child {
+          padding-top: 15px;
         }
       }
     }

@@ -49,8 +49,10 @@ const ProductList = () => {
           </div>
         </div>
       </header>
-      <div>
-        <ProductAside />
+      <div className="productTotal">
+        <div className="productAside">
+          <ProductAside />
+        </div>
         <div className="productMain">
           {data.map(item => (
             <div key={item.id} className="productMainPiece">

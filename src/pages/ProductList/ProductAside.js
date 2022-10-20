@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
 import './ProductAside.scss';
 
 const ProductAside = () => {
@@ -17,16 +18,23 @@ const ProductAside = () => {
         {data.map((item, index) => (
           <div className="item" key={item.id}>
             <div className="title" onClick={() => toggle(index)}>
-              <h2>{item.title}</h2>
-              <span>{selected === index ? '-' : '+'}</span>
+              <div>{item.title}</div>
+              <span>
+                {selected === index ? (
+                  <AiOutlineArrowUp />
+                ) : (
+                  <AiOutlineArrowDown />
+                )}
+              </span>
             </div>
             <div className={selected === index ? 'content show' : 'content'}>
               {item.list.map((ListItem, index) => (
-                <div key={index}>
+                <div className="contentPadding" key={index}>
                   <input
                     className="listCheckbox"
                     type="checkbox"
                     id="list"
+                    name={ListItem}
                     value={ListItem}
                   />
                   <label htmlFor="list">{ListItem}</label>
@@ -53,5 +61,10 @@ let data = [
     title: '사이즈',
     list: [250, 260, 270, 280],
   },
-  { id: 3, title: '특별한', list: ['친환경'] },
+  {
+    id: 3,
+    title: '가격',
+    list: ['19,999 ~ 18,999', '18,000 ~ 17,999', '17,000 ~ 16,999'],
+  },
+  { id: 4, title: '특별한', list: ['친환경'] },
 ];
