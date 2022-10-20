@@ -12,7 +12,7 @@
 
 .headerWrapper {
   position: relative;
-  @include flexContainer(center, space-between);
+  @include flexContainer(center, between);
   height: 100px;
   padding: $global-padding;
 }
