@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
 import Dropdown from './Product/Dropdown';
 import ProductAside from './ProductAside';
@@ -7,11 +7,17 @@ import './ProductList.scss';
 const ProductList = () => {
   const [dropdownShown, setDropdownShown] = useState(false);
 
-  const [data, setData] = useState([]);
+  const [productMain, setProductMain] = useState([]);
 
-  fetch('/data/mock.json')
-    .then(response => response.json())
-    .then(data => setData(data));
+  useEffect(() => {
+    fetch('http://10.58.52.118:3000/main?offset=0&limit=10', {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(item => setProductMain(item));
+  }, []);
+
+  console.log(productMain);
 
   return (
     <main className="main">
@@ -54,16 +60,17 @@ const ProductList = () => {
           <ProductAside />
         </div>
         <div className="productMain">
-          {data.map(item => (
+          {productMain.map(item => (
             <div key={item.id} className="productMainPiece">
               <div className="productMainPieceImg">
-                <img src={item.img} alt="good" />
+                <img src={item.thumbnailImageUrl} alt="good" />
               </div>
               <div className="productMainPieceProposal">
-                <div className="proposalMaterial">{item.material}</div>
+                <div>{item.category}</div>
+                <div className="proposalMaterial">{item.special}</div>
                 <div className="proposalName">{item.name}</div>
                 <div className="proposalGender">{item.gender}</div>
-                <div className="proposalPrice">{item.price}</div>
+                <div className="proposalPrice">{item.price} 원</div>
               </div>
             </div>
           ))}
