@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
+import './CartItem.scss';
 
 const CartItem = () => {
   return (
