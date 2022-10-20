@@ -20,6 +20,15 @@ const User = ({ SignData }) => {
     birthday: '',
     lastNumber: '',
   });
+  // const [activeBorder, setActiveBorder] = userState({
+  //   emailBorder: false,
+  //   passwordBorder: false,
+  //   userNameBorder: false,
+  //   birthdayBorder:false,
+  // });
+
+  // const { emailBorder, passwordBorder,userNameBorder,birthdayBorder } = activeBorder;
+  // const
   const navigate = useNavigate();
   const saveInPutSet = e => {
     setInPutSet({ ...inPutSet, [e.target.name]: e.target.value });
@@ -66,9 +75,7 @@ const User = ({ SignData }) => {
   };
 
   const islength = inPutSet.pw.length > 7;
-  const rightPw =
-    // /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
-    // /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/g;
+  const rightPw = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
   const isPw = rightPw.test(inPutSet.pw);
 
   const is8 = islength ? '#288D25' : null;
@@ -108,38 +115,6 @@ const User = ({ SignData }) => {
   //   }
   // };
   //fetch
-  const clickSignIn = () => {
-    fetch('http://10.58.52.77:3000/users/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify({
-        email: inPutSet.email,
-        password: inPutSet.pw,
-        name: inPutSet.userName,
-        residentNumberFront: dateCollect.birthday,
-        residentNumberBack: dateCollect.lastNumber,
-      }),
-    })
-      .then(response => {
-        if (response.ok === true) {
-          return response.json();
-        }
-        throw new Error('통신실패');
-      })
-      .catch(error => console.log(error))
-      .then(data => {
-        // if (data.message === "SUCCESS") {
-        localStorage.setItem('token', data.accessToken);
-        //   alert("로그인 성공");
-        //   console.log("AA");
-        // } else if (data.message === " INVALIDU_USER_ID") {
-        //   alert("아이디 혹은 비밀번호를 확인해 주세요");
-        // }
-      });
-    const token = localStorage.getItem('token');
-  };
   const clickSignUp = () => {
     fetch('http://10.58.52.77:3000/users/signup', {
       method: 'POST',
@@ -162,11 +137,40 @@ const User = ({ SignData }) => {
       })
       .catch(error => console.log(error))
       .then(data => {
+        // if (data.message === "SUCCESS") {
+        localStorage.setItem('token', data.accesstoken);
+        //   alert("로그인 성공");
+        //   console.log("AA");
+        // } else if (data.message === " INVALIDU_USER_ID") {
+        //   alert("아이디 혹은 비밀번호를 확인해 주세요");
+        // }
+      });
+    const token = localStorage.getItem('token');
+  };
+  const clickSignIn = () => {
+    fetch('http://10.58.52.77:3000/users/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: inPutSet.email,
+        password: inPutSet.pw,
+      }),
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        throw new Error('통신실패');
+      })
+      .catch(error => console.log(error))
+      .then(data => {
         if (data.message === 'SUCCESS') {
-          localStorage.setItem('token', data.token);
+          localStorage.setItem('token', data.accesstoken);
           alert('로그인 성공');
           // console.log("AA");
-        } else if (data.message === ' INVALIDU_USER_ID') {
+        } else if (data.message === ' LOGIN_FAIL') {
           alert('아이디 혹은 비밀번호를 확인해 주세요');
         }
       });
@@ -191,6 +195,7 @@ const User = ({ SignData }) => {
                 onChange={saveInPutSet}
                 onKeyPress={enterPw}
                 onClick={onClickRed}
+                onFocus={() => console.log('Focused on input')}
               />
             </div>
             {isEmailOkay === false && inPutSet.email.length > 2 && (
@@ -297,8 +302,8 @@ const User = ({ SignData }) => {
           )}
         </form>
         <div className="btn">
-          {name === 1 && <button onClick={clickSignIn}>{btntext}</button>}
-          {name === 2 && <button onClick={clickSignUp}>{btntext}</button>}
+          {name === 1 && <button onClick={clickSignUp}>{btntext}</button>}
+          {name === 2 && <button onClick={clickSignIn}>{btntext}</button>}
         </div>
         <div className="link">
           <Link to={url}>{text}</Link>
