@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AiFillQuestionCircle } from 'react-icons/ai';
+import './CartSummary.scss';
 
 const CartSummary = () => {
   const [isHovering, setIsHovering] = useState(false);
