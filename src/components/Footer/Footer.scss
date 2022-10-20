@@ -30,7 +30,7 @@
           margin: 15px;
         }
 
-        &>li:nth-child(1) {
+        & > li:nth-child(1) {
           color: white;
           font-size: 16px;
         }
@@ -46,7 +46,7 @@
           margin: 15px;
         }
 
-        &>li:nth-child(1) {
+        & > li:nth-child(1) {
           color: white;
           font-size: 16px;
         }
@@ -106,19 +106,18 @@
     .footerCenterRightItem {
       display: flex;
       justify-content: center;
-      // color: white;
 
       .termsOfServiceList {
         display: flex;
         list-style: none;
 
-        &>li:nth-child(1) {
+        & > li:nth-child(1) {
           padding-right: 18px;
           color: gray;
           font-size: 12px;
         }
 
-        &>li:nth-child(2) {
+        & > li:nth-child(2) {
           color: white;
           font-size: 13px;
         }
@@ -130,6 +129,7 @@
     display: flex;
     justify-content: center;
     margin: 0 35px;
+    padding-bottom: 60px;
     border-top: 1px solid white;
     color: gray;
     font-size: 13px;
