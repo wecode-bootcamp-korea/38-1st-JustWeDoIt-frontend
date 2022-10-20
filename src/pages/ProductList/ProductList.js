@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
 import Dropdown from './Product/Dropdown';
+import ProductAside from './ProductAside';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -48,21 +49,23 @@ const ProductList = () => {
           </div>
         </div>
       </header>
-      <aside />
-      <div className="productMain">
-        {data.map(item => (
-          <div key={item.id} className="productMainPiece">
-            <div className="productMainPieceImg">
-              <img src={item.img} alt="good" />
+      <div>
+        <ProductAside />
+        <div className="productMain">
+          {data.map(item => (
+            <div key={item.id} className="productMainPiece">
+              <div className="productMainPieceImg">
+                <img src={item.img} alt="good" />
+              </div>
+              <div className="productMainPieceProposal">
+                <div className="proposalMaterial">{item.material}</div>
+                <div className="proposalName">{item.name}</div>
+                <div className="proposalGender">{item.gender}</div>
+                <div className="proposalPrice">{item.price}</div>
+              </div>
             </div>
-            <div className="productMainPieceProposal">
-              <div className="proposalMaterial">{item.material}</div>
-              <div className="proposalName">{item.name}</div>
-              <div className="proposalGender">{item.gender}</div>
-              <div className="proposalPrice">{item.price}</div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </main>
   );

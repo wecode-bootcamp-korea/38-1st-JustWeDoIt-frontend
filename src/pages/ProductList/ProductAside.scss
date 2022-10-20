@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+
+  .accordion {
+    width: 300px;
+
+    .item {
+      margin-bottom: 5px;
+      padding: 10px 20px;
+      background: lightgray;
+
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: black;
+        cursor: pointer;
+      }
+
+      .content {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.6s cubic-bezier(0, 1, 0, 1);
+        color: #867f75;
+
+        .listCheckbox {
+          margin-right: 10px;
+        }
+      }
+      .content.show {
+        height: auto;
+        max-height: 9999px;
+        padding-top: 15px;
+        transition: all 0.6s cubic-bezier(1, 0, 1, 0);
+
+        .listCheckbox {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
