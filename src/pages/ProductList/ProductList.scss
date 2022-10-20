@@ -1,8 +1,15 @@
+@import 'src/styles/variables';
+
 .main {
+  position: relative;
+  max-width: 1200px;
+  margin: 140px auto;
+  padding: $global-padding;
+
   .header {
     display: flex;
     justify-content: space-between;
-    padding: 15px 30px;
+    padding-bottom: 40px;
     background: white;
 
     .headerLeft {
@@ -92,24 +99,20 @@
   }
 
   .productMain {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    max-width: 1390px;
-    padding: 30px 30px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
 
     .productMainPiece {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 15px 15px;
 
       .productMainPieceImg {
         img {
-          width: 396px;
-          height: 396px;
-          border: 1px solid lightgray;
-          border-radius: 5px;
+          display: block;
+          width: 100%;
+          object-fit: cover;
         }
       }
 
@@ -117,9 +120,9 @@
         display: flex;
         flex-direction: column;
         justify-content: left;
+        margin-top: 10px;
 
         div {
-          font-size: 12px;
           font-weight: lighter;
         }
 
