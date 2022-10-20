@@ -32,7 +32,7 @@ const CartSummary = () => {
         </dl>
         <dl>
           <dt>배송비</dt>
-          <dd>000000원</dd>
+          <dd>2,500원</dd>
         </dl>
         <dl>
           <dt>총 결제 금액</dt>

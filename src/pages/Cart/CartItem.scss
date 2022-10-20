@@ -1,9 +1,10 @@
-.cartItemWrap {
+.cartItemContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
   height: 100%;
+  padding-bottom: 50px;
 
   img {
     width: 150px;
@@ -17,7 +18,7 @@
     margin-left: 10px;
 
     div {
-      margin-top: 15px;
+      margin-top: 7px;
       color: gray;
       font-weight: 100;
 
@@ -35,12 +36,32 @@
     .itemHandler {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: flex-start;
+
+      div {
+        margin-right: 10px;
+      }
     }
   }
 
   .cartItemRightWrap {
+
     height: 100%;
     margin-left: auto;
+
+
+  }
+}
+
+.cartItemFooter {
+  width: 100%;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1.5px solid rgb(220, 220, 220);
+
+  p {
+    font-size: 20px;
+    line-height: 1.5;
+    word-spacing: 2px;
   }
 }

@@ -11,10 +11,6 @@ const CartItemList = props => {
           <CartItem cartItem={cartItem} />
         ))}
       </div>
-      <div className="cartItemFooter">
-        <p>무료배송</p>
-        <p>도착 예정일 : 10월 28일(금) - 10월 31일(월)</p>
-      </div>
     </div>
   );
 };
