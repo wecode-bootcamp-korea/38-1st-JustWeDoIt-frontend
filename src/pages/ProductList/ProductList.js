@@ -9,6 +9,10 @@ const ProductList = () => {
 
   const [productMain, setProductMain] = useState([]);
 
+  const priceToString = price => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   useEffect(() => {
     fetch('http://10.58.52.134:3000/products/main?offset=0&limit=10')
       .then(response => response.json())
@@ -65,13 +69,17 @@ const ProductList = () => {
                 />
               </div>
               <div className="productMainPieceProposal">
-                <div>{productMenuItem.category}</div>
+                <div className="proposalCategory">
+                  {productMenuItem.category}
+                </div>
                 <div className="proposalMaterial">
                   {productMenuItem.special}
                 </div>
                 <div className="proposalName">{productMenuItem.name}</div>
                 <div className="proposalGender">{productMenuItem.gender}</div>
-                <div className="proposalPrice">{productMenuItem.price} 원</div>
+                <div className="proposalPrice">
+                  {priceToString(productMenuItem.price)}원
+                </div>
               </div>
             </div>
           ))}
