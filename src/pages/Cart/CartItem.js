@@ -1,10 +1,12 @@
-import React from 'react';
+import Product from 'pages/ProductList/Product/Product';
+import React, { useRef } from 'react';
 
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 
-const CartItem = ({ cartItem }) => {
+const CartItem = ({ cartItem, deleteFetch }) => {
   const {
+    stockId,
     productName,
     price,
     buyingQuantity,
@@ -15,13 +17,17 @@ const CartItem = ({ cartItem }) => {
     thumbnailImage,
   } = cartItem;
 
+  const priceToString = price => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   return (
     <>
       <div className="cartItemContainer">
         <div className="cartItemImage">
           <figure>
             <a>
-              <img src={thumbnailImage} />
+              <img src={thumbnailImage} alt={productName} />
             </a>
           </figure>
         </div>
@@ -38,12 +44,16 @@ const CartItem = ({ cartItem }) => {
           <div>
             <ul>
               <AiOutlineHeart />
-              <BsTrash />
+              <BsTrash
+                onClick={() => {
+                  deleteFetch(stockId);
+                }}
+              />
             </ul>
           </div>
         </div>
         <div className="cartItemRightWrap">
-          <span>{price}원</span>
+          <span>{priceToString(price)}원</span>
         </div>
       </div>
       <div className="cartItemFooter">

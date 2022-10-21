@@ -3,14 +3,14 @@ import { AiFillQuestionCircle } from 'react-icons/ai';
 import './CartSummary.scss';
 
 const CartSummary = () => {
-  const [isHovering, setIsHovering] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const openTooltip = () => {
-    setIsHovering(true);
+    setIsHovered(true);
   };
 
   const closeTooltip = () => {
-    setIsHovering(false);
+    setIsHovered(false);
   };
   return (
     <div className="cartSummary">
@@ -21,7 +21,7 @@ const CartSummary = () => {
           <i onMouseEnter={openTooltip} onMouseLeave={closeTooltip}>
             <AiFillQuestionCircle />
           </i>
-          {isHovering && (
+          {isHovered && (
             <div className="hiddenTooltip">
               상품 금액은 프로모션 코드 적용 전, 배송비를 제외한 총 주문
               금액입니다.
