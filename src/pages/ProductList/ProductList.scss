@@ -1,0 +1,159 @@
+@import 'src/styles/variables';
+
+.main {
+  position: relative;
+  max-width: 1200px;
+  margin: 140px auto;
+  padding: $global-padding;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    background: white;
+
+    .headerLeft {
+      h1 {
+        font-size: 25px;
+        font-weight: normal;
+      }
+    }
+
+    .headerRight {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .headerRightFilter {
+        button {
+          display: flex;
+          align-items: center;
+          padding-right: 33px;
+          border: none;
+          background: none;
+          font-size: 16px;
+
+          span {
+            margin-right: 15px;
+          }
+        }
+      }
+
+      .headerRightSort {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        ul {
+          padding: 15px;
+          border: 1px solid lightgray;
+          border-radius: 15px;
+          background-color: white;
+          list-style: none;
+        }
+
+        li {
+          margin: 13px;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          background: none;
+          font-size: 16px;
+
+          span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+              padding-right: 15px;
+            }
+          }
+        }
+
+        .slideDrop {
+          position: absolute;
+          top: 80px;
+          overflow: hidden;
+
+          & > ul {
+            animation: slideDropAnimation 0.4s ease;
+          }
+        }
+
+        .slideDropdown {
+          overflow: hidden;
+
+          & > ul {
+            animation: slideDropdownAnimation 0.4s ease;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+    }
+  }
+
+  .productMain {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+
+    .productMainPiece {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .productMainPieceImg {
+        img {
+          display: block;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .productMainPieceProposal {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        margin-top: 10px;
+
+        div {
+          font-weight: lighter;
+        }
+
+        .proposalGender {
+          color: gray;
+        }
+
+        .proposalPrice {
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideDropAnimation {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDropdownAnimation {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
