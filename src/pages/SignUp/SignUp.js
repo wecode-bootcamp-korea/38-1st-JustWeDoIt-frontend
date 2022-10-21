@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SiNike } from 'react-icons/si';
-import './SignUp.scss';
 import InputLabel from 'components/Auth/Input/InputLabel';
 import InputPw from 'components/Auth/Input/InputPw';
+import './SignUp.scss';
 
 const SignUp = () => {
-  const [inPutSet, setInPutSet] = useState({
+  const [inputSet, setInputSet] = useState({
     email: '',
     userName: '',
     password: '',
   });
+  console.log(inputSet);
   const [dateCollect, setDateCollect] = useState({
     birthday: '',
     lastNumber: '',
   });
-  console.log(inPutSet);
-  const saveInPutSet = e => {
-    setInPutSet({ ...inPutSet, [e.target.name]: e.target.value });
+  const saveInputSet = e => {
+    setInputSet({ ...inputSet, [e.target.name]: e.target.value });
   };
   const saveDateCollect = e => {
     const onlyNumber = e.target.value.replace(/[^0-9]/g, '');
@@ -25,16 +25,15 @@ const SignUp = () => {
   };
 
   const isEmailOkay =
-    inPutSet.email.includes('@') > 0 &&
-    inPutSet.email.lastIndexOf('.') < inPutSet.email.length - 1 &&
-    inPutSet.email.lastIndexOf('.') - inPutSet.email.lastIndexOf('@') > 1;
+    inputSet.email.includes('@') > 0 &&
+    inputSet.email.lastIndexOf('.') < inputSet.email.length - 1 &&
+    inputSet.email.lastIndexOf('.') - inputSet.email.lastIndexOf('@') > 1;
 
   const enterPw = e => {
     if (e.key === 'Enter') {
       clickSignUp();
     }
   };
-  console.log(inPutSet);
 
   const clickSignUp = () => {
     fetch('http://10.58.52.77:3000/users/signup', {
@@ -43,31 +42,28 @@ const SignUp = () => {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        email: inPutSet.email,
-        password: inPutSet.password,
-        name: inPutSet.userName,
+        email: inputSet.email,
+        password: inputSet.password,
+        name: inputSet.userName,
         residentNumberFront: dateCollect.birthday,
         residentNumberBack: dateCollect.lastNumber,
       }),
     })
       .then(response => response.json())
-
-      // .catch(error => console.log(error))
       .then(data => {
-        // if (data.message === "SUCCESS") {
-        localStorage.setItem('token', data.accesstoken);
-        //   alert("로그인 성공");
-        //   console.log("AA");
-        // } else if (data.message === " INVALIDU_USER_ID") {
-        //   alert("아이디 혹은 비밀번호를 확인해 주세요");
-        // }
+        if (data.message === 'SUCCESS') {
+          localStorage.setItem('token', data.accessToken);
+          alert('로그인 성공');
+        } else if (data.message === ' LOGIN_FAIL') {
+          alert('아이디 혹은 비밀번호를 확인해 주세요');
+        }
       });
     const token = localStorage.getItem('token');
   };
 
   return (
     <div className="userContainer">
-      <div className="layOut">
+      <div className="layout">
         <div className="icon">
           <SiNike size="50" />
         </div>
@@ -75,28 +71,31 @@ const SignUp = () => {
         <form>
           <InputLabel
             name="email"
-            saveInPutSet={saveInPutSet}
+            saveInputSet={saveInputSet}
             enterPw={enterPw}
-            inPutSet={inPutSet}
+            inputSet={inputSet}
             isEmailOkay={isEmailOkay}
-            innerInputText="이메일"
+            // innerInputText="이메일"
+            placeholder="이메일"
           />
           <InputLabel
             name="userName"
-            saveInPutSet={saveInPutSet}
+            saveInputSet={saveInputSet}
             enterPw={enterPw}
-            inPutSet={inPutSet}
+            inputSet={inputSet}
             isEmailOkay={isEmailOkay}
-            innerInputText="이름"
+            // innerInputText="이름"
+            placeholder="이름"
           />
 
           <InputPw
             id="up"
             name="password"
-            saveInPutSet={saveInPutSet}
+            saveInputSet={saveInputSet}
             enterPw={enterPw}
-            inPutSet={inPutSet}
-            innerInputText="비밀번호"
+            inputSet={inputSet}
+            // innerInputText="비밀번호"
+            placeholder="비밀번호"
           />
           <div className="date">
             <div className="birthday">

@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SiNike } from 'react-icons/si';
-import './SignIn.scss';
 import InputLabel from 'components/Auth/Input/InputLabel';
 import InputPw from 'components/Auth/Input/InputPw';
+import './SignIn.scss';
 
 const SignIn = () => {
-  const [inPutSet, setInPutSet] = useState({
+  const [inputSet, setInputSet] = useState({
     email: '',
     password: '',
   });
-  const saveInPutSet = e => {
-    setInPutSet({ ...inPutSet, [e.target.name]: e.target.value });
+  const saveInputSet = e => {
+    setInputSet({ ...inputSet, [e.target.name]: e.target.value });
   };
 
   const isEmailOkay =
-    inPutSet.email.includes('@') > 0 &&
-    inPutSet.email.lastIndexOf('.') < inPutSet.email.length - 1 &&
-    inPutSet.email.lastIndexOf('.') - inPutSet.email.lastIndexOf('@') > 1;
+    inputSet.email.includes('@') > 0 &&
+    inputSet.email.lastIndexOf('.') < inputSet.email.length - 1 &&
+    inputSet.email.lastIndexOf('.') - inputSet.email.lastIndexOf('@') > 1;
 
   const enterPw = e => {
     if (e.key === 'Enter') {
@@ -31,8 +31,8 @@ const SignIn = () => {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        email: inPutSet.email,
-        password: inPutSet.password,
+        email: inputSet.email,
+        password: inputSet.password,
       }),
     })
       .then(response => response.json())
@@ -40,7 +40,6 @@ const SignIn = () => {
         if (data.message === 'SUCCESS') {
           localStorage.setItem('token', data.accessToken);
           alert('로그인 성공');
-          // console.log("AA");
         } else if (data.message === ' LOGIN_FAIL') {
           alert('아이디 혹은 비밀번호를 확인해 주세요');
         }
@@ -49,7 +48,7 @@ const SignIn = () => {
   };
   return (
     <div className="userContainer">
-      <div className="layOut">
+      <div className="layout">
         <div className="icon">
           <SiNike size="50" />
         </div>
@@ -57,20 +56,20 @@ const SignIn = () => {
         <form>
           <InputLabel
             name="email"
-            saveInPutSet={saveInPutSet}
+            saveInputSet={saveInputSet}
             enterPw={enterPw}
-            inPutSet={inPutSet}
+            inputSet={inputSet}
             type="email"
             isEmailOkay={isEmailOkay}
-            innerInputText="이메일"
+            // innerInputText="이메일"
           />
 
           <InputPw
             id="in"
             name="password"
-            saveInPutSet={saveInPutSet}
+            saveInputSet={saveInputSet}
             enterPw={enterPw}
-            inPutSet={inPutSet}
+            inputSet={inputSet}
             innerInputText="비밀번호"
           />
         </form>

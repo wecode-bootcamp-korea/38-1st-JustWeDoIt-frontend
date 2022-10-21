@@ -2,65 +2,67 @@
   display: flex;
   flex-shrink: 0;
   justify-content: center;
-
   height: 100%;
   margin-bottom: 30px;
-  .icon {
-    display: flex;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-  h1 {
-    width: 480px;
-    margin-bottom: 40px;
-    font-weight: normal;
-    line-height: 1.2em;
-  }
-  form {
-    background-color: transparent;
-    .text {
-      margin-top: 10px;
-      .textLength8,
-      .textLength1 {
-        color: #d43f20;
-        font-size: 12px;
-      }
-    }
-
-    .date {
+  .layout {
+    margin-top: 100px;
+    margin-bottom: 60px;
+    .icon {
       display: flex;
-      justify-content: center;
-      height: 50px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #757575;
-      border-radius: 8px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      width: 480px;
+      margin-bottom: 40px;
+      font-weight: normal;
+      line-height: 1.2em;
+    }
+    form {
+      background-color: transparent;
+      .text {
+        margin-top: 10px;
+        .textLength8,
+        .textLength1 {
+          color: #d43f20;
+          font-size: 12px;
+        }
+      }
 
-      .birthday {
-        height: 30px;
-        margin-top: 12px;
-        // width: 200px;
-        margin-left: 10px;
-        input {
-          width: 53px;
-          border: 0;
-          background-color: white;
-        }
-      }
-      .dash {
-        margin-top: 12px;
-      }
-      .lastNumber {
-        margin-top: 12px;
-        input {
-          width: 20px;
+      .date {
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #757575;
+        border-radius: 8px;
+
+        .birthday {
+          height: 30px;
+          margin-top: 12px;
           margin-left: 10px;
-          border: 0;
-          background-color: white;
+          input {
+            width: 53px;
+            border: 0;
+            background-color: white;
+          }
         }
-      }
-      .xxxxxx {
-        margin-top: 12px;
+        .dash {
+          margin-top: 12px;
+        }
+        .lastNumber {
+          margin-top: 12px;
+          input {
+            width: 20px;
+            margin-left: 10px;
+            border: 0;
+            background-color: white;
+          }
+        }
+        .xxxxxx {
+          margin-top: 12px;
+        }
       }
     }
   }

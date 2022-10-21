@@ -7,21 +7,21 @@ import { AiOutlineCheck } from 'react-icons/ai';
 import './InputPw.scss';
 
 const InputPw = props => {
-  const { id, name, inPutSet, value, innerInputText, ...others } = props;
+  const { id, name, inputSet, value, innerInputText, ...others } = props;
 
-  //   // , inPutSet, ...others
   const [isShowing, setIsShowing] = useState(true);
 
   const onClick = () => {
     setIsShowing(prev => !prev);
   };
 
-  const islength = inPutSet.password.length > 7;
-  const rightPw = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
-  const isPw = rightPw.test(inPutSet.password);
+  const isMinLength8 = inputSet.password.length > 7;
+  const passwordPattren =
+    /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
+  const isValidPassword = passwordPattren.test(inputSet.password);
 
-  const is8 = islength ? '#288D25' : null;
-  const isPwOkay = isPw ? '#288D25' : null;
+  const is8 = isMinLength8 ? '#288D25' : null;
+  const isPwOkay = isValidPassword ? '#288D25' : null;
 
   return (
     <>
@@ -31,7 +31,7 @@ const InputPw = props => {
           <Input
             name={name}
             isShowing={isShowing}
-            inPutSet={inPutSet}
+            inputSet={inputSet}
             {...others}
           />
           <div className="pwIcon" onClick={onClick}>
@@ -56,8 +56,8 @@ const InputPw = props => {
             숫자
           </div>
           {id === 'in' &&
-            0 < inPutSet.password.length &&
-            inPutSet.password.length < 3 && <div className="wrong">필수</div>}
+            0 < inputSet.password.length &&
+            inputSet.password.length < 3 && <div className="wrong">필수</div>}
         </div>
       )}
     </>
