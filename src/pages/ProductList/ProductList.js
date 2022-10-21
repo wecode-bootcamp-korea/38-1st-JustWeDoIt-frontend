@@ -10,14 +10,10 @@ const ProductList = () => {
   const [productMain, setProductMain] = useState([]);
 
   useEffect(() => {
-    fetch('http://10.58.52.118:3000/main?offset=0&limit=10', {
-      method: 'GET',
-    })
+    fetch('http://10.58.52.134:3000/products/main?offset=0&limit=10')
       .then(response => response.json())
       .then(item => setProductMain(item));
   }, []);
-
-  console.log(productMain);
 
   return (
     <main className="main">
@@ -57,20 +53,25 @@ const ProductList = () => {
       </header>
       <div className="productTotal">
         <div className="productAside">
-          <ProductAside />
+          <ProductAside className="productAsideAccordion" />
         </div>
         <div className="productMain">
-          {productMain.map(item => (
-            <div key={item.id} className="productMainPiece">
+          {productMain.map(productMenuItem => (
+            <div key={productMenuItem.id} className="productMainPiece">
               <div className="productMainPieceImg">
-                <img src={item.thumbnailImageUrl} alt="good" />
+                <img
+                  src={productMenuItem.thumbnailImageUrl}
+                  alt={productMenuItem.name}
+                />
               </div>
               <div className="productMainPieceProposal">
-                <div>{item.category}</div>
-                <div className="proposalMaterial">{item.special}</div>
-                <div className="proposalName">{item.name}</div>
-                <div className="proposalGender">{item.gender}</div>
-                <div className="proposalPrice">{item.price} 원</div>
+                <div>{productMenuItem.category}</div>
+                <div className="proposalMaterial">
+                  {productMenuItem.special}
+                </div>
+                <div className="proposalName">{productMenuItem.name}</div>
+                <div className="proposalGender">{productMenuItem.gender}</div>
+                <div className="proposalPrice">{productMenuItem.price} 원</div>
               </div>
             </div>
           ))}

@@ -3,41 +3,43 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
 import './ProductAside.scss';
 
 const ProductAside = () => {
-  const [selected, setSelected] = useState(null);
+  const [isSelectedMenu, setisSelectedMenu] = useState(null);
 
-  const toggle = i => {
-    if (selected === i) {
-      return setSelected(null);
+  const accordionToggle = i => {
+    if (isSelectedMenu === i) {
+      return setisSelectedMenu(null);
     }
-    setSelected(i);
+    setisSelectedMenu(i);
   };
 
   return (
     <div className="wrapper">
       <div className="accordion">
-        {data.map((item, index) => (
-          <div className="item" key={item.id}>
-            <div className="title" onClick={() => toggle(index)}>
-              <div>{item.title}</div>
+        {accordionMenuList.map((AccordionItem, index) => (
+          <div className="item" key={AccordionItem.id}>
+            <div className="title" onClick={() => accordionToggle(index)}>
+              <div>{AccordionItem.title}</div>
               <span>
-                {selected === index ? (
+                {isSelectedMenu === index ? (
                   <AiOutlineArrowUp />
                 ) : (
                   <AiOutlineArrowDown />
                 )}
               </span>
             </div>
-            <div className={selected === index ? 'content show' : 'content'}>
-              {item.list.map((ListItem, index) => (
+            <div
+              className={isSelectedMenu === index ? 'content show' : 'content'}
+            >
+              {AccordionItem.list.map((ListAccordionItem, index) => (
                 <div className="contentPadding" key={index}>
                   <input
                     className="listCheckbox"
                     type="checkbox"
                     id="list"
-                    name={ListItem}
-                    value={ListItem}
+                    name={ListAccordionItem}
+                    value={ListAccordionItem}
                   />
-                  <label htmlFor="list">{ListItem}</label>
+                  <label htmlFor="list">{ListAccordionItem}</label>
                 </div>
               ))}
             </div>
@@ -50,7 +52,7 @@ const ProductAside = () => {
 
 export default ProductAside;
 
-let data = [
+const accordionMenuList = [
   {
     id: 1,
     title: '성별',

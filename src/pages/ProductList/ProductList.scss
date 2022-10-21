@@ -102,8 +102,7 @@
     justify-content: center;
 
     .productAside {
-      position: sticky;
-      top: 120px;
+      position: relative;
       padding-right: 30px;
     }
 
@@ -115,12 +114,16 @@
       .productMainPiece {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
 
         .productMainPieceImg {
+          width: 100%;
+          height: 300px;
+
           img {
             display: block;
             width: 100%;
+            height: 100%;
             object-fit: cover;
           }
         }
