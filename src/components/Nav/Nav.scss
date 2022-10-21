@@ -1,0 +1,71 @@
+@import 'src/styles/mixin';
+@import 'src/styles/variables';
+
+.topHeader {
+  position: fixed;
+  z-index: $logo-level;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+}
+
+.headerWrapper {
+  position: relative;
+  @include flexContainer(center, between);
+  height: 100px;
+  padding: $global-padding;
+}
+
+.topLogo {
+  position: static;
+  z-index: 99;
+
+  img {
+    width: 180px;
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  flex-shrink: 0;
+  transform: translate(-50%, -50%);
+
+  ul {
+    li {
+      display: inline-block;
+      font-size: 18px;
+      text-transform: uppercase;
+
+      &::after {
+        content: '';
+        margin: 0 10px;
+      }
+    }
+    > li {
+      cursor: pointer;
+    }
+  }
+}
+
+.btnGroup {
+  li {
+    display: inline-block;
+    font-size: 30px;
+
+    &::after {
+      content: '';
+      margin: 0 8px;
+    }
+
+    path {
+      color: black;
+    }
+  }
+
+  li svg {
+    cursor: pointer;
+  }
+}
