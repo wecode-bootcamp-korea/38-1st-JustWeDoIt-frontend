@@ -53,7 +53,7 @@ const SignIn = () => {
         <div className="icon">
           <SiNike size="50" />
         </div>
-        <h1>'로그인을 위해 이메일과 비밀번호를 입력하세요.'</h1>
+        <h1>로그인을 위해 이메일과 비밀번호를 입력하세요.</h1>
         <form>
           <InputLabel
             name="email"
@@ -62,14 +62,16 @@ const SignIn = () => {
             inPutSet={inPutSet}
             type="email"
             isEmailOkay={isEmailOkay}
+            innerInputText="이메일"
           />
 
           <InputPw
-            id="up"
+            id="in"
             name="password"
             saveInPutSet={saveInPutSet}
             enterPw={enterPw}
             inPutSet={inPutSet}
+            innerInputText="비밀번호"
           />
         </form>
         <div className="btn">

@@ -15,7 +15,7 @@ const SignUp = () => {
     birthday: '',
     lastNumber: '',
   });
-
+  console.log(inPutSet);
   const saveInPutSet = e => {
     setInPutSet({ ...inPutSet, [e.target.name]: e.target.value });
   };
@@ -71,23 +71,23 @@ const SignUp = () => {
         <div className="icon">
           <SiNike size="50" />
         </div>
-        <h1>'이제 나이키 멤버가 되어볼까요?'</h1>
+        <h1>이제 나이키 멤버가 되어볼까요?</h1>
         <form>
           <InputLabel
             name="email"
             saveInPutSet={saveInPutSet}
             enterPw={enterPw}
             inPutSet={inPutSet}
-            type="email"
             isEmailOkay={isEmailOkay}
+            innerInputText="이메일"
           />
           <InputLabel
             name="userName"
             saveInPutSet={saveInPutSet}
             enterPw={enterPw}
             inPutSet={inPutSet}
-            type="text"
             isEmailOkay={isEmailOkay}
+            innerInputText="이름"
           />
 
           <InputPw
@@ -96,6 +96,7 @@ const SignUp = () => {
             saveInPutSet={saveInPutSet}
             enterPw={enterPw}
             inPutSet={inPutSet}
+            innerInputText="비밀번호"
           />
           <div className="date">
             <div className="birthday">
