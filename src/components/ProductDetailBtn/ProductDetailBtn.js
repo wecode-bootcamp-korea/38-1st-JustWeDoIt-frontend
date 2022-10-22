@@ -2,11 +2,11 @@ import React from 'react';
 import './ProductDetailBtn.scss';
 import { useState, useEffect } from 'react';
 
-const ProductDetaiBtn = ({ size, selectedSize, selected }) => {
+const ProductDetaiBtn = ({ size, selectedSize, selected, value }) => {
   const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
-    if (size.stock === 0) {
+    if (value < 1) {
       setDisabled(true);
     } else {
       setDisabled(false);
@@ -23,7 +23,7 @@ const ProductDetaiBtn = ({ size, selectedSize, selected }) => {
         value={size.size}
       />
       <label htmlFor="size" ref={selected}>
-        {size.size}
+        {size}
       </label>
     </div>
   );
