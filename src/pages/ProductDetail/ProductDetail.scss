@@ -1,22 +1,21 @@
-img {
-  width: 50px;
-}
-
 .detailMain {
+  width: 1200px;
+  margin: 0 auto;
   padding: 0 40px;
+  overflow: hidden;
 
   .wrapper {
-    margin-top: 180px;
-    margin-bottom: 140px;
     display: flex;
     justify-content: space-between;
+    margin-top: 180px;
+    margin-bottom: 140px;
   }
 }
 
 .productPhoto,
 .productInfo {
-  width: 48%;
   flex-shrink: 0;
+  width: 48%;
 }
 
 .productPhotoCard {
@@ -25,8 +24,8 @@ img {
   }
 
   img {
-    width: 100%;
     display: block;
+    width: 100%;
   }
 }
 
@@ -40,8 +39,8 @@ img {
 }
 
 .gender {
-  color: #777;
   margin-bottom: 20px;
+  color: #777;
 }
 
 .sizeHeader {
@@ -50,8 +49,8 @@ img {
 
 .sizeOptions {
   display: grid;
-  grid-template-columns: repeat(5, 100px);
   grid-gap: 10px;
+  grid-template-columns: repeat(5, 100px);
 }
 
 .productBtnGroup {
@@ -61,17 +60,17 @@ img {
     display: block;
     width: 100%;
     height: 60px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 50px;
     background-color: transparent;
     font-size: 16px;
     cursor: pointer;
-    margin-bottom: 20px;
 
     &:nth-child(1) {
+      transition: 0.3s;
       background-color: black;
       color: white;
-      transition: 0.3s;
 
       &:hover {
         background-color: #eee;
@@ -80,10 +79,10 @@ img {
     }
 
     &:nth-child(2) {
-      border: 1px solid #3f3f3f;
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 1px solid #3f3f3f;
 
       svg {
         margin-left: 6px;

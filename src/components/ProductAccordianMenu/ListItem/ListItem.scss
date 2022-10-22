@@ -1,41 +1,43 @@
+@import 'src/styles/mixin';
+@import 'src/styles/variables';
+
 .detailList {
-  // height: 60px;
-  // overflow: hidden;
-  transition: 0.3s;
+  .detailInfo {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s;
 
-  &.active {
-    // height: 400px;
-
-    .detailInfo {
-      // height: 200px;
-      transition: 0.3s;
+    > div {
+      padding: 18px 0;
     }
   }
 
-  // &:nth-child(1) {
-  //   &.active {
-  //     height: 230px;
-  //   }
-  // }
+  &.active {
+    .detailInfo {
+      max-height: 500px;
+      transition: all 0.3s;
+    }
 
-  // &:nth-child(2) {
-  //   &.active {
-  //     height: 140px;
-  //   }
-  // }
-
-  // &:nth-child(3) {
-  //   &.active {
-  //     height: 340px;
-  //   }
-  // }
+    h4 {
+      border: none;
+    }
+  }
 
   h4 {
     padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+    cursor: pointer;
+    @include flexContainer(center, between);
   }
 }
 
-.detailInfo {
-  // height: 0;
-  overflow: hidden;
+.detailArrow {
+  margin-left: 10px;
+}
+
+.subDetailList {
+  li {
+    margin: 5px 0;
+  }
 }

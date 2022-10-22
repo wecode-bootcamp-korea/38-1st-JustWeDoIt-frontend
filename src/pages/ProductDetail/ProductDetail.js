@@ -1,23 +1,76 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { BsHeart } from 'react-icons/bs';
 import './ProductDetail.scss';
-import ProductDetaiBtn from 'components/ProductDetailBtn/ProductDetailBtn';
+import ProductDetailBtn from 'components/ProductDetailBtn/ProductDetailBtn';
 import AccordianMenu from 'components/ProductAccordianMenu/AccordianMenu/AccordianMenu';
+import PurchaseModal from 'components/PurchaseModal/PurchaseModal';
 
 const ProductDetail = () => {
   // const [product, setProduct] = useState(null);
-  //  const { id } = useParams();
-  // console.log(id);
+  const [showModal, setShowModal] = useState('closed');
+  const [cartNum, setCartNum] = useState(0);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const navigate = useNavigate();
+  const selected = useRef();
 
-  // useEffect(() => {
-  //   fetch(`/data/products.json/${id}`)
-  //     .then(res => res.json())
-  //     .then(data => setProduct(data));
-  // }, []);
+  const { id } = useParams();
 
-  // console.log(product);
+  // id에 따른 상품 조회
+  useEffect(() => {
+    fetch(`http://10.58.52.234:3000/products/details/?id=${id}`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
+  }, []);
+
+  // 장바구니 추가 버튼 fetch 추가 구현 예정
+  const onPurchase = () => {
+    validateToken();
+    setShowModal('active');
+    closePurchaseModal();
+    setCartNum(prev => prev + 1);
+  };
+
+  const closePurchaseModal = () => {
+    setTimeout(() => {
+      setShowModal('closed');
+    }, 2750);
+  };
+
+  // size 클릭
+  const SelectSize = e => {
+    setSelectedSize(e.target.value);
+  };
+
+  // 사이즈 Mock data
+  const sizes = [
+    { id: 1, size: 230, stock: 3 },
+    { id: 2, size: 240, stock: 4 },
+    { id: 3, size: 250, stock: 5 },
+    { id: 4, size: 260, stock: 0 },
+    { id: 5, size: 270, stock: 2 },
+    { id: 6, size: 280, stock: 1 },
+    { id: 7, size: 290, stock: 7 },
+  ];
+
+  const priceToString = price => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
+  const validateToken = () => {
+    if (
+      localStorage.getItem('token') === '' ||
+      localStorage.getItem('token') === null
+    ) {
+      alert('먼저 로그인 해주세요.');
+      navigate('/signin');
+    } else {
+      return;
+    }
+  };
 
   return (
     <main className="detailMain">
@@ -42,7 +95,8 @@ const ProductDetail = () => {
               <h2 className="productName">나이키 에어포스 1</h2>
               <p className="gender">남성 신발</p>
               <span className="productPrice">
-                139,000<span>원</span>
+                {priceToString(139000)}
+                <span>원</span>
               </span>
             </div>
             <div className="productSize">
@@ -50,20 +104,26 @@ const ProductDetail = () => {
                 <span>사이즈 선택</span>
               </div>
               <div className="sizeOptions">
-                <ProductDetaiBtn />
-                <ProductDetaiBtn />
-                <ProductDetaiBtn />
-                <ProductDetaiBtn />
-                <ProductDetaiBtn />
-                <ProductDetaiBtn />
-                <ProductDetaiBtn />
+                {sizes.map(size => (
+                  <ProductDetailBtn
+                    key={size.id}
+                    size={size}
+                    selectedSize={SelectSize}
+                    selected={selected}
+                  />
+                ))}
               </div>
               <div className="productBtnGroup">
-                <button>장바구니</button>
+                <button onClick={onPurchase}>장바구니</button>
                 <button>
                   위시리스트 <BsHeart />
                 </button>
               </div>
+              <PurchaseModal
+                showModal={showModal}
+                setShowModal={setShowModal}
+                cartNum={cartNum}
+              />
               <div className="productDescription">
                 <p>
                   전설은 이렇게 만들어집니다. 나이키 포스 1 LE는 82년의 하드우드
@@ -71,7 +131,6 @@ const ProductDetail = () => {
                   내구성과 쿠셔닝, 착화감으로 아이들의 발을 클래식으로
                   안내하세요.
                 </p>
-                <span className="productNumber">스타일: DH2925-111</span>
               </div>
               <AccordianMenu />
             </div>

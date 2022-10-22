@@ -1,0 +1,83 @@
+@import 'src/styles/mixin';
+
+.purchasedBackdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.purchaseModal {
+  position: fixed;
+  z-index: 20;
+  top: 100px;
+  right: 0px;
+  width: 400px;
+  padding: 20px;
+  transform: translate(110%, 0);
+  transition: all 0.3s;
+  border: 1px solid black;
+  background-color: white;
+
+  &.active {
+    transform: translate(0, 0);
+    transition: all 0.3s;
+  }
+}
+
+.purchasedModalTop {
+  @include flexContainer(center, between);
+  padding-bottom: 20px;
+
+  .headline {
+    @include flexContainer(center, start);
+
+    svg {
+      color: green;
+    }
+  }
+
+  .modalCloseBtn {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.purchasedModalProductInfo {
+  @include flexContainer(start, start);
+  padding: 20px 0 40px 0;
+
+  .purchasedProductImg {
+    width: 60px;
+  }
+
+  img {
+    display: block;
+    width: 60px;
+    object-fit: cover;
+  }
+}
+
+.purchasedProductInfo {
+  margin-left: 20px;
+}
+
+.purchasedBtnsGroup {
+  display: flex;
+
+  button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+}
