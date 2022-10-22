@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
 import Dropdown from './Product/Dropdown';
 import './ProductList.scss';
@@ -19,8 +20,6 @@ const ProductList = () => {
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);
-
-  console.log(products);
 
   return (
     <main className="main">

@@ -2,10 +2,10 @@ import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BsHeart } from 'react-icons/bs';
-import './ProductDetail.scss';
 import ProductDetailBtn from 'components/ProductDetailBtn/ProductDetailBtn';
 import AccordianMenu from 'components/ProductAccordianMenu/AccordianMenu/AccordianMenu';
 import PurchaseModal from 'components/PurchaseModal/PurchaseModal';
+import './ProductDetail.scss';
 
 const ProductDetail = () => {
   // const [product, setProduct] = useState(null);
