@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
 import Dropdown from './Product/Dropdown';
+import ProductAside from './ProductAside';
 import './ProductList.scss';
 
 const ProductList = () => {
   const [dropdownShown, setDropdownShown] = useState(false);
 
-  const [data, setData] = useState([]);
+  const [productMain, setProductMain] = useState([]);
 
-  fetch('/data/mock.json')
-    .then(response => response.json())
-    .then(data => setData(data));
+  const priceToString = price => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
+  useEffect(() => {
+    fetch('http://10.58.52.134:3000/products/main?offset=0&limit=10')
+      .then(response => response.json())
+      .then(item => setProductMain(item));
+  }, []);
 
   const [products, setProducts] = useState(null);
 
@@ -57,21 +63,35 @@ const ProductList = () => {
           </div>
         </div>
       </header>
-      <aside />
-      <div className="productMain">
-        {data.map(item => (
-          <div key={item.id} className="productMainPiece">
-            <div className="productMainPieceImg">
-              <img src={item.img} alt="good" />
+      <div className="productTotal">
+        <div className="productAside">
+          <ProductAside className="productAsideAccordion" />
+        </div>
+        <div className="productMain">
+          {productMain.map(productMenuItem => (
+            <div key={productMenuItem.id} className="productMainPiece">
+              <div className="productMainPieceImg">
+                <img
+                  src={productMenuItem.thumbnailImageUrl}
+                  alt={productMenuItem.name}
+                />
+              </div>
+              <div className="productMainPieceProposal">
+                <div className="proposalCategory">
+                  {productMenuItem.category}
+                </div>
+                <div className="proposalMaterial">
+                  {productMenuItem.special}
+                </div>
+                <div className="proposalName">{productMenuItem.name}</div>
+                <div className="proposalGender">{productMenuItem.gender}</div>
+                <div className="proposalPrice">
+                  {priceToString(productMenuItem.price)}원
+                </div>
+              </div>
             </div>
-            <div className="productMainPieceProposal">
-              <div className="proposalMaterial">{item.material}</div>
-              <div className="proposalName">{item.name}</div>
-              <div className="proposalGender">{item.gender}</div>
-              <div className="proposalPrice">{item.price}</div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </main>
   );
