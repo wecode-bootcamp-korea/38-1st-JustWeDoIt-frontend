@@ -14,7 +14,7 @@ const ProductList = () => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.52.134:3000/products/main?offset=0&limit=10')
+    fetch('http://10.58.52.234:3000/products/main?offset=0&limit=10')
       .then(response => response.json())
       .then(item => setProductMain(item));
   }, []);

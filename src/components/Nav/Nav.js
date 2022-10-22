@@ -47,7 +47,7 @@ const Nav = () => {
               <BsHeart />
             </li>
             <li className="cartBtn">
-              <Link to="/card">
+              <Link to="/cart">
                 <BsCart2 />
               </Link>
             </li>
