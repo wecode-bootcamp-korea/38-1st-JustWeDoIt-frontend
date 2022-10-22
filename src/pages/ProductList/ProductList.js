@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 import Dropdown from './Product/Dropdown';
 import ProductAside from './ProductAside';
 import './ProductList.scss';
@@ -104,27 +105,29 @@ const ProductList = () => {
             <>
               {postList.map(productMenuItem => (
                 <div key={productMenuItem.id} className="productMainPiece">
-                  <div className="productMainPieceImg">
-                    <img
-                      src={productMenuItem.thumbnailImageUrl}
-                      alt={productMenuItem.name}
-                    />
-                  </div>
-                  <div className="productMainPieceProposal">
-                    <div className="proposalCategory">
-                      {productMenuItem.category}
+                  <Link to={`detail/${productMenuItem.id}`}>
+                    <div className="productMainPieceImg">
+                      <img
+                        src={productMenuItem.thumbnailImageUrl}
+                        alt={productMenuItem.name}
+                      />
                     </div>
-                    <div className="proposalMaterial">
-                      {productMenuItem.special}
+                    <div className="productMainPieceProposal">
+                      <div className="proposalCategory">
+                        {productMenuItem.category}
+                      </div>
+                      <div className="proposalMaterial">
+                        {productMenuItem.special}
+                      </div>
+                      <div className="proposalName">{productMenuItem.name}</div>
+                      <div className="proposalGender">
+                        {productMenuItem.gender}
+                      </div>
+                      <div className="proposalPrice">
+                        {priceToString(productMenuItem.price)}원
+                      </div>
                     </div>
-                    <div className="proposalName">{productMenuItem.name}</div>
-                    <div className="proposalGender">
-                      {productMenuItem.gender}
-                    </div>
-                    <div className="proposalPrice">
-                      {priceToString(productMenuItem.price)}원
-                    </div>
-                  </div>
+                  </Link>
                 </div>
               ))}
             </>
