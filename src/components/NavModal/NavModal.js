@@ -1,8 +1,16 @@
 import React from 'react';
 import { BsSearch } from 'react-icons/bs';
+import { useState, useEffect } from 'react';
 import './NavModal.scss';
 
 const NavModal = ({ closeModal, setIsShowing }) => {
+  const [products, setProducts] = useState();
+  const [inputValue, setInputValue] = useState('');
+
+  const onChange = e => {
+    setInputValue(e.target.value);
+  };
+
   const onSubmit = e => {
     e.preventDefault();
   };
@@ -12,6 +20,22 @@ const NavModal = ({ closeModal, setIsShowing }) => {
     e.target.className === 'modal' && setIsShowing(false);
   };
 
+  useEffect(() => {
+    fetch('http://10.58.52.234:3000/products/main', { method: 'GET' })
+      .then(res => res.json())
+      .then(data => setProducts(data));
+  }, []);
+
+  // console.log(products);
+
+  const filtering = () => {
+    return inputValue === ''
+      ? []
+      : products.filter(product =>
+          product.name.toLowerCase().includes(inputValue.toLowerCase())
+        );
+  };
+
   return (
     <div className="searchModal">
       <div className="modal" onClick={handleModal} />
@@ -19,7 +43,13 @@ const NavModal = ({ closeModal, setIsShowing }) => {
         <div className="modalTop">
           <div className="searchFormContainer">
             <div className="formWrapper" onSubmit={onSubmit}>
-              <input type="text" className="searchInput" placeholder="검색" />
+              <input
+                type="text"
+                className="searchInput"
+                placeholder="검색"
+                value={inputValue}
+                onChange={onChange}
+              />
               <button className="searchSubmit">
                 <BsSearch />
               </button>
@@ -29,7 +59,21 @@ const NavModal = ({ closeModal, setIsShowing }) => {
             닫기
           </button>
         </div>
-        <div className="searchResult" />
+        <div className="searchResult">
+          {products &&
+            filtering().map(item => (
+              <div className="productCard" key={item.id}>
+                <div className="productImg">
+                  <img src={item.thumbnailImageUrl} alt={item.name} />
+                </div>
+                <div className="productInfo">
+                  <p>{item.name}</p>
+                  <p>{item.gender}</p>
+                  <span>{item.price}원</span>
+                </div>
+              </div>
+            ))}
+        </div>
         <div className="searchSuggestions">
           <h4>추천 검색어</h4>
           <ul>
