@@ -4,7 +4,12 @@ import React, { useRef } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 
-const CartItem = ({ cartItem, deleteFetch }) => {
+const CartItem = ({
+  cartItem,
+  deleteFetch,
+  setCartTotalPrice,
+  priceToString,
+}) => {
   const {
     stockId,
     productName,
@@ -17,9 +22,7 @@ const CartItem = ({ cartItem, deleteFetch }) => {
     thumbnailImage,
   } = cartItem;
 
-  const priceToString = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
+  setCartTotalPrice(total => total + price);
 
   return (
     <>

@@ -3,7 +3,7 @@ import CartItem from './CartItem';
 import './CartItem.scss';
 
 const CartItemList = props => {
-  const { itemList, deleteFetch } = props;
+  const { itemList, deleteFetch, setCartTotalPrice, priceToString } = props;
   return (
     <div className="cartItem">
       <div className="cartItemWrap">
@@ -12,6 +12,8 @@ const CartItemList = props => {
             key={Date.now() + Math.random()}
             cartItem={cartItem}
             deleteFetch={deleteFetch}
+            setCartTotalPrice={setCartTotalPrice}
+            priceToString={priceToString}
           />
         ))}
       </div>

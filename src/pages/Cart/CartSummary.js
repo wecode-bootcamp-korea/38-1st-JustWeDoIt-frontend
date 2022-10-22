@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { AiFillQuestionCircle } from 'react-icons/ai';
 import './CartSummary.scss';
 
-const CartSummary = () => {
+const CartSummary = props => {
+  const { itemList, cartTotalPrice, priceToString } = props;
   const [isHovered, setIsHovered] = useState(false);
+
+  const deliveryfee = 2500;
 
   const openTooltip = () => {
     setIsHovered(true);
@@ -28,15 +31,15 @@ const CartSummary = () => {
             </div>
           )}
 
-          <dd>000000원</dd>
+          <dd>{priceToString(cartTotalPrice)}원</dd>
         </dl>
         <dl>
           <dt>배송비</dt>
-          <dd>2,500원</dd>
+          <dd>{priceToString(deliveryfee)}원</dd>
         </dl>
         <dl>
           <dt>총 결제 금액</dt>
-          <dd>000000원</dd>
+          <dd>{priceToString(cartTotalPrice + deliveryfee)}원</dd>
         </dl>
         <div className="cartSummaryButton">
           <button>주문 결제</button>
