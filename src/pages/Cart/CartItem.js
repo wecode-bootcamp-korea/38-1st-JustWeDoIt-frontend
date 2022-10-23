@@ -22,7 +22,7 @@ const CartItem = ({
     thumbnailImage,
   } = cartItem;
 
-  setCartTotalPrice(total => total + price);
+  setCartTotalPrice(total => (total += price));
 
   return (
     <>

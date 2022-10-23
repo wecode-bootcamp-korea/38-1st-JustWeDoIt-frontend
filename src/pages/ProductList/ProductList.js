@@ -8,7 +8,7 @@ const ProductList = () => {
 
   const [data, setData] = useState([]);
 
-  fetch('/data/mock.json')
+  fetch('http://10.58.52.114:3000/products/main')
     .then(response => response.json())
     .then(data => setData(data));
 
