@@ -26,8 +26,6 @@ const NavModal = ({ closeModal, setIsShowing }) => {
       .then(data => setProducts(data));
   }, []);
 
-  // console.log(products);
-
   const filtering = () => {
     return inputValue === ''
       ? []
