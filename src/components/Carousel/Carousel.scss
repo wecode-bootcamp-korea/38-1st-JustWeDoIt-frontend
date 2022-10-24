@@ -81,6 +81,7 @@
   background-color: #eee;
 
   &.active {
+    transform: scale(1.2);
     transition: all 0.3s ease-in;
     background-color: #555;
   }
