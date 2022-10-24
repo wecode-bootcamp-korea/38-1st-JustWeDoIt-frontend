@@ -19,7 +19,7 @@ const ProductDetail = () => {
 
   // id에 따른 상품 조회
   useEffect(() => {
-    fetch(`http://10.58.52.234:3000/products/details/?id=${id}`, {
+    fetch(`http://10.58.52.129:3000/products/details/?id=${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -30,10 +30,12 @@ const ProductDetail = () => {
 
   // 장바구니 추가 버튼 fetch 추가 구현 예정
   const onPurchase = () => {
-    validateToken();
-    setShowModal('active');
-    closePurchaseModal();
-    setCartNum(prev => prev + 1);
+    if (selectedSize !== false) {
+      validateToken();
+      setShowModal('active');
+      closePurchaseModal();
+      setCartNum(prev => prev + 1);
+    }
   };
 
   const closePurchaseModal = () => {
@@ -46,6 +48,9 @@ const ProductDetail = () => {
   const SelectSize = e => {
     setSelectedSize(e.target.value);
   };
+
+  // 선택된 사이즈 저장
+  //console.log(selectedSize);
 
   const priceToString = price => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');

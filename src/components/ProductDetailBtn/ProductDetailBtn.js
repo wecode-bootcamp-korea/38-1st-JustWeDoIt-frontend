@@ -20,7 +20,7 @@ const ProductDetaiBtn = ({ size, selectedSize, selected, value }) => {
         name="size"
         disabled={disabled}
         onClick={selectedSize}
-        value={size.size}
+        value={size}
       />
       <label htmlFor="size" ref={selected}>
         {size}
