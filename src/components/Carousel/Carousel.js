@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import './Carousel.scss';
 
 const Carousel = () => {
@@ -106,14 +107,16 @@ const Carousel = () => {
       <div className="slidesWrap" style={style}>
         {mockProducts.map((product, idx) => (
           <div className="slide" key={idx}>
-            <div className="slideImgBox">
-              <img src={product.imgURL} alt={product.name} />
-            </div>
-            <div className="slideProductInfo">
-              <p>{product.name}</p>
-              <p>{product.gender}</p>
-              <span>{product.price}원</span>
-            </div>
+            <Link to={`/detail/${product.id}`}>
+              <div className="slideImgBox">
+                <img src={product.imgURL} alt={product.name} />
+              </div>
+              <div className="slideProductInfo">
+                <p>{product.name}</p>
+                <p>{product.gender}</p>
+                <span>{product.price}원</span>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
