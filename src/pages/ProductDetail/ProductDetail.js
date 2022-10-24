@@ -19,7 +19,7 @@ const ProductDetail = () => {
 
   // id에 따른 상품 조회
   useEffect(() => {
-    fetch(`http://10.58.52.234:3000/products/details/?id=${id}`, {
+    fetch(`http://10.58.52.129:3000/products/details/?id=${id}`, {
       method: 'GET',
     })
       .then(res => res.json())

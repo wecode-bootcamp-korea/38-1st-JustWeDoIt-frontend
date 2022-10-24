@@ -33,7 +33,7 @@ const ProductList = () => {
     if (page !== 1) {
       setOffset(offset => offset + 9);
     }
-    fetch(`http://10.58.52.234:3000/products/main?offset=${offset}&limit=9`)
+    fetch(`http://10.58.52.129:3000/products/main?offset=${offset}&limit=9`)
       .then(response => response.json())
       .then(data => {
         if (data) {
