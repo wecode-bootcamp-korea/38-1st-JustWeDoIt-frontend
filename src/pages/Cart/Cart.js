@@ -8,14 +8,14 @@ const Cart = () => {
   const [cartTotalPrice, setCartTotalPrice] = useState();
 
   useEffect(() => {
-    fetch('http://10.58.52.114:3000/carts/1')
+    //   fetch('http://10.58.52.114:3000/carts/1')
+    //     .then(response => response.json())
+    //     .then(result => setCartItemList(result.data));
+    // }, []);
+    fetch('/data/CartMockData.json')
       .then(response => response.json())
-      .then(result => setCartItemList(result.data));
+      .then(result => setCartItemList(result));
   }, []);
-  // fetch('/data/CartMockData.json')
-  //   .then(response => response.json())
-  //   .then(result => setCartItemList(result));
-  // }, []);
 
   const deleteFetch = id => {
     const newCartItemList = cartItemList.filter(

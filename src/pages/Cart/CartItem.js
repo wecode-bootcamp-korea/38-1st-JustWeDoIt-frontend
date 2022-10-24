@@ -1,5 +1,5 @@
 import Product from 'pages/ProductList/Product/Product';
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
@@ -20,9 +20,15 @@ const CartItem = ({
     special,
     gender,
     thumbnailImage,
+    stockInfo,
   } = cartItem;
+  const [selected, setSelected] = useState(size);
 
-  setCartTotalPrice(total => (total += price));
+  const handleSelect = e => {
+    setSelected(e.target.value);
+  };
+
+  // setCartTotalPrice(total => (total += price));
 
   return (
     <>
@@ -41,7 +47,19 @@ const CartItem = ({
           <div>{category}</div>
           <div>{special}</div>
           <div className="itemHandler">
-            <div>사이즈 : {size}</div>
+            <div>
+              사이즈 :
+              <select onChange={handleSelect} value={selected}>
+                {Object.keys(stockInfo).map(
+                  (stockSize, index) =>
+                    Object.values(stockInfo)[index] !== 0 && (
+                      <option value={stockSize} key={stockSize}>
+                        {stockSize}
+                      </option>
+                    )
+                )}
+              </select>
+            </div>
             <div>수량 : {buyingQuantity}</div>
           </div>
           <div>
