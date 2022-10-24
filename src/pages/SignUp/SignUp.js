@@ -51,12 +51,9 @@ const SignUp = () => {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.message === 'SUCCESS') {
-          localStorage.setItem('token', data.accesstoken);
-          alert('회원가입 성공');
-          // navigate('/signin');
-        } else if (data.message === ' LOGIN_FAIL') {
-          alert('아이디 혹은 비밀번호를 확인해 주세요');
+        // console.log(data);
+        if (data.insertId) {
+          navigate('/signin');
         }
       });
     const token = localStorage.getItem('token');

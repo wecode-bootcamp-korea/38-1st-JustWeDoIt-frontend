@@ -38,8 +38,9 @@ const SignIn = () => {
     })
       .then(response => response.json())
       .then(data => {
+        // console.log(data);
         if (data.message === 'SUCCESS') {
-          localStorage.setItem('token', data.accesstoken);
+          localStorage.setItem('token', data.accessToken);
           alert('로그인 성공');
           navigate('/main');
         } else if (data.message === ' LOGIN_FAIL') {
