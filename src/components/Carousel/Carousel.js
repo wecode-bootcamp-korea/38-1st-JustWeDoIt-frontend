@@ -70,7 +70,6 @@ const Carousel = () => {
       price: '99000',
     },
   ];
-
   const [currentSlide, setCurrentSlide] = useState(0);
   const [style, setStyle] = useState({
     transform: `translateX(-${currentSlide * 25}%)`,
@@ -80,7 +79,7 @@ const Carousel = () => {
   const totalSlides = mockProducts.length;
 
   const nextSlide = () => {
-    if (currentSlide >= totalSlides - 4) {
+    if (currentSlide >= totalSlides - 3) {
       setCurrentSlide(0);
     } else {
       setCurrentSlide(currentSlide + 1);
@@ -97,7 +96,7 @@ const Carousel = () => {
 
   useEffect(() => {
     setStyle({
-      transform: `translateX(-${currentSlide * 25}%)`,
+      transform: `translateX(-${currentSlide * 33.33}%)`,
       transition: 'all 0.3s ease-out',
     });
   }, [currentSlide]);
@@ -113,7 +112,7 @@ const Carousel = () => {
             <div className="slideProductInfo">
               <p>{product.name}</p>
               <p>{product.gender}</p>
-              <span>{product.price}</span>
+              <span>{product.price}원</span>
             </div>
           </div>
         ))}
