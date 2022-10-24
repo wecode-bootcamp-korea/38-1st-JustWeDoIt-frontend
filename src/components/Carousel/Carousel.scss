@@ -64,3 +64,24 @@
 //   margin: 0 auto;
 //   padding: 40px 30px;
 // }
+
+.bullets {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.bullet {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  transition: all 0.3s ease-in;
+  border-radius: 100%;
+  background-color: #eee;
+
+  &.active {
+    transition: all 0.3s ease-in;
+    background-color: #555;
+  }
+}

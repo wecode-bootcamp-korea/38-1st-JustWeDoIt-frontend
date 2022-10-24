@@ -9,7 +9,7 @@ const Carousel = () => {
     {
       id: 1,
       imgURL:
-        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmlrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
       name: '나이키 에어포스',
       gender: '남성신발',
       price: '99000',
@@ -17,7 +17,7 @@ const Carousel = () => {
     {
       id: 2,
       imgURL:
-        'https://images.unsplash.com/photo-1579298245158-33e8f568f7d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bmlrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNob2VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
       name: '나이키 에어포스',
       gender: '남성신발',
       price: '99000',
@@ -25,7 +25,7 @@ const Carousel = () => {
     {
       id: 3,
       imgURL:
-        'https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bmlrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1611510338559-2f463335092c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTB8fHNob2VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
       name: '나이키 에어포스',
       gender: '남성신발',
       price: '99000',
@@ -33,7 +33,7 @@ const Carousel = () => {
     {
       id: 4,
       imgURL:
-        'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
       name: '나이키 에어포스',
       gender: '남성신발',
       price: '99000',
@@ -41,7 +41,7 @@ const Carousel = () => {
     {
       id: 5,
       imgURL:
-        'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1605408499391-6368c628ef42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDN8fG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
       name: '나이키 에어포스',
       gender: '남성신발',
       price: '99000',
@@ -49,7 +49,7 @@ const Carousel = () => {
     {
       id: 6,
       imgURL:
-        'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1579338908476-3a3a1d71a706?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODF8fG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
       name: '나이키 에어포스',
       gender: '남성신발',
       price: '99000',
@@ -57,7 +57,7 @@ const Carousel = () => {
     {
       id: 7,
       imgURL:
-        'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1602231379593-b85a472e3c99?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTU0fHxuaWtlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
       name: '나이키 에어포스',
       gender: '남성신발',
       price: '99000',
@@ -65,7 +65,15 @@ const Carousel = () => {
     {
       id: 8,
       imgURL:
-        'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTc0fHxuaWtlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+      name: '나이키 에어포스',
+      gender: '남성신발',
+      price: '99000',
+    },
+    {
+      id: 9,
+      imgURL:
+        'https://images.unsplash.com/photo-1626379616459-b2ce1d9decbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTc0fHxuaWtlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
       name: '나이키 에어포스',
       gender: '남성신발',
       price: '99000',
@@ -73,14 +81,16 @@ const Carousel = () => {
   ];
   const [currentSlide, setCurrentSlide] = useState(0);
   const [style, setStyle] = useState({
-    transform: `translateX(-${currentSlide * 25}%)`,
+    transform: `translateX(-${currentSlide * 100}%)`,
     transition: 'all 0.3s ease-out',
   });
+
+  const bulletArr = new Array(Math.ceil(mockProducts.length / 3));
 
   const totalSlides = mockProducts.length;
 
   const nextSlide = () => {
-    if (currentSlide >= totalSlides - 3) {
+    if (currentSlide >= Math.floor(totalSlides / 3 - 1)) {
       setCurrentSlide(0);
     } else {
       setCurrentSlide(currentSlide + 1);
@@ -97,7 +107,7 @@ const Carousel = () => {
 
   useEffect(() => {
     setStyle({
-      transform: `translateX(-${currentSlide * 33.33}%)`,
+      transform: `translateX(-${currentSlide}00%)`,
       transition: 'all 0.3s ease-out',
     });
   }, [currentSlide]);
@@ -128,6 +138,19 @@ const Carousel = () => {
         <button className="nextBtn" onClick={nextSlide}>
           <BsChevronRight />
         </button>
+      </div>
+
+      <div className="bullets">
+        <ul>
+          {bulletArr.fill(0).map((li, idx) => (
+            <li
+              key={idx}
+              className={currentSlide === idx ? 'bullet active' : 'bullet'}
+            >
+              <span />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
