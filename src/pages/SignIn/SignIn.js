@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SiNike } from 'react-icons/si';
 import InputLabel from 'components/Auth/Input/InputLabel';
 import InputPw from 'components/Auth/Input/InputPw';
 import './SignIn.scss';
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const [inputSet, setInputSet] = useState({
     email: '',
     password: '',
@@ -25,7 +26,7 @@ const SignIn = () => {
     }
   };
   const clickSignIn = () => {
-    fetch('http://10.58.52.77:3000/users/signin', {
+    fetch('http://10.58.52.93:3000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -38,9 +39,12 @@ const SignIn = () => {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'SUCCESS') {
-          localStorage.setItem('token', data.accessToken);
+          localStorage.setItem('token', data.accesstoken);
           alert('로그인 성공');
+          navigate('/main');
         } else if (data.message === ' LOGIN_FAIL') {
+          alert('아이디 혹은 비밀번호를 확인해 주세요');
+        } else if (data.message === 'INVALID_PASSWORD') {
           alert('아이디 혹은 비밀번호를 확인해 주세요');
         }
       });

@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SiNike } from 'react-icons/si';
 import InputLabel from 'components/Auth/Input/InputLabel';
 import InputPw from 'components/Auth/Input/InputPw';
 import './SignUp.scss';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [inputSet, setInputSet] = useState({
     email: '',
     userName: '',
     password: '',
   });
-  console.log(inputSet);
   const [dateCollect, setDateCollect] = useState({
     birthday: '',
     lastNumber: '',
@@ -36,7 +36,7 @@ const SignUp = () => {
   };
 
   const clickSignUp = () => {
-    fetch('http://10.58.52.77:3000/users/signup', {
+    fetch('http://10.58.52.93:3000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -52,8 +52,9 @@ const SignUp = () => {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'SUCCESS') {
-          localStorage.setItem('token', data.accessToken);
-          alert('로그인 성공');
+          localStorage.setItem('token', data.accesstoken);
+          alert('회원가입 성공');
+          // navigate('/signin');
         } else if (data.message === ' LOGIN_FAIL') {
           alert('아이디 혹은 비밀번호를 확인해 주세요');
         }
