@@ -16,6 +16,12 @@ const ProductList = () => {
 
   const [offset, setOffset] = useState(0);
 
+  const [visible, setVisible] = useState(true);
+
+  const productAsideVisible = () => {
+    setVisible(!visible);
+  };
+
   const priceToString = price => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
@@ -33,7 +39,7 @@ const ProductList = () => {
     if (page !== 1) {
       setOffset(offset => offset + 9);
     }
-    fetch(`http://10.58.52.234:3000/products/main?offset=${offset}&limit=9`)
+    fetch(`http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9}`)
       .then(response => response.json())
       .then(data => {
         if (data) {
@@ -60,6 +66,44 @@ const ProductList = () => {
     e.target.className !== 'slideDropdown' && setDropdownShown(false);
   };
 
+  // 파라미터 값 넣는 식
+  const [form, setForm] = useState({
+    size: [],
+    price: [],
+    gender: [],
+    special: [],
+    headerFilter: [],
+  });
+
+  const newForm = { ...form };
+
+  const isOnclick = e => {
+    if (e.target.checked === true) {
+      newForm[e.target.name].pop(e.target.value);
+      newForm[e.target.name].push(e.target.value);
+      setForm(newForm);
+    }
+    console.log(form);
+  };
+
+  const onclick = e => {
+    for (let key in form) {
+      if (e.target.checked === true && e.target.name === key) {
+        newForm[e.target.name].push(e.target.value);
+        setForm(newForm);
+      } else if (e.target.checked === false && e.target.name === key) {
+        for (let i = 0; i < newForm[e.target.name].length; i++) {
+          if (newForm[e.target.name][i] === e.target.value) {
+            newForm[e.target.name].splice(i, 1);
+            setForm(newForm);
+          }
+        }
+      }
+    }
+    console.log(e.target.value);
+    console.log(form);
+  };
+
   return (
     <main className="main">
       <header className="header">
@@ -68,7 +112,7 @@ const ProductList = () => {
         </div>
         <div className="headerRight">
           <div className="headerRightFilter">
-            <button>
+            <button onClick={productAsideVisible}>
               <span>필터 숨기기: </span>
               <BiFilter />
             </button>
@@ -87,10 +131,36 @@ const ProductList = () => {
             </button>
             <Dropdown isOpen={dropdownShown} modalOff={modalOff}>
               <ul>
-                <li>추천순</li>
-                <li>최신순</li>
-                <li>높은 가격순</li>
-                <li>낮은 가격순</li>
+                <li>
+                  <input
+                    type="radio"
+                    name="headerFilter"
+                    value="recent"
+                    id="recent"
+                    onClick={isOnclick}
+                  />
+                  <label htmlFor="recent">최신순</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="headerFilter"
+                    value="heightPrice"
+                    id="heightPrice"
+                    onClick={isOnclick}
+                  />
+                  <label htmlFor="heightPrice">높은 가격순</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="headerFilter"
+                    value="lowPrice"
+                    id="lowPrice"
+                    onClick={isOnclick}
+                  />
+                  <label htmlFor="lowPrice">낮은 가격순</label>
+                </li>
               </ul>
             </Dropdown>
           </div>
@@ -98,7 +168,9 @@ const ProductList = () => {
       </header>
       <div className="productTotal">
         <div className="productAside">
-          <ProductAside className="productAsideAccordion" />
+          {visible && (
+            <ProductAside className="productAsideAccordion" form={onclick} />
+          )}
         </div>
         <div className="productMain">
           {postList && (

@@ -46,6 +46,10 @@
         justify-content: center;
 
         ul {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
           padding: 15px;
           border: 1px solid lightgray;
           border-radius: 15px;
@@ -53,8 +57,39 @@
           list-style: none;
         }
 
-        li {
-          margin: 13px;
+        // li {
+        //   margin: 13px;
+        // }
+
+        input[type='radio'] {
+          position: absolute;
+          left: -9999px;
+          width: 0;
+          height: 0;
+        }
+
+        input[type='radio'] + label {
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0.75em 1.5em;
+          transition: border-color 0.15s ease-out, color 0.25s ease-out,
+            background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+          border-radius: 5px;
+          background-color: #fff;
+          box-shadow: 0 0 0 black;
+          font-size: 13px;
+          line-height: 140%;
+          text-align: center;
+          cursor: pointer;
+        }
+
+        input[type='radio']:checked + label {
+          z-index: 1;
+          border-color: white;
+          background-color: whitesmoke;
+          color: black;
         }
 
         button {
@@ -78,7 +113,7 @@
 
         .slideDrop {
           position: absolute;
-          top: 80px;
+          top: 40px;
           overflow: hidden;
 
           & > ul {
