@@ -27,7 +27,7 @@ const CartItem = ({
   const handleSelect = e => {
     setSelected(e.target.value);
   };
-
+  console.log(cartItem);
   // setCartTotalPrice(total => (total += price));
 
   return (
@@ -50,11 +50,11 @@ const CartItem = ({
             <div>
               사이즈 :
               <select onChange={handleSelect} value={selected}>
-                {Object.keys(stockInfo).map(
-                  (stockSize, index) =>
-                    Object.values(stockInfo)[index] !== 0 && (
-                      <option value={stockSize} key={stockSize}>
-                        {stockSize}
+                {Object.entries(stockInfo).map(
+                  ([productSize, productStock], index) =>
+                    productStock !== 0 && (
+                      <option value={productSize} key={productSize}>
+                        {productSize}
                       </option>
                     )
                 )}

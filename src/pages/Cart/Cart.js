@@ -30,7 +30,7 @@ const Cart = () => {
   const priceToString = price => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
-
+  console.log(cartItemList);
   return (
     <div>
       <main className="cartWrap">
