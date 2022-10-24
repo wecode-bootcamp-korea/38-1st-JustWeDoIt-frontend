@@ -5,7 +5,6 @@ import './Main.scss';
 
 const Main = () => {
   const [mainData, setMainData] = useState([]);
-  // const navigate = useNavigate();
 
   fetch('/data/mainData.json')
     .then(response => response.json())
@@ -27,7 +26,6 @@ const Main = () => {
               <p className="mainText2">{data.mainText2}</p>
               <button> 구매하기</button>
             </div>
-            {/* </a> */}
           </div>
         </Link>
       ))}
