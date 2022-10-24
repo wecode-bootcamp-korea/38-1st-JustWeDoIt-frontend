@@ -3,7 +3,7 @@ import { AiFillQuestionCircle } from 'react-icons/ai';
 import './CartSummary.scss';
 
 const CartSummary = props => {
-  const { cartTotalPrice } = props;
+  const { totalPrice, priceToString } = props;
   const [isHovered, setIsHovered] = useState(false);
 
   const deliveryfee = 2500;
@@ -31,15 +31,15 @@ const CartSummary = props => {
             </div>
           )}
 
-          <dd>원</dd>
+          <dd>{priceToString(totalPrice)}원</dd>
         </dl>
         <dl>
           <dt>배송비</dt>
-          <dd>{deliveryfee}원</dd>
+          <dd>{priceToString(deliveryfee)}원</dd>
         </dl>
         <dl>
           <dt>총 결제 금액</dt>
-          <dd>원</dd>
+          <dd>{priceToString(deliveryfee + totalPrice)}원</dd>
         </dl>
         <div className="cartSummaryButton">
           <button>주문 결제</button>

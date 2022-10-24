@@ -1,5 +1,5 @@
 import Product from 'pages/ProductList/Product/Product';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
@@ -7,10 +7,11 @@ import { BsTrash } from 'react-icons/bs';
 const CartItem = ({
   cartItem,
   deleteFetch,
-  setCartTotalPrice,
   priceToString,
+  setCartItemList,
 }) => {
   const {
+    cartId,
     stockId,
     productName,
     price,
@@ -22,14 +23,48 @@ const CartItem = ({
     thumbnailImage,
     stockInfo,
   } = cartItem;
-  const [selected, setSelected] = useState(size);
+  const [sizeSelected, setSizeSelected] = useState(size);
+  const [stockSelected, setStockSelected] = useState(buyingQuantity);
 
-  const handleSelect = e => {
-    setSelected(e.target.value);
+  // useEffect(() => {
+  //   fetch('http://10.58.52.246:3000/carts/1', {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       cartId: cartId,
+  //       buyingQuantity: stockSelected,
+  //       stockId: stockId,
+  //     }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(result => setCartItemList(result.data));
+  // }, []);
+
+  const sizeStockHandler = e => {
+    e.target.className === 'sizeSelector'
+      ? setSizeSelected(Number(e.target.value))
+      : setStockSelected(Number(e.target.value));
+
+    console.log(stockSelected);
+    console.log(sizeSelected);
+    fetch('http://10.58.52.246:3000/carts/1', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        cartId: cartId,
+        buyingQuantity: stockSelected,
+        stockId: stockId,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => setCartItemList(result.data));
   };
-  console.log(cartItem);
-  // setCartTotalPrice(total => (total += price));
-
+  console.log(stockSelected);
+  console.log(sizeSelected);
   return (
     <>
       <div className="cartItemContainer">
@@ -49,7 +84,11 @@ const CartItem = ({
           <div className="itemHandler">
             <div>
               사이즈 :
-              <select onChange={handleSelect} value={selected}>
+              <select
+                className="sizeSelector"
+                onChange={sizeStockHandler}
+                value={sizeSelected}
+              >
                 {Object.entries(stockInfo).map(
                   ([productSize, productStock], index) =>
                     productStock !== 0 && (
@@ -58,17 +97,32 @@ const CartItem = ({
                       </option>
                     )
                 )}
+                {/* {sizeArr.map(
+                  (productSize, index) =>
+                    stockArr[index] !== 0 && (
+                      <option value={productSize} key={productSize}>
+                        {productSize}
+                      </option>
+                    )
+                )} */}
               </select>
             </div>
             <div>
-              수량 :{' '}
-              <select onChange={handleSelect} value={selected}>
-                {Object.entries(stockInfo).map(
-                  ([productSize, productStock], index) =>
-                    productStock !== 0 && (
-                      <option value={productSize} key={productSize}></option>
-                    )
-                )}
+              수량 :
+              <select
+                className="stockSelector"
+                onChange={sizeStockHandler}
+                value={stockSelected}
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
               </select>
             </div>
           </div>
@@ -84,7 +138,7 @@ const CartItem = ({
           </div>
         </div>
         <div className="cartItemRightWrap">
-          <span>{priceToString(price)}원</span>
+          <span>{priceToString(price * stockSelected)}원</span>
         </div>
       </div>
       <div className="cartItemFooter">
