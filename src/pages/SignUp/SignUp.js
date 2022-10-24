@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SiNike } from 'react-icons/si';
 import InputLabel from 'components/Auth/Input/InputLabel';
-import InputPw from 'components/Auth/Input/InputPw';
+import InputPassword from 'components/Auth/Input/InputPassword';
 import './SignUp.scss';
 
 const SignUp = () => {
@@ -29,7 +29,7 @@ const SignUp = () => {
     inputSet.email.lastIndexOf('.') < inputSet.email.length - 1 &&
     inputSet.email.lastIndexOf('.') - inputSet.email.lastIndexOf('@') > 1;
 
-  const enterPw = e => {
+  const enterPassword = e => {
     if (e.key === 'Enter') {
       clickSignUp();
     }
@@ -70,7 +70,7 @@ const SignUp = () => {
           <InputLabel
             name="email"
             saveInputSet={saveInputSet}
-            enterPw={enterPw}
+            enterPassword={enterPassword}
             inputSet={inputSet}
             isEmailOkay={isEmailOkay}
             // innerInputText="이메일"
@@ -79,18 +79,18 @@ const SignUp = () => {
           <InputLabel
             name="userName"
             saveInputSet={saveInputSet}
-            enterPw={enterPw}
+            enterPassword={enterPassword}
             inputSet={inputSet}
             isEmailOkay={isEmailOkay}
             // innerInputText="이름"
             placeholder="이름"
           />
 
-          <InputPw
+          <InputPassword
             id="up"
             name="password"
             saveInputSet={saveInputSet}
-            enterPw={enterPw}
+            enterPassword={enterPassword}
             inputSet={inputSet}
             // innerInputText="비밀번호"
             placeholder="비밀번호"
@@ -103,7 +103,7 @@ const SignUp = () => {
                 placeholder="생년월일"
                 value={dateCollect.birthday}
                 onChange={saveDateCollect}
-                onKeyPress={enterPw}
+                onKeyPress={enterPassword}
                 minLength="6"
                 maxLength="6"
               />
@@ -116,7 +116,7 @@ const SignUp = () => {
                 // placeholder="?"
                 value={dateCollect.lastNumber}
                 onChange={saveDateCollect}
-                onKeyPress={enterPw}
+                onKeyPress={enterPassword}
                 maxLength="1"
               />
             </div>

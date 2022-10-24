@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SiNike } from 'react-icons/si';
 import InputLabel from 'components/Auth/Input/InputLabel';
-import InputPw from 'components/Auth/Input/InputPw';
+import InputPassword from 'components/Auth/Input/InputPassword';
 import './SignIn.scss';
 
 const SignIn = () => {
@@ -20,7 +20,7 @@ const SignIn = () => {
     inputSet.email.lastIndexOf('.') < inputSet.email.length - 1 &&
     inputSet.email.lastIndexOf('.') - inputSet.email.lastIndexOf('@') > 1;
 
-  const enterPw = e => {
+  const enterPassword = e => {
     if (e.key === 'Enter') {
       clickSignIn();
     }
@@ -62,18 +62,18 @@ const SignIn = () => {
           <InputLabel
             name="email"
             saveInputSet={saveInputSet}
-            enterPw={enterPw}
+            enterPassword={enterPassword}
             inputSet={inputSet}
             type="email"
             isEmailOkay={isEmailOkay}
             // innerInputText="이메일"
           />
 
-          <InputPw
+          <InputPassword
             id="in"
             name="password"
             saveInputSet={saveInputSet}
-            enterPw={enterPw}
+            enterPassword={enterPassword}
             inputSet={inputSet}
             innerInputText="비밀번호"
           />
