@@ -57,7 +57,6 @@ const Cart = () => {
           </div>
         </div>
       </main>
-      <Carousel />
     </div>
   );
 };
