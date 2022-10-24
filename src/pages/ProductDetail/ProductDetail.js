@@ -89,15 +89,18 @@ const ProductDetail = () => {
                   <span>사이즈 선택</span>
                 </div>
                 <div className="sizeOptions">
-                  {Object.keys(product.sizeStock[0]).map((size, index) => (
-                    <ProductDetailBtn
-                      value={Object.values(product.sizeStock[0])[index]}
-                      key={index}
-                      size={size}
-                      selectedSize={SelectSize}
-                      selected={selected}
-                    />
-                  ))}
+                  {Object.entries(product.sizeStock[0]).map((stock, index) => {
+                    const [size, value] = stock;
+                    return (
+                      <ProductDetailBtn
+                        value={value}
+                        key={index}
+                        size={size}
+                        selectedSize={SelectSize}
+                        selected={selected}
+                      />
+                    );
+                  })}
                 </div>
                 <div className="productBtnGroup">
                   <button onClick={onPurchase}>장바구니</button>
