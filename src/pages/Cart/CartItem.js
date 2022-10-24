@@ -60,7 +60,17 @@ const CartItem = ({
                 )}
               </select>
             </div>
-            <div>수량 : {buyingQuantity}</div>
+            <div>
+              수량 :{' '}
+              <select onChange={handleSelect} value={selected}>
+                {Object.entries(stockInfo).map(
+                  ([productSize, productStock], index) =>
+                    productStock !== 0 && (
+                      <option value={productSize} key={productSize}></option>
+                    )
+                )}
+              </select>
+            </div>
           </div>
           <div>
             <ul>
