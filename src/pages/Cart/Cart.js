@@ -3,6 +3,7 @@ import { AiOutlineHeart, AiFillQuestionCircle } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 import CartItem from './CartItem';
 import './Cart.scss';
+import Carousel from 'components/Carousel/Carousel';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
@@ -56,6 +57,7 @@ const Cart = () => {
           </div>
         </div>
       </main>
+      <Carousel />
     </div>
   );
 };
