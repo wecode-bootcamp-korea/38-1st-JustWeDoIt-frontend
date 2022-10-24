@@ -10,6 +10,21 @@ import './Nav.scss';
 const Nav = () => {
   const [isShowing, setIsShowing] = useState(false);
 
+  const navList = [
+    { id: 1, list: 'All' },
+    { id: 2, list: 'Lifestyle' },
+    { id: 3, list: 'Jordan' },
+    {
+      id: 4,
+      list: 'Running',
+    },
+    { id: 5, list: 'Basketball' },
+    {
+      id: 6,
+      list: 'Soccer',
+    },
+  ];
+
   const openModal = () => {
     setIsShowing(true);
   };
@@ -28,11 +43,11 @@ const Nav = () => {
         </div>
         <nav className="nav">
           <ul>
-            <li>Lifestyle</li>
-            <li>Jordan</li>
-            <li>Running</li>
-            <li>BasketBall</li>
-            <li>Soccer</li>
+            {navList.map(list => (
+              <li key={list.id}>
+                <Link>{list.list}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <div className="btnGroup">
