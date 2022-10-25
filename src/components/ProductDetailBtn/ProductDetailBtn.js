@@ -1,6 +1,6 @@
 import React from 'react';
-import './ProductDetailBtn.scss';
 import { useState, useEffect } from 'react';
+import './ProductDetailBtn.scss';
 
 const ProductDetaiBtn = ({ size, selectedSize, selected, value }) => {
   const [disabled, setDisabled] = useState(false);

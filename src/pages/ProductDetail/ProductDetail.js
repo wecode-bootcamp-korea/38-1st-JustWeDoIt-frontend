@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BsHeart } from 'react-icons/bs';
+import { priceToString } from 'utils/utilFunc';
 import ProductDetailBtn from 'components/ProductDetailBtn/ProductDetailBtn';
 import AccordianMenu from 'components/ProductAccordianMenu/AccordianMenu/AccordianMenu';
 import PurchaseModal from 'components/PurchaseModal/PurchaseModal';
@@ -14,10 +15,14 @@ const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState(null);
   const navigate = useNavigate();
   const selected = useRef();
-
   const { id } = useParams();
+  const accessToken = localStorage.getItem('token') ?? '';
 
-  // id에 따른 상품 조회
+  const navigateUnauthUser = () => {
+    navigate('/signin');
+    return;
+  };
+
   useEffect(() => {
     fetch(`http://10.58.52.129:3000/products/details/?id=${id}`, {
       method: 'GET',
@@ -28,44 +33,28 @@ const ProductDetail = () => {
       });
   }, []);
 
-  // 장바구니 추가 버튼 fetch 추가 구현 예정
   const onPurchase = () => {
-    if (selectedSize !== false) {
-      validateToken();
-      setShowModal('active');
-      closePurchaseModal();
-      setCartNum(prev => prev + 1);
-    }
+    if (!accessToken) return navigateUnauthUser();
+
+    fetch(`http://10.58.52.214:3000/carts/1`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        size: selectedSize,
+        productId: product.productId,
+      }),
+    }).then(res => res.json());
+    setShowModal('active');
+    closePurchaseModal();
+    setCartNum(prev => prev + 1);
   };
 
   const closePurchaseModal = () => {
     setTimeout(() => {
       setShowModal('closed');
     }, 2750);
-  };
-
-  // size 클릭
-  const SelectSize = e => {
-    setSelectedSize(e.target.value);
-  };
-
-  // 선택된 사이즈 저장
-  //console.log(selectedSize);
-
-  const priceToString = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
-  const validateToken = () => {
-    if (
-      localStorage.getItem('token') === '' ||
-      localStorage.getItem('token') === null
-    ) {
-      alert('먼저 로그인 해주세요.');
-      navigate('/signin');
-    } else {
-      return;
-    }
   };
 
   return (
@@ -94,14 +83,14 @@ const ProductDetail = () => {
                   <span>사이즈 선택</span>
                 </div>
                 <div className="sizeOptions">
-                  {Object.entries(product.sizeStock[0]).map((stock, index) => {
+                  {Object.entries(product.sizeStock[0]).map(stock => {
                     const [size, value] = stock;
                     return (
                       <ProductDetailBtn
                         value={value}
-                        key={index}
+                        key={size}
                         size={size}
-                        selectedSize={SelectSize}
+                        selectedSize={selectedSize}
                         selected={selected}
                       />
                     );
@@ -117,6 +106,8 @@ const ProductDetail = () => {
                   showModal={showModal}
                   setShowModal={setShowModal}
                   cartNum={cartNum}
+                  product={product}
+                  selectedSize={selectedSize}
                 />
                 <AccordianMenu />
               </div>

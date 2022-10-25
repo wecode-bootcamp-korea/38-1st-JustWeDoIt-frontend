@@ -20,7 +20,7 @@ const ProductList = () => {
       .then(item => setProductMain(item));
   }, []);
 
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     fetch('/data/products.json')
