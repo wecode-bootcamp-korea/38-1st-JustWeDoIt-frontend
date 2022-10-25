@@ -1,5 +1,6 @@
 import Product from 'pages/ProductList/Product/Product';
-import React, { useEffect, useState } from 'react';
+import React, { useRef } from 'react';
+import { priceToString } from 'utils/utilFunc';
 
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';

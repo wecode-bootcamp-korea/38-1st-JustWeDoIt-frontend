@@ -1,0 +1,60 @@
+.wrapper {
+  position: sticky;
+  top: 120px;
+
+  .accordion {
+    width: 200px;
+
+    .item {
+      margin-bottom: 5px;
+      padding: 10px 20px;
+
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid lightgray;
+        color: black;
+        cursor: pointer;
+
+        div {
+          padding-top: 15px;
+          color: black;
+          font-size: 16px;
+          font-weight: 400;
+        }
+
+        span {
+          padding-top: 15px;
+        }
+      }
+
+      .content {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0, 1, 0, 1);
+
+        .listCheckbox {
+          margin-right: 10px;
+        }
+
+        .contentPadding:first-child {
+          padding-top: 15px;
+        }
+      }
+      .content.show {
+        height: auto;
+        max-height: 9999px;
+        transition: all 0.4s cubic-bezier(1, 0, 1, 0);
+
+        .listCheckbox {
+          margin-right: 10px;
+        }
+
+        .contentPadding:first-child {
+          padding-top: 15px;
+        }
+      }
+    }
+  }
+}

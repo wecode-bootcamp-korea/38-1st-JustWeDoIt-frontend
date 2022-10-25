@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AiFillQuestionCircle } from 'react-icons/ai';
+import { priceToString } from 'utils/utilFunc';
 import './CartSummary.scss';
 
 const CartSummary = props => {
