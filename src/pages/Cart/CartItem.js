@@ -47,9 +47,12 @@ const CartItem = ({
       ? setSizeSelected(Number(e.target.value))
       : setStockSelected(Number(e.target.value));
 
-    console.log(stockSelected);
+    updateFetch();
     console.log(sizeSelected);
-    fetch('http://10.58.52.246:3000/carts/1', {
+  };
+  console.log(sizeSelected);
+  const updateFetch = () => {
+    fetch('http://10.58.52.214:3000/carts/1', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -58,13 +61,12 @@ const CartItem = ({
         cartId: cartId,
         buyingQuantity: stockSelected,
         stockId: stockId,
+        newSize: sizeSelected,
       }),
     })
       .then(response => response.json())
       .then(result => setCartItemList(result.data));
   };
-  console.log(stockSelected);
-  console.log(sizeSelected);
   return (
     <>
       <div className="cartItemContainer">
@@ -90,7 +92,7 @@ const CartItem = ({
                 value={sizeSelected}
               >
                 {Object.entries(stockInfo).map(
-                  ([productSize, productStock], index) =>
+                  ([productSize, productStock]) =>
                     productStock !== 0 && (
                       <option value={productSize} key={productSize}>
                         {productSize}
@@ -123,6 +125,7 @@ const CartItem = ({
                 <option>7</option>
                 <option>8</option>
                 <option>9</option>
+                <option>10</option>
               </select>
             </div>
           </div>
