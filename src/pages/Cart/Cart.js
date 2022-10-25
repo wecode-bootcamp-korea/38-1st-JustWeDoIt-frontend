@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CartItemList from './CartItemList';
+import CartList from './CartList';
 import CartSummary from './CartSummary';
 import './Cart.scss';
 
@@ -33,7 +33,7 @@ const Cart = () => {
         <div className="cartView">
           <div className="cartBodyWrap">
             <h4>장바구니</h4>
-            <CartItemList
+            <CartList
               itemList={cartItemList}
               deleteFetch={deleteFetch}
               setCartItemList={setCartItemList}

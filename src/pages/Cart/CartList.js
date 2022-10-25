@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import CartItem from './CartItem';
 import './CartItem.scss';
 
-const CartItemList = props => {
+const CartList = props => {
   const { itemList, deleteFetch, priceToString, setCartItemList } = props;
   return (
     <div className="cartItem">
@@ -21,4 +21,4 @@ const CartItemList = props => {
   );
 };
 
-export default CartItemList;
+export default CartList;
