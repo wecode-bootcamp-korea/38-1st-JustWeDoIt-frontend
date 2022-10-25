@@ -85,14 +85,6 @@ const CartItem = ({ cartItem, deleteFetch, setCartItemList }) => {
                       </option>
                     )
                 )}
-                {/* {sizeArr.map(
-                  (productSize, index) =>
-                    stockArr[index] !== 0 && (
-                      <option value={productSize} key={productSize}>
-                        {productSize}
-                      </option>
-                    )
-                )} */}
               </select>
             </div>
             <div>
@@ -102,16 +94,11 @@ const CartItem = ({ cartItem, deleteFetch, setCartItemList }) => {
                 onChange={sizeStockChange}
                 value={stockSelected}
               >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
+                {Array(10)
+                  .fill()
+                  .map((v, i) => (
+                    <option>{i + 1}</option>
+                  ))}
               </select>
             </div>
           </div>

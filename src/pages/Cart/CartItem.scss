@@ -19,7 +19,8 @@
 
     select {
       border: none;
-      color: gray
+      color: gray;
+      cursor: pointer;
     }
 
     div {
@@ -31,6 +32,7 @@
         color: black;
         font-size: 30px;
         font-weight: 250;
+        cursor: pointer;
 
         svg {
           margin: 10px;
