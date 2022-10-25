@@ -1,9 +1,17 @@
 import React from 'react';
+import './Input.scss';
 
-const Input = () => {
+const Input = props => {
+  const { name, saveInputSet, enterPassword } = props;
+
   return (
     <div>
-      <input />
+      <input
+        className={`baseInput ${name}`}
+        name={name}
+        onChange={saveInputSet}
+        onKeyPress={enterPassword}
+      />
     </div>
   );
 };

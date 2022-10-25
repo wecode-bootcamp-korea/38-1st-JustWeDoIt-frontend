@@ -1,0 +1,25 @@
+.controlHeight {
+  width: 100%;
+  height: 84px;
+  .inputControlSet {
+    position: relative;
+    .inpuTag {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-100%);
+      transition: 300ms all ease-in-out;
+    }
+    .innerInputText {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      transition: 300ms all ease-in-out;
+      &.focused {
+        top: 0;
+        transform: translateY(0);
+      }
+    }
+  }
+}
