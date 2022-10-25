@@ -57,10 +57,6 @@
           list-style: none;
         }
 
-        // li {
-        //   margin: 13px;
-        // }
-
         input[type='radio'] {
           position: absolute;
           left: -9999px;
@@ -90,6 +86,10 @@
           border-color: white;
           background-color: whitesmoke;
           color: black;
+        }
+
+        input[type='radio']:hover + label {
+          color: lightgray;
         }
 
         button {
@@ -139,6 +139,11 @@
     .productAside {
       position: relative;
       padding-right: 30px;
+
+      .productAsideAccordion {
+        .contentPadding {
+        }
+      }
     }
 
     .productMain {

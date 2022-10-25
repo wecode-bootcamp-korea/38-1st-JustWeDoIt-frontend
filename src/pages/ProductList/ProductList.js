@@ -39,7 +39,7 @@ const ProductList = () => {
     if (page !== 1) {
       setOffset(offset => offset + 9);
     }
-    fetch(`http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9}`)
+    fetch(`http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9`)
       .then(response => response.json())
       .then(data => {
         if (data) {
@@ -50,10 +50,12 @@ const ProductList = () => {
   }, [page]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(obsHandler, { threshold: 0.5 });
-    if (obsRef.current) observer.observe(obsRef.current);
+    const productListobserver = new IntersectionObserver(obsHandler, {
+      threshold: 0.5,
+    });
+    if (obsRef.current) productListobserver.observe(obsRef.current);
     return () => {
-      observer.disconnect();
+      productListobserver.disconnect();
     };
   }, []);
 
@@ -75,6 +77,8 @@ const ProductList = () => {
     headerFilter: [],
   });
 
+  console.log(form);
+
   const newForm = { ...form };
 
   const isOnclick = e => {
@@ -83,7 +87,6 @@ const ProductList = () => {
       newForm[e.target.name].push(e.target.value);
       setForm(newForm);
     }
-    console.log(form);
   };
 
   const onclick = e => {
@@ -100,8 +103,6 @@ const ProductList = () => {
         }
       }
     }
-    console.log(e.target.value);
-    console.log(form);
   };
 
   return (
@@ -145,7 +146,7 @@ const ProductList = () => {
                   <input
                     type="radio"
                     name="headerFilter"
-                    value="heightPrice"
+                    value="highPrice"
                     id="heightPrice"
                     onClick={isOnclick}
                   />
