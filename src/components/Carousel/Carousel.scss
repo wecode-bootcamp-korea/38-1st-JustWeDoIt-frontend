@@ -1,3 +1,11 @@
+@import 'src/styles/mixin';
+
+.carousel {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
 .slidesContainer {
   position: relative;
   padding: 40px 0;
@@ -40,10 +48,9 @@
 }
 
 .slidesBtn {
-  display: flex;
+  @include flexContainer(start, between);
   position: absolute;
   top: 45%;
-  justify-content: space-between;
   width: 100%;
   transform: translateY(-50%);
 
@@ -57,17 +64,8 @@
   }
 }
 
-// 상세페이지, 장바구니 하단에 recommendContainer 라는 클래스네임을 가진 div 안에 스타일을 적용해주세요
-
-// .recommendContainer {
-//   width: 1200px;
-//   margin: 0 auto;
-//   padding: 40px 30px;
-// }
-
 .bullets {
-  display: flex;
-  justify-content: center;
+  @include flexContainer(start, center);
   margin-top: 40px;
 }
 
