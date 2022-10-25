@@ -18,56 +18,6 @@ const ProductList = () => {
 
   const [visible, setVisible] = useState(true);
 
-  const productAsideVisible = () => {
-    setVisible(!visible);
-  };
-
-  const priceToString = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
-  const obsHandler = entries => {
-    const target = entries[0];
-    if (target.isIntersecting && preventRef.current) {
-      preventRef.current = false;
-      setPage(prev => prev + 1);
-    }
-  };
-
-  const getProductList = useCallback(() => {
-    const newPostList = [...postList];
-    if (page !== 1) {
-      setOffset(offset => offset + 9);
-    }
-    fetch(`http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9`)
-      .then(response => response.json())
-      .then(data => {
-        if (data) {
-          setPostList(newPostList.concat(...data));
-          preventRef.current = true;
-        }
-      });
-  }, [page]);
-
-  useEffect(() => {
-    const productListobserver = new IntersectionObserver(obsHandler, {
-      threshold: 0.5,
-    });
-    if (obsRef.current) productListobserver.observe(obsRef.current);
-    return () => {
-      productListobserver.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    getProductList();
-  }, [page]);
-
-  const modalOff = e => {
-    e.stopPropagation();
-    e.target.className !== 'slideDropdown' && setDropdownShown(false);
-  };
-
   // 파라미터 값 넣는 식
   const [form, setForm] = useState({
     size: [],
@@ -103,6 +53,70 @@ const ProductList = () => {
         }
       }
     }
+  };
+
+  const productAsideVisible = () => {
+    setVisible(!visible);
+  };
+
+  const priceToString = price => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
+  const obsHandler = entries => {
+    const target = entries[0];
+    if (target.isIntersecting && preventRef.current) {
+      preventRef.current = false;
+      setPage(prev => prev + 1);
+    }
+  };
+
+  const getProductList = useCallback(() => {
+    const newPostList = [...postList];
+    if (page !== 1) {
+      setOffset(offset => offset + 9);
+    }
+    fetch(
+      `http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}`
+    )
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          setPostList(newPostList.concat(...data));
+          preventRef.current = true;
+        }
+      });
+  }, [page, form]);
+
+  // useEffect(() => {
+  //   const newPostList = [...postList];
+  //   fetch(
+  //     `http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}`
+  //   )
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setPostList(newPostList.concat(...data));
+  //       preventRef.current = true;
+  //     });
+  // }, [form]);
+
+  useEffect(() => {
+    const productListobserver = new IntersectionObserver(obsHandler, {
+      threshold: 0.5,
+    });
+    if (obsRef.current) productListobserver.observe(obsRef.current);
+    return () => {
+      productListobserver.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    getProductList();
+  }, [page, form]);
+
+  const modalOff = e => {
+    e.stopPropagation();
+    e.target.className !== 'slideDropdown' && setDropdownShown(false);
   };
 
   return (
