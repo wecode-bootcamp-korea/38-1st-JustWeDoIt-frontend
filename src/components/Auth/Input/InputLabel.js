@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './InputLabel.scss';
 import Input from './Input';
 
 const InputLabel = props => {
-  const { name, inputSet, isEmailOkay, ...others } = props;
-  // const [isTopLabel, setIsTopLabel] = useState(true);
+  const { name, inputSet, isEmailOkay, placeholder, ...others } = props;
+  const [isTopLabel, setIsTopLabel] = useState(true);
   const emailsLength = inputSet.email.length;
   const isEmailValid =
     name === 'email' && isEmailOkay === false && emailsLength > 2;
@@ -13,7 +13,8 @@ const InputLabel = props => {
 
   return (
     <div className="controlHeight">
-      <div className={`inputTag ${name}`}>
+      <div className={`inputControlSet${name}`}>
+        <p className={`inputTag ${isTopLabel && 'focused'}`}>{placeholder}</p>
         <Input name={name} inputSet={inputSet} {...others} />
       </div>
       {isEmailValid && <div className="wrong">잘못된 이메일입니다</div>}
