@@ -1,17 +1,13 @@
 import Product from 'pages/ProductList/Product/Product';
-import React, { useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import { priceToString } from 'utils/utilFunc';
 
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 
-const CartItem = ({
-  cartItem,
-  deleteFetch,
-  priceToString,
-  setCartItemList,
-}) => {
+const CartItem = ({ cartItem, deleteFetch, setCartItemList }) => {
   const {
+    productId,
     cartId,
     stockId,
     productName,
@@ -27,32 +23,20 @@ const CartItem = ({
   const [sizeSelected, setSizeSelected] = useState(size);
   const [stockSelected, setStockSelected] = useState(buyingQuantity);
 
-  // useEffect(() => {
-  //   fetch('http://10.58.52.246:3000/carts/1', {
-  //     method: 'PATCH',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       cartId: cartId,
-  //       buyingQuantity: stockSelected,
-  //       stockId: stockId,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(result => setCartItemList(result.data));
-  // }, []);
+  const sizeStockChange = e => {
+    const value = Number(e.target.value);
+    const isSizeSelector = e.target.className === 'sizeSelector';
 
-  const sizeStockHandler = e => {
-    e.target.className === 'sizeSelector'
-      ? setSizeSelected(Number(e.target.value))
-      : setStockSelected(Number(e.target.value));
+    if (isSizeSelector) {
+      setSizeSelected(value);
+      updateFetch(value, stockSelected);
+    }
 
-    updateFetch();
-    console.log(sizeSelected);
+    setStockSelected(value);
+    updateFetch(sizeSelected, value);
   };
-  console.log(sizeSelected);
-  const updateFetch = () => {
+
+  const updateFetch = (sizeSelected, stockSelected) => {
     fetch('http://10.58.52.214:3000/carts/1', {
       method: 'PATCH',
       headers: {
@@ -60,14 +44,15 @@ const CartItem = ({
       },
       body: JSON.stringify({
         cartId: cartId,
+        productId: productId,
         buyingQuantity: stockSelected,
-        stockId: stockId,
         newSize: sizeSelected,
       }),
     })
       .then(response => response.json())
       .then(result => setCartItemList(result.data));
   };
+
   return (
     <>
       <div className="cartItemContainer">
@@ -89,7 +74,7 @@ const CartItem = ({
               사이즈 :
               <select
                 className="sizeSelector"
-                onChange={sizeStockHandler}
+                onChange={sizeStockChange}
                 value={sizeSelected}
               >
                 {Object.entries(stockInfo).map(
@@ -114,7 +99,7 @@ const CartItem = ({
               수량 :
               <select
                 className="stockSelector"
-                onChange={sizeStockHandler}
+                onChange={sizeStockChange}
                 value={stockSelected}
               >
                 <option>1</option>

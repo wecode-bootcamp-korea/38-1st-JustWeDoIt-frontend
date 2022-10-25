@@ -12,10 +12,7 @@ const Cart = () => {
       .then(response => response.json())
       .then(result => setCartItemList(result.data));
   }, []);
-  //   fetch('/data/CartMockData.json')
-  //     .then(response => response.json())
-  //     .then(result => setCartItemList(result));
-  // }, []);
+
   const totalPrice = cartItemList.reduce(
     (total, current) => total + current.buyingQuantity * current.price,
     0
@@ -30,10 +27,6 @@ const Cart = () => {
     }).then(response => response.json());
   };
 
-  const priceToString = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
   return (
     <div>
       <main className="cartWrap">
@@ -43,15 +36,10 @@ const Cart = () => {
             <CartItemList
               itemList={cartItemList}
               deleteFetch={deleteFetch}
-              priceToString={priceToString}
               setCartItemList={setCartItemList}
             />
           </div>
-          <CartSummary
-            itemList={cartItemList}
-            totalPrice={totalPrice}
-            priceToString={priceToString}
-          />
+          <CartSummary itemList={cartItemList} totalPrice={totalPrice} />
         </div>
       </main>
     </div>

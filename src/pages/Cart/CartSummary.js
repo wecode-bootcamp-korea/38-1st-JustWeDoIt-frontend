@@ -4,7 +4,7 @@ import { priceToString } from 'utils/utilFunc';
 import './CartSummary.scss';
 
 const CartSummary = props => {
-  const { totalPrice, priceToString } = props;
+  const { totalPrice } = props;
   const [isHovered, setIsHovered] = useState(false);
 
   const deliveryfee = 2500;
