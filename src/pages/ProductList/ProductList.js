@@ -77,7 +77,7 @@ const ProductList = () => {
       setOffset(offset => offset + 9);
     }
     fetch(
-      `http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}`
+      `http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}&special=${form.special}&headerFilter=${form.headerFilter}`
     )
       .then(response => response.json())
       .then(data => {
@@ -86,7 +86,7 @@ const ProductList = () => {
           preventRef.current = true;
         }
       });
-  }, [page, form]);
+  }, [page]);
 
   // useEffect(() => {
   //   const newPostList = [...postList];
