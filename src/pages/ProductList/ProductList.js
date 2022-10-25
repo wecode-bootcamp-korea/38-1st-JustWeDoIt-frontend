@@ -16,10 +16,6 @@ const ProductList = () => {
 
   const [offset, setOffset] = useState(0);
 
-  // const priceToString = price => {
-  //   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  // };
-
   const obsHandler = entries => {
     const target = entries[0];
     if (target.isIntersecting && preventRef.current) {
@@ -44,10 +40,12 @@ const ProductList = () => {
   }, [page]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(obsHandler, { threshold: 0.5 });
-    if (obsRef.current) observer.observe(obsRef.current);
+    const pageListObserver = new IntersectionObserver(obsHandler, {
+      threshold: 0.5,
+    });
+    if (obsRef.current) pageListObserver.observe(obsRef.current);
     return () => {
-      observer.disconnect();
+      pageListObserver.disconnect();
     };
   }, []);
 
