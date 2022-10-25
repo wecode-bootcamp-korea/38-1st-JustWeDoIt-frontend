@@ -1,10 +1,11 @@
 import React from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
+import { priceToString } from 'utils/utilFunc';
 import './NavModal.scss';
 
 const NavModal = ({ closeModal, setIsShowing }) => {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
   const onChange = e => {
@@ -21,18 +22,14 @@ const NavModal = ({ closeModal, setIsShowing }) => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.52.234:3000/products/main', { method: 'GET' })
+    fetch('http://10.58.52.129:3000/products/main', { method: 'GET' })
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);
 
-  const filtering = () => {
-    return inputValue === ''
-      ? []
-      : products.filter(product =>
-          product.name.toLowerCase().includes(inputValue.toLowerCase())
-        );
-  };
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(inputValue.toLocaleLowerCase())
+  );
 
   return (
     <div className="searchModal">
@@ -59,7 +56,7 @@ const NavModal = ({ closeModal, setIsShowing }) => {
         </div>
         <div className="searchResult">
           {products &&
-            filtering().map(item => (
+            filteredProducts.map(item => (
               <div className="productCard" key={item.id}>
                 <div className="productImg">
                   <img src={item.thumbnailImageUrl} alt={item.name} />
@@ -67,7 +64,7 @@ const NavModal = ({ closeModal, setIsShowing }) => {
                 <div className="productInfo">
                   <p>{item.name}</p>
                   <p>{item.gender}</p>
-                  <span>{item.price}원</span>
+                  <span>{priceToString(item.price)}원</span>
                 </div>
               </div>
             ))}
