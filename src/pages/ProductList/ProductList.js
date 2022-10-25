@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
 import Dropdown from './Product/Dropdown';
 import ProductAside from './ProductAside';
+import { priceToString } from '../../utils/utilFunc';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -9,12 +10,12 @@ const ProductList = () => {
 
   const [productMain, setProductMain] = useState([]);
 
-  const priceToString = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
+  // const priceToString = price => {
+  //   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  // };
 
   useEffect(() => {
-    fetch('http://10.58.52.134:3000/products/main?offset=0&limit=10')
+    fetch('http://10.58.52.129:3000/products/main?offset=0&limit=10')
       .then(response => response.json())
       .then(item => setProductMain(item));
   }, []);
