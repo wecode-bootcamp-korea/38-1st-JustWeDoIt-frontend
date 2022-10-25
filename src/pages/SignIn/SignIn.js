@@ -49,7 +49,6 @@ const SignIn = () => {
           alert('아이디 혹은 비밀번호를 확인해 주세요');
         }
       });
-    const token = localStorage.getItem('token');
   };
   return (
     <div className="userContainer">

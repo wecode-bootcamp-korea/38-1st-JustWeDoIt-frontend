@@ -56,7 +56,6 @@ const SignUp = () => {
           navigate('/signin');
         }
       });
-    const token = localStorage.getItem('token');
   };
 
   return (
