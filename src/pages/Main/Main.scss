@@ -1,0 +1,49 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+
+.mainForm {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  padding: $global-padding;
+
+  .formBlock {
+    margin-top: 50px;
+    video {
+      width: 100%;
+    }
+    img {
+      width: 100%;
+    }
+    .title {
+      @include flexContainer;
+      margin: 30px 0;
+      font-size: 50px;
+      font-weight: bold;
+      line-height: normal;
+      white-space: normal;
+    }
+    .mainText {
+      font-size: 16px;
+      @include flexContainer;
+    }
+    .mainText2 {
+      margin-bottom: 30px;
+      font-size: 16px;
+      @include flexContainer;
+    }
+    button {
+      @include flexContainer;
+      margin: auto;
+      padding: 10px 20px;
+      border: 0;
+      border-radius: 30px;
+      background-color: #111111;
+      color: #ffffff;
+      font-size: 20px;
+    }
+    button:hover {
+      background-color: #757575;
+    }
+  }
+}
