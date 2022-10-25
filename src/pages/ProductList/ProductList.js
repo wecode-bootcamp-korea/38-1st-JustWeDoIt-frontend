@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
 import Dropdown from './Product/Dropdown';
 import ProductAside from './ProductAside';
+import { priceToString } from '../../utils/utilFunc';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -15,9 +16,9 @@ const ProductList = () => {
 
   const [offset, setOffset] = useState(0);
 
-  const priceToString = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
+  // const priceToString = price => {
+  //   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  // };
 
   const obsHandler = entries => {
     const target = entries[0];
