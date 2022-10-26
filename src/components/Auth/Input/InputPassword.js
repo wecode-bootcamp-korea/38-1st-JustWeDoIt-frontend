@@ -8,10 +8,10 @@ import './InputPassword.scss';
 
 const InputPassword = props => {
   const { id, name, inputSet, value, innerInputText, ...others } = props;
-
+  const [isTopLabel, setIsTopLabel] = useState(true);
   const [isShowing, setIsShowing] = useState(true);
 
-  const onClick = () => {
+  const onClickShow = () => {
     setIsShowing(prev => !prev);
   };
 
@@ -22,19 +22,22 @@ const InputPassword = props => {
 
   const is8 = isMinLength8 ? '#288D25' : null;
   const isPasswordOkay = isValidPassword ? '#288D25' : null;
-
+  const onClick = () => {
+    setIsTopLabel(prev => !prev);
+  };
   return (
     <>
       <div className="controlHeightPassword">
         <div className="password">
-          {/* <p className="innerInputText">{innerInputText}</p> */}
+          <div className={`inputTag${isTopLabel && 'focused'}`}>password</div>
           <Input
             name={name}
             isShowing={isShowing}
             inputSet={inputSet}
+            onClick={onClick}
             {...others}
           />
-          <div className="passwordIcon" onClick={onClick}>
+          <div className="passwordIcon" onClick={onClickShow}>
             {isShowing ? (
               <AiFillEye size={25} />
             ) : (
