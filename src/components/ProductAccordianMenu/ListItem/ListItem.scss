@@ -1,0 +1,43 @@
+@import 'src/styles/mixin';
+@import 'src/styles/variables';
+
+.detailList {
+  .detailInfo {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+
+    > div {
+      padding: 18px 0;
+    }
+  }
+
+  &.active {
+    .detailInfo {
+      max-height: 500px;
+      transition: all 0.3s;
+    }
+
+    h4 {
+      border: none;
+    }
+  }
+
+  h4 {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+    cursor: pointer;
+    @include flexContainer(center, between);
+  }
+}
+
+.detailArrow {
+  margin-left: 10px;
+}
+
+.subDetailList {
+  li {
+    margin: 5px 0;
+  }
+}
