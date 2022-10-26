@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { BsHeart } from 'react-icons/bs';
 import { BsPerson } from 'react-icons/bs';
 import { BsCart2 } from 'react-icons/bs';
@@ -9,9 +9,6 @@ import './Nav.scss';
 
 const Nav = () => {
   const [isShowing, setIsShowing] = useState(false);
-  const [categories, setCategories] = useState([]);
-  // const params = useParams();
-  // const { id } = params;
 
   const navList = [
     { id: 1, list: 'All' },
