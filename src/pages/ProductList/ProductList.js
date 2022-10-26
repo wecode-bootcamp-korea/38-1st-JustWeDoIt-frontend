@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import Dropdown from './Product/Dropdown';
+import Dropdown from './Product/Dropdown';
 import ProductAside from './ProductAside';
 import './ProductList.scss';
 
 const ProductList = () => {
   const [dropdownShown, setDropdownShown] = useState(false);
-  // const [productMain, setProductMain] = useState([]);
 
   const [postList, setPostList] = useState([]); // 현재의 페이지와 생성되는 페이지를 넣기 위해서
   const [page, setPage] = useState(1); // page를 추가하기 위해서
@@ -26,8 +25,6 @@ const ProductList = () => {
     special: [],
     headerFilter: [],
   });
-
-  console.log(form);
 
   const newForm = { ...form };
 
@@ -77,7 +74,7 @@ const ProductList = () => {
       setOffset(offset => offset + 9);
     }
     fetch(
-      `http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}&special=${form.special}&headerFilter=${form.headerFilter}`
+      `http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}&special=${form.special}&headerFilter=${form.headerFilter}&size=${form.size}&price=${form.price}`
     )
       .then(response => response.json())
       .then(data => {
@@ -87,18 +84,6 @@ const ProductList = () => {
         }
       });
   }, [page]);
-
-  // useEffect(() => {
-  //   const newPostList = [...postList];
-  //   fetch(
-  //     `http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}`
-  //   )
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setPostList(newPostList.concat(...data));
-  //       preventRef.current = true;
-  //     });
-  // }, [form]);
 
   useEffect(() => {
     const productListobserver = new IntersectionObserver(obsHandler, {
@@ -123,7 +108,7 @@ const ProductList = () => {
     <main className="main">
       <header className="header">
         <div className="headerLeft">
-          <h1>남성신발</h1>
+          <h1>신발</h1>
         </div>
         <div className="headerRight">
           <div className="headerRightFilter">
