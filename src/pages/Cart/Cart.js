@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import CartList from './CartList';
 import CartSummary from './CartSummary';
-import './Cart.scss';
 import Carousel from 'components/Carousel/Carousel';
+import './Cart.scss';
 
 const Cart = () => {
   const [cartItemList, setCartItemList] = useState([]);
@@ -43,6 +43,7 @@ const Cart = () => {
           <CartSummary itemList={cartItemList} totalPrice={totalPrice} />
         </div>
       </main>
+      <Carousel />
     </div>
   );
 };

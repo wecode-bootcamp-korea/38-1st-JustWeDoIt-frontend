@@ -6,6 +6,7 @@ import { priceToString } from 'utils/utilFunc';
 import ProductDetailBtn from 'components/ProductDetailBtn/ProductDetailBtn';
 import AccordianMenu from 'components/ProductAccordianMenu/AccordianMenu/AccordianMenu';
 import PurchaseModal from 'components/PurchaseModal/PurchaseModal';
+import Carousel from 'components/Carousel/Carousel';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
@@ -58,64 +59,67 @@ const ProductDetail = () => {
   };
 
   return (
-    <main className="detailMain">
-      {product && (
-        <div className="wrapper">
-          <div className="productPhoto">
-            {product.urlImage.map((img, idx) => (
-              <div className="productPhotoCard" key={idx}>
-                <img src={img} alt={img} />
-              </div>
-            ))}
-          </div>
-          <div className="productInfo">
-            <div className="warpper">
-              <div className="productTitleBox">
-                <h2 className="productName">{product.productName}</h2>
-                <p className="gender">{product.gender}</p>
-                <span className="productPrice">
-                  {priceToString(product.price)}
-                  <span>원</span>
-                </span>
-              </div>
-              <div className="productSize">
-                <div className="sizeHeader">
-                  <span>사이즈 선택</span>
+    <div>
+      <main className="detailMain">
+        {product && (
+          <div className="wrapper">
+            <div className="productPhoto">
+              {product.urlImage.map((img, idx) => (
+                <div className="productPhotoCard" key={idx}>
+                  <img src={img} alt={img} />
                 </div>
-                <div className="sizeOptions">
-                  {Object.entries(product.sizeStock[0]).map(stock => {
-                    const [size, value] = stock;
-                    return (
-                      <ProductDetailBtn
-                        value={value}
-                        key={size}
-                        size={size}
-                        selectedSize={selectedSize}
-                        selected={selected}
-                      />
-                    );
-                  })}
+              ))}
+            </div>
+            <div className="productInfo">
+              <div className="warpper">
+                <div className="productTitleBox">
+                  <h2 className="productName">{product.productName}</h2>
+                  <p className="gender">{product.gender}</p>
+                  <span className="productPrice">
+                    {priceToString(product.price)}
+                    <span>원</span>
+                  </span>
                 </div>
-                <div className="productBtnGroup">
-                  <button onClick={onPurchase}>장바구니</button>
-                  <button>
-                    위시리스트 <BsHeart />
-                  </button>
+                <div className="productSize">
+                  <div className="sizeHeader">
+                    <span>사이즈 선택</span>
+                  </div>
+                  <div className="sizeOptions">
+                    {Object.entries(product.sizeStock[0]).map(stock => {
+                      const [size, value] = stock;
+                      return (
+                        <ProductDetailBtn
+                          value={value}
+                          key={size}
+                          size={size}
+                          selectedSize={selectedSize}
+                          selected={selected}
+                        />
+                      );
+                    })}
+                  </div>
+                  <div className="productBtnGroup">
+                    <button onClick={onPurchase}>장바구니</button>
+                    <button>
+                      위시리스트 <BsHeart />
+                    </button>
+                  </div>
+                  <PurchaseModal
+                    showModal={showModal}
+                    setShowModal={setShowModal}
+                    cartNum={cartNum}
+                    product={product}
+                    selectedSize={selectedSize}
+                  />
+                  <AccordianMenu />
                 </div>
-                <PurchaseModal
-                  showModal={showModal}
-                  setShowModal={setShowModal}
-                  cartNum={cartNum}
-                  product={product}
-                  selectedSize={selectedSize}
-                />
-                <AccordianMenu />
               </div>
             </div>
           </div>
-        </div>
-      )}
-    </main>
+        )}
+      </main>
+      <Carousel />
+    </div>
   );
 };
 export default ProductDetail;

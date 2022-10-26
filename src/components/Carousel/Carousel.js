@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import './Carousel.scss';
+import { priceToString } from '../../utils/utilFunc';
 
 const mockProducts = [
   {
@@ -119,7 +120,7 @@ const Carousel = () => {
                 <div className="slideProductInfo">
                   <p>{product.name}</p>
                   <p>{product.gender}</p>
-                  <span>{product.price}원</span>
+                  <span>{priceToString(product.price)}원</span>
                 </div>
               </Link>
             </div>
