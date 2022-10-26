@@ -78,7 +78,46 @@
 }
 
 .searchResult {
-  margin-top: 40px;
+  @include flexContainer(start, start);
+  width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px 20px 30px;
+  overflow-x: hidden;
+
+  .productCard {
+    width: 275px;
+    font-size: 14px;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  .productImg {
+    width: 275px;
+    height: 275px;
+  }
+
+  .productInfo {
+    margin-top: 10px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  p {
+    margin-bottom: 5px;
+
+    &:nth-child(1) {
+      height: 1.3rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      white-space: nowrap;
+    }
+  }
 }
 
 .searchSuggestions {
