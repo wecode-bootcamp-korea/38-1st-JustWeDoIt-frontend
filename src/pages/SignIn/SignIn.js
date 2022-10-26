@@ -42,7 +42,7 @@ const SignIn = () => {
         if (data.message === 'SUCCESS') {
           localStorage.setItem('token', data.accessToken);
           alert('로그인 성공');
-          navigate('/main');
+          navigate('/');
         } else if (data.message === ' LOGIN_FAIL') {
           alert('아이디 혹은 비밀번호를 확인해 주세요');
         } else if (data.message === 'INVALID_PASSWORD') {
