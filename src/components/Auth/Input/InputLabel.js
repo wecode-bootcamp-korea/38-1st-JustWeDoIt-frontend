@@ -39,13 +39,7 @@ const InputLabel = props => {
         <div className={`inputTag${isTopLabel && 'focused'}`}>
           {placeholder}
         </div>
-        <Input
-          name={name}
-          inputSet={inputSet}
-          onClick={onClick}
-          onInput={onInput}
-          {...others}
-        />
+        <Input name={name} inputSet={inputSet} onClick={onClick} {...others} />
       </div>
       {isEmailValid && <div className="wrong">잘못된 이메일입니다</div>}
       {isEmailLengthOkay && <div className="wrong">필수</div>}

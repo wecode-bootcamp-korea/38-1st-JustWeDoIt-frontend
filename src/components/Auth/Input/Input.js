@@ -2,8 +2,7 @@ import React from 'react';
 import './Input.scss';
 
 const Input = props => {
-  const { name, saveInputSet, enterPassword, isShowing, onClick, onInput } =
-    props;
+  const { name, saveInputSet, enterPassword, isShowing, onClick } = props;
 
   return (
     <div>
@@ -14,7 +13,6 @@ const Input = props => {
         onChange={saveInputSet}
         onKeyPress={enterPassword}
         onClick={onClick}
-        onInput={onInput}
       />
     </div>
   );
