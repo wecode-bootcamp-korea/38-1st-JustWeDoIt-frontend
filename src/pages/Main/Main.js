@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Main.scss';
 
 const Main = () => {
   const [mainData, setMainData] = useState([]);
-
-  fetch('/data/mainData.json')
-    .then(response => response.json())
-    .then(result => setMainData(result));
-
+  useEffect(() => {
+    fetch('/data/mainData.json')
+      .then(response => response.json())
+      .then(result => setMainData(result));
+  }, []);
   return (
     <div className="mainForm">
       {mainData.map(data => (
