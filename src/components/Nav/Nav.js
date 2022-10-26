@@ -45,7 +45,7 @@ const Nav = () => {
           <ul>
             {navList.map(list => (
               <li key={list.id}>
-                <Link to={`products/category/${navList.id}`}>{list.list}</Link>
+                <Link to={`/products/category/${list.id}`}>{list.list}</Link>
               </li>
             ))}
           </ul>
