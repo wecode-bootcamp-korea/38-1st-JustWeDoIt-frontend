@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import CartItem from './CartItem';
 import './CartItem.scss';
 
-const CartItemList = props => {
-  const { itemList, deleteFetch } = props;
+const CartList = props => {
+  const { itemList, deleteFetch, setCartItemList } = props;
   return (
     <div className="cartItem">
       <div className="cartItemWrap">
@@ -12,6 +12,7 @@ const CartItemList = props => {
             key={Date.now() + Math.random()}
             cartItem={cartItem}
             deleteFetch={deleteFetch}
+            setCartItemList={setCartItemList}
           />
         ))}
       </div>
@@ -19,4 +20,4 @@ const CartItemList = props => {
   );
 };
 
-export default CartItemList;
+export default CartList;
