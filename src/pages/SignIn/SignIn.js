@@ -65,6 +65,7 @@ const SignIn = () => {
             inputSet={inputSet}
             type="email"
             isEmailOkay={isEmailOkay}
+            placeholder="이메일"
             // innerInputText="이메일"
           />
 

@@ -1,45 +1,50 @@
 import React, { useState } from 'react';
 import './InputLabel.scss';
 import Input from './Input';
-
-const RULES = {
-  email: value => value.length > 5,
-  password: value => value.length > 0,
-  userName: value => value.length > 0,
-};
+import RULES from './InputRULES';
 
 const InputLabel = props => {
   const { name, inputSet, isEmailOkay, placeholder, ...others } = props;
-  const [isTopLabel, setIsTopLabel] = useState(true);
+  const [isTopLabel, setIsTopLabel] = useState(false);
+  // const [isTextColorRed, setIsTextColorRed] = useState(false);
   const emailsLength = inputSet.email.length;
   const isEmailValid =
     name === 'email' && isEmailOkay === false && emailsLength > 2;
   const isEmailLengthOkay =
     name === 'email' && 0 < emailsLength && emailsLength < 3;
-  // const dddd = name.length === 0
   const test = Object.entries(RULES)
     .filter(([key, value]) => key === name)
     .every(([key, validator]) => {
-      return validator;
-      // (inputSet[name]);
+      return validator(inputSet[name]);
     });
-
-  console.log(test);
-
-  const onClick = () => {
-    // if(test)
-    setIsTopLabel(prev => !prev);
+  // const onClick = () => {
+  //   if (test === false) setIsTopLabel(prev => !prev);
+  // };
+  const onFocus = () => {
+    if (test === false) setIsTopLabel(true);
   };
-  const onInput = e => {
-    return e;
+  const onBlur = () => {
+    if (test === false) setIsTopLabel(prev => !prev);
   };
+
   return (
     <div className="controlHeight">
       <div className={`inputControlSet ${name}`}>
-        <div className={`inputTag${isTopLabel && 'focused'}`}>
+        <div
+          className={`inputTag${isTopLabel && 'focused'}`}
+          style={{ color: `${isTopLabel && 'focused'}` }}
+          disable
+        >
           {placeholder}
         </div>
-        <Input name={name} inputSet={inputSet} onClick={onClick} {...others} />
+        <Input
+          name={name}
+          inputSet={inputSet}
+          // onClick={onClick}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          {...others}
+        />
       </div>
       {isEmailValid && <div className="wrong">잘못된 이메일입니다</div>}
       {isEmailLengthOkay && <div className="wrong">필수</div>}
