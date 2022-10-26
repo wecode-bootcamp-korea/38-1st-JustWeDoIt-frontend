@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CartItemList from './CartItemList';
 import CartSummary from './CartSummary';
 import './Cart.scss';
+import Carousel from 'components/Carousel/Carousel';
 
 const Cart = () => {
   const [cartItemList, setCartItemList] = useState([]);
