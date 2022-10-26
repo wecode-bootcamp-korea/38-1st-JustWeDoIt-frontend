@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import Dropdown from './Product/Dropdown';
+import Dropdown from './Product/Dropdown';
 import ProductAside from './ProductAside';
 import './ProductList.scss';
 
@@ -29,7 +29,6 @@ const ProductList = () => {
   };
 
   const getProductList = useCallback(() => {
-    const newPostList = [...postList];
     if (page !== 1) {
       setOffset(offset => offset + 9);
     }
@@ -37,7 +36,7 @@ const ProductList = () => {
       .then(response => response.json())
       .then(data => {
         if (data) {
-          setPostList(newPostList.concat(...data));
+          setPostList([...postList, ...data]);
           preventRef.current = true;
         }
       });
