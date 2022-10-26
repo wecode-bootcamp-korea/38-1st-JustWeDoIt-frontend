@@ -6,7 +6,6 @@ import RULES from './InputRULES';
 const InputLabel = props => {
   const { name, inputSet, isEmailOkay, placeholder, ...others } = props;
   const [isTopLabel, setIsTopLabel] = useState(false);
-  // const [isTextColorRed, setIsTextColorRed] = useState(false);
   const emailsLength = inputSet.email.length;
   const isEmailValid =
     name === 'email' && isEmailOkay === false && emailsLength > 2;
@@ -17,9 +16,6 @@ const InputLabel = props => {
     .every(([key, validator]) => {
       return validator(inputSet[name]);
     });
-  // const onClick = () => {
-  //   if (test === false) setIsTopLabel(prev => !prev);
-  // };
   const onFocus = () => {
     if (test === false) setIsTopLabel(true);
   };
