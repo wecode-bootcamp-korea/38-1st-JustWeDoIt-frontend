@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
-import Dropdown from './Product/Dropdown';
+import { Link } from 'react-router-dom';
+import Dropdown from './Product/Dropdown';
 import ProductAside from './ProductAside';
 import { priceToString } from '../../utils/utilFunc';
 import './ProductList.scss';
@@ -25,15 +26,14 @@ const ProductList = () => {
   };
 
   const getProductList = useCallback(() => {
-    const newPostList = [...postList];
     if (page !== 1) {
       setOffset(offset => offset + 9);
     }
-    fetch(`http://10.58.52.234:3000/products/main?offset=${offset}&limit=9`)
+    fetch(`http://10.58.52.129:3000/products/main?offset=${offset}&limit=9`)
       .then(response => response.json())
       .then(data => {
         if (data) {
-          setPostList(newPostList.concat(...data));
+          setPostList([...postList, ...data]);
           preventRef.current = true;
         }
       });
@@ -103,27 +103,29 @@ const ProductList = () => {
             <>
               {postList.map(productMenuItem => (
                 <div key={productMenuItem.id} className="productMainPiece">
-                  <div className="productMainPieceImg">
-                    <img
-                      src={productMenuItem.thumbnailImageUrl}
-                      alt={productMenuItem.name}
-                    />
-                  </div>
-                  <div className="productMainPieceProposal">
-                    <div className="proposalCategory">
-                      {productMenuItem.category}
+                  <Link to={`detail/${productMenuItem.id}`}>
+                    <div className="productMainPieceImg">
+                      <img
+                        src={productMenuItem.thumbnailImageUrl}
+                        alt={productMenuItem.name}
+                      />
                     </div>
-                    <div className="proposalMaterial">
-                      {productMenuItem.special}
+                    <div className="productMainPieceProposal">
+                      <div className="proposalCategory">
+                        {productMenuItem.category}
+                      </div>
+                      <div className="proposalMaterial">
+                        {productMenuItem.special}
+                      </div>
+                      <div className="proposalName">{productMenuItem.name}</div>
+                      <div className="proposalGender">
+                        {productMenuItem.gender}
+                      </div>
+                      <div className="proposalPrice">
+                        {priceToString(productMenuItem.price)}원
+                      </div>
                     </div>
-                    <div className="proposalName">{productMenuItem.name}</div>
-                    <div className="proposalGender">
-                      {productMenuItem.gender}
-                    </div>
-                    <div className="proposalPrice">
-                      {priceToString(productMenuItem.price)}원
-                    </div>
-                  </div>
+                  </Link>
                 </div>
               ))}
             </>
