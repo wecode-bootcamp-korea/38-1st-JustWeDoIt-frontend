@@ -1,0 +1,86 @@
+@import 'src/styles/mixin';
+
+.carousel {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+.slidesContainer {
+  position: relative;
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.slidesWrap {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.slide {
+  flex-shrink: 0;
+  width: 33.33%;
+  padding-right: 10px;
+}
+
+.slideImgBox {
+  width: 100%;
+  height: 400px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.slideProductInfo {
+  margin-top: 10px;
+
+  p {
+    &:nth-child(2) {
+      margin-bottom: 10px;
+      color: #888888;
+    }
+  }
+}
+
+.slidesBtn {
+  @include flexContainer(start, between);
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  transform: translateY(-50%);
+
+  button {
+    padding: 10px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+.bullets {
+  @include flexContainer(start, center);
+  margin-top: 40px;
+}
+
+.bullet {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  transition: all 0.3s ease-in;
+  border-radius: 100%;
+  background-color: #eee;
+
+  &.active {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in;
+    background-color: #555;
+  }
+}

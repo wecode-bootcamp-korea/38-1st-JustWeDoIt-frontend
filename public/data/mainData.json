@@ -1,0 +1,31 @@
+[
+  {
+    "id": "1",
+    "video": "/video/marathon.mp4",
+    "title": "JOIN US",
+    "mainText": "지금의 이 슈마켓에는 당신만의 색깔로 당신을 만들어갈 커뮤니티가 있습니다. ",
+    "mainText2": "당신이 만들어갈 당신의 미래에 우리의 에어슈즈와 함께해보세요",
+    "url": "/sign"
+  },
+  {
+    "id": "2",
+    "image": "/images/boots.jpg",
+    "title": "당신의 아웃도어에 더해질 스타일",
+    "mainText": "올 겨울 당신의 아웃도어를 스타일리쉬하게 ,  ",
+    "mainText2": " 당신의 취미에 저희를 더해주세요"
+  },
+  {
+    "id": "3",
+    "image": "/images/football.jpg",
+    "title": "슈스타일",
+    "mainText": "탁월한 디자인으로 탄생된 축구화  ",
+    "mainText2": " 당신의 기록을 향한 하나의 페이지를 우리와 함께 펼쳐보아요"
+  },
+  {
+    "id": "4",
+    "video": "/video/spinning_shoes.mp4",
+    "title": "우리의 유니크함",
+    "mainText": "또다른 디자인으로 당신의 스타일에 톡 튀는 하나의 변화를 시켜주세요  ",
+    "mainText2": "우리들의 슈즈의 놀라운 디자인과 편안함이 당신의 스타일에 포인트를 더해줄것입니다"
+  }
+]
