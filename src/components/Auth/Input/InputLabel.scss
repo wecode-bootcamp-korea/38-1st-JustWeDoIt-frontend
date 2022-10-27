@@ -3,20 +3,13 @@
   height: 84px;
   .inputControlSet {
     position: relative;
-    .inpuTag {
-      position: absolute;
-      top: 50%;
-      left: 10px;
-      transform: translateY(-100%);
-      transition: 300ms all ease-in-out;
-    }
-    .innerInputText {
+    .inputTag {
       position: absolute;
       top: 50%;
       left: 10px;
       transform: translateY(-50%);
       transition: 300ms all ease-in-out;
-      &.focused {
+      &.false {
         top: 0;
         transform: translateY(0);
       }

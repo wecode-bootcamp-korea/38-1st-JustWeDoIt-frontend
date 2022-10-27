@@ -10,11 +10,16 @@ const InputLabel = props => {
     name === 'email' && isEmailOkay === false && emailsLength > 2;
   const isEmailLengthOkay =
     name === 'email' && 0 < emailsLength && emailsLength < 3;
+  const onClick = () => {
+    setIsTopLabel(prev => !prev);
+  };
 
   return (
     <div className="controlHeight">
-      <div className={`inputControlSet${name}`}>
-        <p className={`inputTag ${isTopLabel && 'focused'}`}>{placeholder}</p>
+      <div className={`inputControlSet ${name}`}>
+        <div className={`inputTag ${isTopLabel}`} onClick={onClick}>
+          {placeholder}
+        </div>
         <Input name={name} inputSet={inputSet} {...others} />
       </div>
       {isEmailValid && <div className="wrong">잘못된 이메일입니다</div>}
