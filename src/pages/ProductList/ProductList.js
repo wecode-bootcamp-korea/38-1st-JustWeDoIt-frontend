@@ -200,7 +200,8 @@ const ProductList = () => {
               ))}
             </>
           )}
-          <div ref={obsRef} />
+          {Object.values(form).reduce((acc, cur) => [...acc, ...cur]).length ===
+            0 && <div ref={obsRef} />}
         </div>
       </div>
     </main>
