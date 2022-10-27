@@ -1,8 +1,4 @@
-import {
-  AiFillTwitterCircle,
-  AiFillYoutube,
-  AiFillInstagram,
-} from 'react-icons/ai';
+import { AiFillTwitterCircle, AiFillYoutube } from 'react-icons/ai';
 import { MdOutlineWhereToVote } from 'react-icons/md';
 import './Footer.scss';
 
