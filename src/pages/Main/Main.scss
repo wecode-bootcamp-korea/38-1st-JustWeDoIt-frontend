@@ -4,7 +4,8 @@
 .mainForm {
   display: flex;
   flex-direction: column;
-  margin: 50px;
+  width: 1200px;
+  margin: 50px auto;
   padding: $global-padding;
 
   .formBlock {
