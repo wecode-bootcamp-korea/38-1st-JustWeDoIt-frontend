@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
+import Thumbnail from 'components/Card/Card';
 import Carousel from 'components/Carousel/Carousel';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -19,11 +20,7 @@ const Main = () => {
           <Link to={data.url} key={data.id}>
             <div key={data.id} id={data.id}>
               <div className="formBlock">
-                {data.video ? (
-                  <video src={data.video} loop autoPlay muted />
-                ) : (
-                  <img src={data.image} />
-                )}
+                <Thumbnail video={data.video} image={data.image} />
                 <p className="title">{data.title} </p>
                 <p className="mainText">{data.mainText}</p>
                 <p className="mainText2">{data.mainText2}</p>
