@@ -51,7 +51,6 @@ const SignUp = () => {
     })
       .then(response => response.json())
       .then(data => {
-        // console.log(data);
         if (data.insertId) {
           navigate('/signin');
         }
@@ -72,7 +71,6 @@ const SignUp = () => {
             enterPassword={enterPassword}
             inputSet={inputSet}
             isEmailOkay={isEmailOkay}
-            // innerInputText="이메일"
             placeholder="이메일"
           />
           <InputLabel
@@ -81,7 +79,6 @@ const SignUp = () => {
             enterPassword={enterPassword}
             inputSet={inputSet}
             isEmailOkay={isEmailOkay}
-            // innerInputText="이름"
             placeholder="이름"
           />
 
@@ -91,7 +88,6 @@ const SignUp = () => {
             saveInputSet={saveInputSet}
             enterPassword={enterPassword}
             inputSet={inputSet}
-            // innerInputText="비밀번호"
             placeholder="비밀번호"
           />
           <div className="date">
@@ -112,7 +108,6 @@ const SignUp = () => {
               <input
                 name="lastNumber"
                 type="tel"
-                // placeholder="?"
                 value={dateCollect.lastNumber}
                 onChange={saveDateCollect}
                 onKeyPress={enterPassword}
