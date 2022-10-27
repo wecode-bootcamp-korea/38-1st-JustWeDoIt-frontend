@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { BiUpArrow, BiDownArrow, BiFilter } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import Dropdown from './Product/Dropdown';
+import Dropdown from './Product/Dropdown';
 import ProductAside from './ProductAside';
 import { priceToString } from '../../utils/utilFunc';
 import './ProductList.scss';
@@ -26,15 +26,14 @@ const ProductList = () => {
   };
 
   const getProductList = useCallback(() => {
-    const newPostList = [...postList];
     if (page !== 1) {
       setOffset(offset => offset + 9);
     }
-    fetch(`http://10.58.52.169:3000/products/main?offset=${offset}&limit=9`)
+    fetch(`http://10.58.52.237:3000/products/main?offset=${offset}&limit=9`)
       .then(response => response.json())
       .then(data => {
         if (data) {
-          setPostList(newPostList.concat(...data));
+          setPostList([...postList, ...data]);
           preventRef.current = true;
         }
       });
@@ -104,7 +103,7 @@ const ProductList = () => {
             <>
               {postList.map(productMenuItem => (
                 <div key={productMenuItem.id} className="productMainPiece">
-                  <Link to={`detail/${productMenuItem.id}`}>
+                  <Link to={`/detail/${productMenuItem.id}`}>
                     <div className="productMainPieceImg">
                       <img
                         src={productMenuItem.thumbnailImageUrl}

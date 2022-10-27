@@ -2,7 +2,13 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './ProductDetailBtn.scss';
 
-const ProductDetaiBtn = ({ size, selectedSize, selected, value }) => {
+const ProductDetaiBtn = ({
+  size,
+  selectedSize,
+  selected,
+  value,
+  setSelectedSize,
+}) => {
   const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
@@ -19,7 +25,7 @@ const ProductDetaiBtn = ({ size, selectedSize, selected, value }) => {
         type="radio"
         name="size"
         disabled={disabled}
-        onClick={selectedSize}
+        onClick={() => setSelectedSize(size)}
         value={size}
       />
       <label htmlFor="size" ref={selected}>

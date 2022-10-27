@@ -26,7 +26,7 @@ const SignIn = () => {
     }
   };
   const clickSignIn = () => {
-    fetch('http://10.58.52.169:3000/users/signin', {
+    fetch('http://10.58.52.237:3000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -39,7 +39,7 @@ const SignIn = () => {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'SUCCESS') {
-          localStorage.setItem('token', data.accesstoken);
+          localStorage.setItem('token', data.accessToken);
           alert('로그인 성공');
           navigate('/');
         } else if (data.message === ' LOGIN_FAIL') {

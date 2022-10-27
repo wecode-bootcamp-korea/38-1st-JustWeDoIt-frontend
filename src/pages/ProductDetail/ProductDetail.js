@@ -25,7 +25,7 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.52.169:3000/products/details/?id=${id}`, {
+    fetch(`http://10.58.52.237:3000/products/details/?id=${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -41,6 +41,7 @@ const ProductDetail = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         size: selectedSize,
@@ -89,6 +90,7 @@ const ProductDetail = () => {
                       const [size, value] = stock;
                       return (
                         <ProductDetailBtn
+                          setSelectedSize={setSelectedSize}
                           value={value}
                           key={size}
                           size={size}

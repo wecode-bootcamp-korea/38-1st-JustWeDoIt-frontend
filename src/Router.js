@@ -8,7 +8,7 @@ import Footer from '../src/components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
-import Payment from 'pages/Payment/Payment';
+import Payment from 'pages/Payment/payment';
 import './styles/reset.scss';
 import './styles/common.scss';
 

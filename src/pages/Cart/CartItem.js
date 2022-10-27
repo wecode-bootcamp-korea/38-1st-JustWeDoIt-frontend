@@ -37,10 +37,11 @@ const CartItem = ({ cartItem, deleteFetch, setCartItemList }) => {
   };
 
   const updateFetch = (sizeSelected, stockSelected) => {
-    fetch('http://10.58.52.214:3000/carts/1', {
+    fetch('http://10.58.52.237:3000/carts', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         cartId: cartId,

@@ -9,7 +9,11 @@ const Cart = () => {
   // const [cartTotalPrice, setCartTotalPrice] = useState();
 
   useEffect(() => {
-    fetch('http://10.58.52.214:3000/carts/1')
+    fetch('http://10.58.52.237:3000/carts', {
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+    })
       .then(response => response.json())
       .then(result => setCartItemList(result.data));
   }, []);
@@ -23,8 +27,11 @@ const Cart = () => {
       product => product.stockId !== id
     );
     setCartItemList(newCartItemList);
-    fetch(`http://10.58.52.214:3000/carts/${id}/1`, {
+    fetch(`http://10.58.52.237:3000/carts/${id}`, {
       method: 'DELETE',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
     }).then(response => response.json());
   };
 
