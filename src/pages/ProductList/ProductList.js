@@ -74,7 +74,7 @@ const ProductList = () => {
       setOffset(offset => offset + 9);
     }
     fetch(
-      `http://10.58.52.129:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}&special=${form.special}&headerFilter=${form.headerFilter}&size=${form.size}&price=${form.price}`
+      `http://10.58.52.169:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}&special=${form.special}&headerFilter=${form.headerFilter}&size=${form.size}&price=${form.price}`
     )
       .then(response => response.json())
       .then(data => {
