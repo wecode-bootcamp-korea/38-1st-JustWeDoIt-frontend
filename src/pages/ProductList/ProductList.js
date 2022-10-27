@@ -173,7 +173,7 @@ const ProductList = () => {
             <>
               {postList.map(productMenuItem => (
                 <div key={productMenuItem.id} className="productMainPiece">
-                  <Link to={`detail/${productMenuItem.id}`}>
+                  <Link to={`/detail/${productMenuItem.id}`}>
                     <div className="productMainPieceImg">
                       <img
                         src={productMenuItem.thumbnailImageUrl}
