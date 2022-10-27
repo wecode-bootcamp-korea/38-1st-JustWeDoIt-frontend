@@ -17,6 +17,12 @@
     height: 100%;
     margin-left: 10px;
 
+    select {
+      border: none;
+      color: gray;
+      cursor: pointer;
+    }
+
     div {
       margin-top: 7px;
       color: gray;
@@ -26,6 +32,7 @@
         color: black;
         font-size: 30px;
         font-weight: 250;
+        cursor: pointer;
 
         svg {
           margin: 10px;

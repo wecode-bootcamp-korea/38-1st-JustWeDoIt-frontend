@@ -1,6 +1,6 @@
 import React from 'react';
-import './ProductDetailBtn.scss';
 import { useState, useEffect } from 'react';
+import './ProductDetailBtn.scss';
 
 const ProductDetaiBtn = ({ size, selectedSize, selected, value }) => {
   const [disabled, setDisabled] = useState(false);
@@ -20,7 +20,7 @@ const ProductDetaiBtn = ({ size, selectedSize, selected, value }) => {
         name="size"
         disabled={disabled}
         onClick={selectedSize}
-        value={size.size}
+        value={size}
       />
       <label htmlFor="size" ref={selected}>
         {size}

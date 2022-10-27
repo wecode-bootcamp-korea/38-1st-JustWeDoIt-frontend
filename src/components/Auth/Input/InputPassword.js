@@ -4,9 +4,9 @@ import { AiFillEye } from 'react-icons/ai';
 import { AiFillEyeInvisible } from 'react-icons/ai';
 import { FaBan } from 'react-icons/fa';
 import { AiOutlineCheck } from 'react-icons/ai';
-import './InputPw.scss';
+import './InputPassword.scss';
 
-const InputPw = props => {
+const InputPassword = props => {
   const { id, name, inputSet, value, innerInputText, ...others } = props;
 
   const [isShowing, setIsShowing] = useState(true);
@@ -21,11 +21,11 @@ const InputPw = props => {
   const isValidPassword = passwordPattren.test(inputSet.password);
 
   const is8 = isMinLength8 ? '#288D25' : null;
-  const isPwOkay = isValidPassword ? '#288D25' : null;
+  const isPasswordOkay = isValidPassword ? '#288D25' : null;
 
   return (
     <>
-      <div className="controlHeightPw">
+      <div className="controlHeightPassword">
         <div className="password">
           {/* <p className="innerInputText">{innerInputText}</p> */}
           <Input
@@ -34,7 +34,7 @@ const InputPw = props => {
             inputSet={inputSet}
             {...others}
           />
-          <div className="pwIcon" onClick={onClick}>
+          <div className="passwordIcon" onClick={onClick}>
             {isShowing ? (
               <AiFillEye size={25} />
             ) : (
@@ -50,8 +50,12 @@ const InputPw = props => {
             &nbsp; 최소 8자
           </div>
 
-          <div className="textLength1" style={{ color: isPwOkay }}>
-            {!isPwOkay ? <FaBan size="12" /> : <AiOutlineCheck size="12" />}
+          <div className="textLength1" style={{ color: isPasswordOkay }}>
+            {!isPasswordOkay ? (
+              <FaBan size="12" />
+            ) : (
+              <AiOutlineCheck size="12" />
+            )}
             &nbsp; 알파벳 대문자 및 소문자 특수문자 숫자 조합, 최소 1개 이상의
             숫자
           </div>
@@ -64,4 +68,4 @@ const InputPw = props => {
   );
 };
 
-export default InputPw;
+export default InputPassword;

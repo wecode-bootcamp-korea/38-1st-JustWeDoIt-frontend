@@ -1,14 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 import { BsChevronUp } from 'react-icons/bs';
 import './ListItem.scss';
 
 const ListItem = props => {
-  const { title, idx, list, active, setActiveIdx } = props;
+  const { title, idx, list, active, setCurrentMenuIdx } = props;
 
   const handleClick = () => {
-    setActiveIdx(idx);
+    setCurrentMenuIdx(idx);
   };
 
   return (
@@ -20,16 +19,16 @@ const ListItem = props => {
         </span>
       </h4>
       <div className="detailInfo">
-        {list.map((el, idx) => (
-          <div key={idx}>
-            <h5>{el.subtitle}</h5>
+        {list.map(info => (
+          <div key={info.title}>
+            <h5>{info.subtitle}</h5>
             <ul className="subDetailList">
-              <li>{el.text1}</li>
-              <li>{el.text2}</li>
-              <li>{el.text3}</li>
-              <li>{el.text4}</li>
-              <li>{el.text5}</li>
-              <li>{el.text6}</li>
+              <li>{info.text1}</li>
+              <li>{info.text2}</li>
+              <li>{info.text3}</li>
+              <li>{info.text4}</li>
+              <li>{info.text5}</li>
+              <li>{info.text6}</li>
             </ul>
           </div>
         ))}

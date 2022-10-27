@@ -2,7 +2,7 @@ import React from 'react';
 import './Input.scss';
 
 const Input = props => {
-  const { name, saveInputSet, enterPw, isShowing, placeholder } = props;
+  const { name, saveInputSet, enterPassword, isShowing } = props;
 
   return (
     <div>
@@ -11,8 +11,7 @@ const Input = props => {
         name={name}
         type={isShowing ? 'password' : 'text'}
         onChange={saveInputSet}
-        onKeyPress={enterPw}
-        placeholder={placeholder}
+        onKeyPress={enterPassword}
       />
     </div>
   );

@@ -1,8 +1,16 @@
 import React from 'react';
 import { BsCheck, BsXLg } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import './PurchaseModal.scss';
 
-const PurchaseModal = ({ showModal, setShowModal, cartNum }) => {
+const PurchaseModal = ({
+  showModal,
+  setShowModal,
+  cartNum,
+  product,
+  selectedSize,
+}) => {
+  const { thumbnailImage, productName, gender } = product;
   return (
     <div
       className={
@@ -24,23 +32,23 @@ const PurchaseModal = ({ showModal, setShowModal, cartNum }) => {
         </div>
         <div className="purchasedModalProductInfo">
           <div className="purchasedProductImg">
-            <img
-              src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-              alt=""
-            />
+            <img src={thumbnailImage} alt={productName} />
           </div>
           <div className="purchasedProductInfo">
             <ul>
-              <li>나이키 에어맥스 1</li>
-              <li>남성신발</li>
-              <li>사이즈 250</li>
+              <li>{productName}</li>
+              <li>{gender}</li>
+              <li>사이즈 {selectedSize}</li>
             </ul>
           </div>
         </div>
         <div className="purchasedBtnsGroup">
           <button>
-            장바구니<span>({cartNum})</span>
+            <Link to="/cart">
+              장바구니<span>({cartNum})</span>
+            </Link>
           </button>
+
           <button>결제하기</button>
         </div>
       </div>

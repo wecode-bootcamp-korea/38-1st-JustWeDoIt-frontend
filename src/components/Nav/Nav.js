@@ -11,16 +11,15 @@ const Nav = () => {
   const [isShowing, setIsShowing] = useState(false);
 
   const navList = [
-    { id: 1, list: 'All' },
-    { id: 2, list: 'Lifestyle' },
-    { id: 3, list: 'Jordan' },
+    { id: 1, list: 'Lifestyle' },
+    { id: 2, list: 'Jordan' },
     {
-      id: 4,
+      id: 3,
       list: 'Running',
     },
-    { id: 5, list: 'Basketball' },
+    { id: 4, list: 'Basketball' },
     {
-      id: 6,
+      id: 5,
       list: 'Soccer',
     },
   ];
@@ -45,7 +44,7 @@ const Nav = () => {
           <ul>
             {navList.map(list => (
               <li key={list.id}>
-                <Link>{list.list}</Link>
+                <Link to={`/products/category/${list.id}`}>{list.list}</Link>
               </li>
             ))}
           </ul>

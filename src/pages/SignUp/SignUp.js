@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SiNike } from 'react-icons/si';
 import InputLabel from 'components/Auth/Input/InputLabel';
-import InputPw from 'components/Auth/Input/InputPw';
+import InputPassword from 'components/Auth/Input/InputPassword';
 import './SignUp.scss';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [inputSet, setInputSet] = useState({
     email: '',
     userName: '',
     password: '',
   });
-  console.log(inputSet);
   const [dateCollect, setDateCollect] = useState({
     birthday: '',
     lastNumber: '',
@@ -29,7 +29,7 @@ const SignUp = () => {
     inputSet.email.lastIndexOf('.') < inputSet.email.length - 1 &&
     inputSet.email.lastIndexOf('.') - inputSet.email.lastIndexOf('@') > 1;
 
-  const enterPw = e => {
+  const enterPassword = e => {
     if (e.key === 'Enter') {
       clickSignUp();
     }
@@ -51,14 +51,11 @@ const SignUp = () => {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.message === 'SUCCESS') {
-          localStorage.setItem('token', data.accessToken);
-          alert('로그인 성공');
-        } else if (data.message === ' LOGIN_FAIL') {
-          alert('아이디 혹은 비밀번호를 확인해 주세요');
+        // console.log(data);
+        if (data.insertId) {
+          navigate('/signin');
         }
       });
-    const token = localStorage.getItem('token');
   };
 
   return (
@@ -72,7 +69,7 @@ const SignUp = () => {
           <InputLabel
             name="email"
             saveInputSet={saveInputSet}
-            enterPw={enterPw}
+            enterPassword={enterPassword}
             inputSet={inputSet}
             isEmailOkay={isEmailOkay}
             // innerInputText="이메일"
@@ -81,18 +78,18 @@ const SignUp = () => {
           <InputLabel
             name="userName"
             saveInputSet={saveInputSet}
-            enterPw={enterPw}
+            enterPassword={enterPassword}
             inputSet={inputSet}
             isEmailOkay={isEmailOkay}
             // innerInputText="이름"
             placeholder="이름"
           />
 
-          <InputPw
+          <InputPassword
             id="up"
             name="password"
             saveInputSet={saveInputSet}
-            enterPw={enterPw}
+            enterPassword={enterPassword}
             inputSet={inputSet}
             // innerInputText="비밀번호"
             placeholder="비밀번호"
@@ -105,7 +102,7 @@ const SignUp = () => {
                 placeholder="생년월일"
                 value={dateCollect.birthday}
                 onChange={saveDateCollect}
-                onKeyPress={enterPw}
+                onKeyPress={enterPassword}
                 minLength="6"
                 maxLength="6"
               />
@@ -118,7 +115,7 @@ const SignUp = () => {
                 // placeholder="?"
                 value={dateCollect.lastNumber}
                 onChange={saveDateCollect}
-                onKeyPress={enterPw}
+                onKeyPress={enterPassword}
                 maxLength="1"
               />
             </div>

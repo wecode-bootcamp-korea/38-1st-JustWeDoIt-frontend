@@ -1,8 +1,15 @@
 .controlHeight {
   width: 100%;
   height: 84px;
-  .inputTag {
+  .inputControlSet {
     position: relative;
+    .inpuTag {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-100%);
+      transition: 300ms all ease-in-out;
+    }
     .innerInputText {
       position: absolute;
       top: 50%;
