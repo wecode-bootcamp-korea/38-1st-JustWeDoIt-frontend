@@ -4,14 +4,15 @@ import { AiFillEye } from 'react-icons/ai';
 import { AiFillEyeInvisible } from 'react-icons/ai';
 import { FaBan } from 'react-icons/fa';
 import { AiOutlineCheck } from 'react-icons/ai';
+import RULES from './InputRULES';
 import './InputPassword.scss';
 
 const InputPassword = props => {
   const { id, name, inputSet, value, innerInputText, ...others } = props;
-
+  const [isTopLabel, setIsTopLabel] = useState(false);
   const [isShowing, setIsShowing] = useState(true);
 
-  const onClick = () => {
+  const onClickShow = () => {
     setIsShowing(prev => !prev);
   };
 
@@ -22,19 +23,32 @@ const InputPassword = props => {
 
   const is8 = isMinLength8 ? '#288D25' : null;
   const isPasswordOkay = isValidPassword ? '#288D25' : null;
+  const test = Object.entries(RULES)
+    .filter(([key, value]) => key === name)
+    .every(([key, validator]) => {
+      return validator(inputSet[name]);
+    });
+  const onFocus = () => {
+    if (test === false) setIsTopLabel(true);
+  };
+  const onBlur = () => {
+    if (test === false) setIsTopLabel(prev => !prev);
+  };
 
   return (
     <>
       <div className="controlHeightPassword">
         <div className="password">
-          {/* <p className="innerInputText">{innerInputText}</p> */}
+          <div className={`inputTag${isTopLabel && 'focused'}`}>비밀번호</div>
           <Input
             name={name}
             isShowing={isShowing}
             inputSet={inputSet}
+            onFocus={onFocus}
+            onBlur={onBlur}
             {...others}
           />
-          <div className="passwordIcon" onClick={onClick}>
+          <div className="passwordIcon" onClick={onClickShow}>
             {isShowing ? (
               <AiFillEye size={25} />
             ) : (
