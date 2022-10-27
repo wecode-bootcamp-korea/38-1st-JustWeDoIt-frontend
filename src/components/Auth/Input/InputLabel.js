@@ -36,7 +36,6 @@ const InputLabel = props => {
         <Input
           name={name}
           inputSet={inputSet}
-          // onClick={onClick}
           onFocus={onFocus}
           onBlur={onBlur}
           {...others}
