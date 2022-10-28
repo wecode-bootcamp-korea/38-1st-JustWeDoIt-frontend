@@ -25,7 +25,7 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.52.237:3000/products/details/?id=${id}`, {
+    fetch(`http://13.113.134.140:3000/products/details/?id=${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -37,7 +37,7 @@ const ProductDetail = () => {
   const onPurchase = () => {
     if (!accessToken) return navigateUnauthUser();
 
-    fetch(`http://10.58.52.214:3000/carts/1`, {
+    fetch(`http://13.113.134.140:3000/carts`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -45,7 +45,7 @@ const ProductDetail = () => {
       },
       body: JSON.stringify({
         size: selectedSize,
-        productId: product.productId,
+        productId: product.id,
       }),
     }).then(res => res.json());
     setShowModal('active');

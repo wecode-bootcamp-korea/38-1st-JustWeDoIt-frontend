@@ -4,18 +4,62 @@ import { Link } from 'react-router-dom';
 import Dropdown from './Product/Dropdown';
 import ProductAside from './ProductAside';
 import { priceToString } from '../../utils/utilFunc';
+import { useParams } from 'react-router-dom';
 import './ProductList.scss';
 
 const ProductList = () => {
   const [dropdownShown, setDropdownShown] = useState(false);
-  // const [productMain, setProductMain] = useState([]);
 
   const [postList, setPostList] = useState([]); // 현재의 페이지와 생성되는 페이지를 넣기 위해서
   const [page, setPage] = useState(1); // page를 추가하기 위해서
   const preventRef = useRef(true); // 오류로 중복적으로 페이지 생성을 막기위한 ref
   const obsRef = useRef(null); // 모든 글 로드 확인
+  const params = useParams();
+
+  const { id } = params;
 
   const [offset, setOffset] = useState(0);
+
+  const [visible, setVisible] = useState(true);
+
+  // 파라미터 값 넣는 식
+  const [form, setForm] = useState({
+    size: [],
+    price: [],
+    gender: [],
+    special: [],
+    headerFilter: [],
+  });
+
+  const newForm = { ...form };
+
+  const isOnclick = e => {
+    if (e.target.checked === true) {
+      newForm[e.target.name].pop(e.target.value);
+      newForm[e.target.name].push(e.target.value);
+      setForm(newForm);
+    }
+  };
+
+  const onclick = e => {
+    for (let key in form) {
+      if (e.target.checked === true && e.target.name === key) {
+        newForm[e.target.name].push(e.target.value);
+        setForm(newForm);
+      } else if (e.target.checked === false && e.target.name === key) {
+        for (let i = 0; i < newForm[e.target.name].length; i++) {
+          if (newForm[e.target.name][i] === e.target.value) {
+            newForm[e.target.name].splice(i, 1);
+            setForm(newForm);
+          }
+        }
+      }
+    }
+  };
+
+  const productAsideVisible = () => {
+    setVisible(!visible);
+  };
 
   const obsHandler = entries => {
     const target = entries[0];
@@ -29,7 +73,9 @@ const ProductList = () => {
     if (page !== 1) {
       setOffset(offset => offset + 9);
     }
-    fetch(`http://10.58.52.237:3000/products/main?offset=${offset}&limit=9`)
+    fetch(
+      `http://13.113.134.140:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}&special=${form.special}&headerFilter=${form.headerFilter}&size=${form.size}&price=${form.price}`
+    )
       .then(response => response.json())
       .then(data => {
         if (data) {
@@ -39,19 +85,34 @@ const ProductList = () => {
       });
   }, [page]);
 
+  const get = () => {
+    fetch(`http://13.113.134.140:3000/products/mains/${id}?offset=0&limit=9`)
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          setPostList([...data]);
+          preventRef.current = true;
+        }
+      });
+  };
+
   useEffect(() => {
-    const pageListObserver = new IntersectionObserver(obsHandler, {
+    get();
+  }, [id]);
+
+  useEffect(() => {
+    const productListobserver = new IntersectionObserver(obsHandler, {
       threshold: 0.5,
     });
-    if (obsRef.current) pageListObserver.observe(obsRef.current);
+    if (obsRef.current) productListobserver.observe(obsRef.current);
     return () => {
-      pageListObserver.disconnect();
+      productListobserver.disconnect();
     };
   }, []);
 
   useEffect(() => {
     getProductList();
-  }, [page]);
+  }, [page, form]);
 
   const modalOff = e => {
     e.stopPropagation();
@@ -62,11 +123,11 @@ const ProductList = () => {
     <main className="main">
       <header className="header">
         <div className="headerLeft">
-          <h1>남성신발</h1>
+          <h1>신발</h1>
         </div>
         <div className="headerRight">
           <div className="headerRightFilter">
-            <button>
+            <button onClick={productAsideVisible}>
               <span>필터 숨기기: </span>
               <BiFilter />
             </button>
@@ -85,10 +146,36 @@ const ProductList = () => {
             </button>
             <Dropdown isOpen={dropdownShown} modalOff={modalOff}>
               <ul>
-                <li>추천순</li>
-                <li>최신순</li>
-                <li>높은 가격순</li>
-                <li>낮은 가격순</li>
+                <li>
+                  <input
+                    type="radio"
+                    name="headerFilter"
+                    value="recent"
+                    id="recent"
+                    onClick={isOnclick}
+                  />
+                  <label htmlFor="recent">최신순</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="headerFilter"
+                    value="highPrice"
+                    id="heightPrice"
+                    onClick={isOnclick}
+                  />
+                  <label htmlFor="heightPrice">높은 가격순</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="headerFilter"
+                    value="lowPrice"
+                    id="lowPrice"
+                    onClick={isOnclick}
+                  />
+                  <label htmlFor="lowPrice">낮은 가격순</label>
+                </li>
               </ul>
             </Dropdown>
           </div>
@@ -96,7 +183,9 @@ const ProductList = () => {
       </header>
       <div className="productTotal">
         <div className="productAside">
-          <ProductAside className="productAsideAccordion" />
+          {visible && (
+            <ProductAside className="productAsideAccordion" form={onclick} />
+          )}
         </div>
         <div className="productMain">
           {postList && (
@@ -130,7 +219,8 @@ const ProductList = () => {
               ))}
             </>
           )}
-          <div ref={obsRef} />
+          {Object.values(form).reduce((acc, cur) => [...acc, ...cur]).length ===
+            0 && <div ref={obsRef} />}
         </div>
       </div>
     </main>

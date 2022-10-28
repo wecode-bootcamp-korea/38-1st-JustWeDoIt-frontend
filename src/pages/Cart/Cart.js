@@ -9,7 +9,7 @@ const Cart = () => {
   // const [cartTotalPrice, setCartTotalPrice] = useState();
 
   useEffect(() => {
-    fetch('http://10.58.52.237:3000/carts', {
+    fetch('http://13.113.134.140:3000/carts', {
       headers: {
         Authorization: localStorage.getItem('token'),
       },
@@ -22,12 +22,13 @@ const Cart = () => {
     (total, current) => total + current.buyingQuantity * current.price,
     0
   );
+
   const deleteFetch = id => {
     const newCartItemList = cartItemList.filter(
       product => product.stockId !== id
     );
     setCartItemList(newCartItemList);
-    fetch(`http://10.58.52.237:3000/carts/${id}`, {
+    fetch(`http://13.113.134.140:3000/carts/${id}`, {
       method: 'DELETE',
       headers: {
         Authorization: localStorage.getItem('token'),

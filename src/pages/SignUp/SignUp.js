@@ -36,7 +36,7 @@ const SignUp = () => {
   };
 
   const clickSignUp = () => {
-    fetch('http://10.58.52.237:3000/users/signup', {
+    fetch('http://13.113.134.140:3000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

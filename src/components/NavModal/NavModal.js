@@ -22,7 +22,7 @@ const NavModal = ({ closeModal, setIsShowing }) => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.52.169:3000/products/main', { method: 'GET' })
+    fetch('http://13.113.134.140:3000/products/main', { method: 'GET' })
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);

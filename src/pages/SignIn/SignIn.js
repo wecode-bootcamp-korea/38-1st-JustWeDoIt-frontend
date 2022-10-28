@@ -26,7 +26,7 @@ const SignIn = () => {
     }
   };
   const clickSignIn = () => {
-    fetch('http://10.58.52.237:3000/users/signin', {
+    fetch('http://13.113.134.140:3000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
