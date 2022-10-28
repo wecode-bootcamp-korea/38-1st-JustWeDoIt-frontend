@@ -21,7 +21,9 @@
 - [박은송](https://github.com/Eunsong-Park)
 - [Back-end Repository](https://github.com/wecode-bootcamp-korea/38-1st-JustWeDoIt-backend)
 
-
+### Links
+- [Notion](https://coordinated-roquefort-606.notion.site/38-5-JustWeDoIt-02fa09e5f9454d9e9f5e784187570a99)
+- [Figma](https://www.figma.com/file/yAentcZEkANNjqu5Q3SyS0/justwedoit?node-id=0%3A1)
 
 ### 프로젝트 선정 이유
 - 다양한 레이아웃과 여러가지 기능을 구현하면서 학습하기에 적합한 사이트라고 생각되어 선정하게 되었습니다.
@@ -128,6 +130,11 @@
 ![Search](https://user-images.githubusercontent.com/70960594/198539983-01ee0550-00eb-4a9f-ab5b-fd2c4a6c6ed6.gif)
   
 </div>
+
+
+
+
+
 
 
 
