@@ -10,6 +10,7 @@ const Input = props => {
     onClick,
     onFocus,
     onBlur,
+    placeholder,
   } = props;
 
   return (
@@ -24,6 +25,7 @@ const Input = props => {
         autoComplete="on"
         onFocus={onFocus}
         onBlur={onBlur}
+        placeholder={placeholder}
       />
     </div>
   );

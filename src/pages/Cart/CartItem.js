@@ -30,21 +30,17 @@ const CartItem = ({ cartItem, deleteFetch, setCartItemList }) => {
     if (isSizeSelector) {
       setSizeSelected(value);
       updateFetch(value, stockSelected);
-    } else if (!isSizeSelector) {
-      setStockSelected(value);
-      updateFetch(sizeSelected, value);
     }
+
+    setStockSelected(value);
+    updateFetch(sizeSelected, value);
   };
 
-  console.log(stockSelected);
-  console.log(sizeSelected);
-
   const updateFetch = (sizeSelected, stockSelected) => {
-    fetch('http://13.113.134.140:3000/carts', {
+    fetch('http://10.58.52.214:3000/carts/1', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         cartId: cartId,

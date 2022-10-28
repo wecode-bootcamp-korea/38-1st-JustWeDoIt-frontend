@@ -8,6 +8,7 @@ import Footer from '../src/components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
+import Payment from 'pages/Payment/Payment';
 import './styles/reset.scss';
 import './styles/common.scss';
 
@@ -22,6 +23,7 @@ const Router = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/products/category/:id" element={<ProductList />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
+        <Route path="/orders" element={<Payment />} />
       </Routes>
       <Footer />
     </BrowserRouter>
