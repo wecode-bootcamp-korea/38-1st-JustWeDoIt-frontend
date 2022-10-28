@@ -15,6 +15,9 @@
 - [강은지](https://github.com/imchloedev)
 
 ### Back-end Developers
+- [신인혁](https://github.com/ShinInHuck)
+- [이현태](https://github.com/iflov)
+- [박은송](https://github.com/Eunsong-Park)
 
 [Back-end Repository](https://github.com/wecode-bootcamp-korea/38-1st-JustWeDoIt-backend)
 
