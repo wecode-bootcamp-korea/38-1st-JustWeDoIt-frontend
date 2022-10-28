@@ -1,5 +1,21 @@
-# Just We Do It !!
+# JustWeDoIt 
 
-Nike Clone Coding
-Front -> 강은지, 최현, 정현석, 김민경
-Back -> 박은송, 이현태, 신인혁
+- Nike 클론코딩
+
+
+## 개발 기간
+- 2022/10/17 ~ 2022/10/28
+
+
+## 참여 개발자
+### Front-end Developers
+- [최현](https://github.com/choigus98)
+- [김민경](https://github.com/KMK99cone)
+- [정현석](https://github.com/Sn-bow)
+- [강은지](https://github.com/imchloedev)
+
+### Back-end Developers
+
+[Back-end Repository](https://github.com/wecode-bootcamp-korea/38-1st-JustWeDoIt-backend)
+
+
