@@ -3,6 +3,7 @@ import { BsSearch } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
 import { priceToString } from 'utils/utilFunc';
 import './NavModal.scss';
+import API from '../../config';
 
 const NavModal = ({ closeModal, setIsShowing }) => {
   const [products, setProducts] = useState([]);
@@ -22,7 +23,9 @@ const NavModal = ({ closeModal, setIsShowing }) => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.52.129:3000/products/main', { method: 'GET' })
+    fetch(API.productMain, {
+      method: 'GET' 
+    })
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);

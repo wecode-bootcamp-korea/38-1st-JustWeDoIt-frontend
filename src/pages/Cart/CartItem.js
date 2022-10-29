@@ -4,6 +4,7 @@ import { priceToString } from 'utils/utilFunc';
 
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
+import API from '../../config';
 
 const CartItem = ({ cartItem, deleteFetch, setCartItemList }) => {
   const {
@@ -37,10 +38,12 @@ const CartItem = ({ cartItem, deleteFetch, setCartItemList }) => {
   };
 
   const updateFetch = (sizeSelected, stockSelected) => {
-    fetch('http://10.58.52.214:3000/carts/1', {
+    // fetch()
+    fetch(API.cart, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+        authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
         cartId: cartId,

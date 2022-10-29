@@ -4,6 +4,7 @@ import { SiNike } from 'react-icons/si';
 import InputLabel from 'components/Auth/Input/InputLabel';
 import InputPassword from 'components/Auth/Input/InputPassword';
 import './SignIn.scss';
+import API from '../../config';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const SignIn = () => {
     }
   };
   const clickSignIn = () => {
-    fetch('http://10.58.52.93:3000/users/signin', {
+    fetch(API.login, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

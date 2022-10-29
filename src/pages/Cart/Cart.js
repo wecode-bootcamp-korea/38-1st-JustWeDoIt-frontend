@@ -3,13 +3,20 @@ import CartList from './CartList';
 import CartSummary from './CartSummary';
 import Carousel from 'components/Carousel/Carousel';
 import './Cart.scss';
+import API from '../../config';
 
 const Cart = () => {
   const [cartItemList, setCartItemList] = useState([]);
   // const [cartTotalPrice, setCartTotalPrice] = useState();
 
   useEffect(() => {
-    fetch('http://10.58.52.214:3000/carts/1')
+    fetch(API.cart, {
+      mehtod: 'GET',
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        authorization: localStorage.getItem("token"),
+      },
+    })
       .then(response => response.json())
       .then(result => setCartItemList(result.data));
   }, []);
@@ -18,14 +25,20 @@ const Cart = () => {
     (total, current) => total + current.buyingQuantity * current.price,
     0
   );
+  
   const deleteFetch = id => {
     const newCartItemList = cartItemList.filter(
       product => product.stockId !== id
     );
     setCartItemList(newCartItemList);
-    fetch(`http://10.58.52.214:3000/carts/${id}/1`, {
+    fetch(`${API.cart}/${id}`, {
       method: 'DELETE',
-    }).then(response => response.json());
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        authorization: localStorage.getItem("token"),
+      },
+    })
+      .then(response => response.json());
   };
 
   return (

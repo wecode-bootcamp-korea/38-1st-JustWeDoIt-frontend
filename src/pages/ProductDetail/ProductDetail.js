@@ -8,6 +8,7 @@ import AccordianMenu from 'components/ProductAccordianMenu/AccordianMenu/Accordi
 import PurchaseModal from 'components/PurchaseModal/PurchaseModal';
 import Carousel from 'components/Carousel/Carousel';
 import './ProductDetail.scss';
+import API from '../../config';
 
 const ProductDetail = () => {
   const [product, setProduct] = useState(null);
@@ -25,7 +26,7 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.52.129:3000/products/details/?id=${id}`, {
+    fetch(`${API.productDetail}?id=${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -37,10 +38,11 @@ const ProductDetail = () => {
   const onPurchase = () => {
     if (!accessToken) return navigateUnauthUser();
 
-    fetch(`http://10.58.52.214:3000/carts/1`, {
+    fetch(API.cart, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
+        authorization: accessToken,
       },
       body: JSON.stringify({
         size: selectedSize,
