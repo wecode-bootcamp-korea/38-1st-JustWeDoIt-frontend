@@ -24,7 +24,7 @@
 ### Links
 - [Notion](https://coordinated-roquefort-606.notion.site/38-5-JustWeDoIt-02fa09e5f9454d9e9f5e784187570a99)
 - [Figma](https://www.figma.com/file/yAentcZEkANNjqu5Q3SyS0/justwedoit?node-id=0%3A1)
-- [ERD] (https://dbdiagram.io/d/63521f6c4709410195ad4757)
+- [ERD](https://dbdiagram.io/d/63521f6c4709410195ad4757)
 
 ### 프로젝트 선정 이유
 - 다양한 레이아웃과 여러가지 기능을 구현하면서 학습하기에 적합한 사이트라고 생각되어 선정하게 되었습니다.
