@@ -4,6 +4,7 @@ import { SiNike } from 'react-icons/si';
 import InputLabel from 'components/Auth/Input/InputLabel';
 import InputPassword from 'components/Auth/Input/InputPassword';
 import './SignUp.scss';
+import API from '../../config';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const SignUp = () => {
   };
 
   const clickSignUp = () => {
-    fetch('http://13.113.134.140:3000/users/signup', {
+    fetch(API.signup, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

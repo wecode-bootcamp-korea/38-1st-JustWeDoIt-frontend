@@ -6,6 +6,7 @@ import ProductAside from './ProductAside';
 import { priceToString } from '../../utils/utilFunc';
 import { useParams } from 'react-router-dom';
 import './ProductList.scss';
+import API from '../../config';
 
 const ProductList = () => {
   const [dropdownShown, setDropdownShown] = useState(false);
@@ -74,7 +75,7 @@ const ProductList = () => {
       setOffset(offset => offset + 9);
     }
     fetch(
-      `http://13.113.134.140:3000/products/mains?offset=${offset}&limit=9&gender=${form.gender}&special=${form.special}&headerFilter=${form.headerFilter}&size=${form.size}&price=${form.price}`
+      `${API.productMains}?offset=${offset}&limit=9&gender=${form.gender}&special=${form.special}&headerFilter=${form.headerFilter}&size=${form.size}&price=${form.price}`
     )
       .then(response => response.json())
       .then(data => {
