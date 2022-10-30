@@ -43,7 +43,7 @@ const CartItem = ({ cartItem, deleteFetch, setCartItemList }) => {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-        authorization: localStorage.getItem("token"),
+        authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         cartId: cartId,

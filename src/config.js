@@ -1,4 +1,4 @@
-const BASE_URL = "http://13.113.134.140:3000";
+const BASE_URL = 'http://13.113.134.140:3000';
 
 const API = {
   productMain: `${BASE_URL}/products/main`,

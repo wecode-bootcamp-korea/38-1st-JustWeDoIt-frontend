@@ -24,7 +24,7 @@ const NavModal = ({ closeModal, setIsShowing }) => {
 
   useEffect(() => {
     fetch(API.productMain, {
-      method: 'GET' 
+      method: 'GET',
     })
       .then(res => res.json())
       .then(data => setProducts(data));
