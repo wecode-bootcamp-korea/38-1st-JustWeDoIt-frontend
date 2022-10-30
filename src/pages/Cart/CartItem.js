@@ -31,14 +31,13 @@ const CartItem = ({ cartItem, deleteFetch, setCartItemList }) => {
     if (isSizeSelector) {
       setSizeSelected(value);
       updateFetch(value, stockSelected);
+    } else if (!isSizeSelector) {
+      setStockSelected(value);
+      updateFetch(sizeSelected, value);
     }
-
-    setStockSelected(value);
-    updateFetch(sizeSelected, value);
   };
 
   const updateFetch = (sizeSelected, stockSelected) => {
-    // fetch()
     fetch(API.cart, {
       method: 'PATCH',
       headers: {
