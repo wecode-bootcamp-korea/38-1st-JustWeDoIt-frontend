@@ -68,7 +68,7 @@
 |Main Page `김민경` </br>  & Carousel `강은지`|![mainpage](https://user-images.githubusercontent.com/70960594/198539167-043192e3-dc44-49b9-87a4-bd5f5c49ddb5.gif)| - 메인페이지 레이아웃 </br> - 추천 상품 캐러셀 구현|
 |Sign Up </br> `김민경`|![SignUp](https://user-images.githubusercontent.com/70960594/198539664-7788560a-4eef-4df0-98b6-5df3d357ba99.gif)| - 유효성검사에 따른 회원가입 구현|
 |Sign In </br> `김민경`|![SignIn](https://user-images.githubusercontent.com/70960594/198539736-6da97d5a-3bb9-40b2-9c94-ae52c4cbaa9a.gif)| - JWT를 활용한 로그인 구현 |
-|Infinite Scroll `정현석`|![InfiniteScroll](https://user-images.githubusercontent.com/70960594/198539779-65de330b-b90f-42fc-b0e6-333ef86a5fd5.gif)| - |
+|Infinite Scroll `정현석`|![InfiniteScroll](https://user-images.githubusercontent.com/70960594/198539779-65de330b-b90f-42fc-b0e6-333ef86a5fd5.gif)| queryString & obserber 메소드를 이용한 무한 스크롤 구현 |
 |Filter </br> `정현석`|![Filter](https://user-images.githubusercontent.com/70960594/198539823-21395c60-fb52-4765-8ca8-2913ff975a14.gif)| - queryString 을 활용한 필터링 기능 구현 |
 |Categories </br> `정현석`|![Categories](https://user-images.githubusercontent.com/70960594/198539860-22a12854-4702-4fa1-a426-36a3fa79d73a.gif)| - |
 |Product Detail </br> `강은지`|![productdetail](https://user-images.githubusercontent.com/70960594/198539907-4378365d-caa1-478f-8583-5dec44a6d492.gif)| - 상품 추가 시 장바구니 모달 창 구현 </br> - 사이즈 컴포넌트 분리 후 재고에 따른 선택 기능 구현 |
