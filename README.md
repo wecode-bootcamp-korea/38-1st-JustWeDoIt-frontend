@@ -72,6 +72,6 @@
 |Filter|![Filter](https://user-images.githubusercontent.com/70960594/198539823-21395c60-fb52-4765-8ca8-2913ff975a14.gif)| - queryString 을 활용한 필터링 기능 구현 | **FRONT-END** </br> `정현석`  </br> **BACK-END** </br> `이현태` |
 | Category |![Categories](https://user-images.githubusercontent.com/70960594/198539860-22a12854-4702-4fa1-a426-36a3fa79d73a.gif)| - Category Id 별 페이지 이동 |**FRONT-END** </br>`강은지` </br> **BACK-END** </br> `이현태` |
 |Product Detail |![productdetail](https://user-images.githubusercontent.com/70960594/198539907-4378365d-caa1-478f-8583-5dec44a6d492.gif)| - 상품 추가 시 장바구니 모달 창 구현 </br> - 사이즈 컴포넌트 분리 후 재고에 따른 선택 기능 구현 | **FRONT-END** </br> `강은지` </br> **BACK-END** </br> `이현태`, `박은송` |
-| Cart |![Cart](https://user-images.githubusercontent.com/70960594/198539958-2ad4bf52-e89e-4c8b-91fa-d9726a47d78a.gif)| - | **FRONT-END** </br> `최현` </br> **BACK-END** </br> `박은송` | 
+| Cart |![Cart](https://user-images.githubusercontent.com/70960594/198539958-2ad4bf52-e89e-4c8b-91fa-d9726a47d78a.gif)| -```fetch()```를 이용한 장바구니 CRUD구현 | **FRONT-END** </br> `최현` </br> **BACK-END** </br> `박은송` | 
 |Navigation Bar & Search |![Search](https://user-images.githubusercontent.com/70960594/198539983-01ee0550-00eb-4a9f-ab5b-fd2c4a6c6ed6.gif)| - 검색 모달창 구현 | **FRONT-END**</br> `강은지` </br> **BACK-END** </br> `이현태`  |
 
